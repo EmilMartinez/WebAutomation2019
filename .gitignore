@@ -1,4 +1,4 @@
-# Ignoring the all .idea files to prevent merge conflicts
+# Ignoring all the .idea files to prevent merge conflicts
 .idea
 
 # Ignoring the file structure dot file (for Mac users)
