@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dab135cf-9be5-410d-b118-a1ea67c49fe4" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
+    <list default="true" id="1c333878-677b-4bf4-afcf-323c9bf8fa67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAutomation2019.iml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/Generic/target/" />
+    <ignored path="$PROJECT_DIR$/generic/target/" />
+    <ignored path="$PROJECT_DIR$/amazonmodule/target/" />
+    <ignored path="$PROJECT_DIR$/costcomodule/target/" />
     <ignored path="$PROJECT_DIR$/Amazon/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,97 +19,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Generic/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Generic/src/main/java/base/CommonAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="-270">
+              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4922#4923#0" expanded="true" />
-                <element signature="e#4951#4952#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Amazon/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amazon/src/test/resources/AmazonTestRunner.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebAutomation2019.iml">
+        <entry file="file://$PROJECT_DIR$/Generic/src/main/java/databases/ConnectToSqlDB.java">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Generic/pom.xml" />
-        <option value="$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java" />
-        <option value="$PROJECT_DIR$/Amazon/src/test/resources/amazontestrunner.xml" />
-        <option value="$PROJECT_DIR$/Generic/src/main/java/base/CommonAPI.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/Amazon/pom.xml" />
-        <option value="$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java" />
+        <option value="$PROJECT_DIR$/generic/pom.xml" />
+        <option value="$PROJECT_DIR$/amazonmodule/pom.xml" />
+        <option value="$PROJECT_DIR$/amazonmodule/src/main/java/amazonpages/HomePageAmazon.java" />
+        <option value="$PROJECT_DIR$/amazonmodule/src/test/java/testamazonpages/TestHomePageAmazon.java" />
+        <option value="$PROJECT_DIR$/amazonmodule/src/test/resources/amazontestrunner.xml" />
+        <option value="$PROJECT_DIR$/costcomodule/pom.xml" />
+        <option value="$PROJECT_DIR$/costcomodule/src/test/resources/costcomodulerunner.xml" />
+        <option value="$PROJECT_DIR$/generic/src/main/java/base/CommonAPI.java" />
+        <option value="$PROJECT_DIR$/costcomodule/src/test/java/testcostcopages/TestHomePageCostco.java" />
+        <option value="$PROJECT_DIR$/costcomodule/src/main/java/costcopages/HomePageCostco.java" />
+        <option value="$PROJECT_DIR$/Generic/src/main/java/databases/ConnectToSqlDB.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -113,7 +77,12 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Amazon" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Generic" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Generic" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -122,17 +91,20 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="129" />
+    <option name="y" value="23" />
+    <option name="width" value="1080" />
+    <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,73 +115,6 @@
             <path>
               <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="amazonpages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="testamazonpages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Amazon" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
               <item name="Generic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,6 +137,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Generic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebAutomation2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAutomation2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Generic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,21 +163,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552909278454" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552946128494" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="base" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Amazon/src/test/resources" />
-      <recent name="$PROJECT_DIR$/Amazon/src/test/java" />
-      <recent name="$PROJECT_DIR$/Amazon/src/main/java/amazonpages" />
-      <recent name="$PROJECT_DIR$/Generic" />
+      <recent name="$PROJECT_DIR$/amazonmodule/src/test" />
+      <recent name="$PROJECT_DIR$/generic/browser-driver" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -269,10 +185,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="/Users/anikasian/Desktop/WebAutomation2019/Amazon/src/test/resources/amazontestrunner.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Amazon" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/Amazon/src/test/resources/amazontestrunner.xml" />
+  <component name="RunManager" selected="TestNG./Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml">
+    <configuration name="/Users/varija/Documents/Selenium/webautomation2019/amazonmodule/src/test/resources/amazontestrunner.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="amazonmodule" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/amazonmodule/src/test/resources/amazontestrunner.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="costcomodule" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/costcomodule/src/test/resources/costcomodulerunner.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -282,7 +208,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG./Users/anikasian/Desktop/WebAutomation2019/Amazon/src/test/resources/amazontestrunner.xml" />
+        <item itemvalue="TestNG./Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" />
+        <item itemvalue="TestNG./Users/varija/Documents/Selenium/webautomation2019/amazonmodule/src/test/resources/amazontestrunner.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -291,19 +218,50 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dab135cf-9be5-410d-b118-a1ea67c49fe4" name="Default Changelist" comment="" />
-      <created>1552904104957</created>
+      <changelist id="1c333878-677b-4bf4-afcf-323c9bf8fa67" name="Default Changelist" comment="" />
+      <created>1552879903220</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1552904104957</updated>
+      <updated>1552879903220</updated>
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 31m 09s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 32m 06s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 32m 56s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 35m 37s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 36m 24s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 39m 05s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 39m 58s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 42m 37s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 45m 35s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="_Users_varija_Documents_Selenium_webautomation2019_costcomodule_src_test_resources_costcomodulerunner_xml - 2019.03.17 at 21h 49m 22s.xml">
+      <configuration name="/Users/varija/Documents/Selenium/webautomation2019/costcomodule/src/test/resources/costcomodulerunner.xml" configurationId="TestNG" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <frame x="129" y="23" width="1080" height="688" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22051696" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2591522" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -312,20 +270,20 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32969034" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26732674" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3442623" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32956153" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32969034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.19628432" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.32947975" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -334,8 +292,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="735">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -346,132 +304,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/amazonmodule/src/test/java/testamazonpages.java" />
+    <entry file="file://$PROJECT_DIR$/amazonmodule/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/costcomodule/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/amazonmodule/src/test/resources/amazontestrunner.xml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/TestNG.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="888" selection-start-line="888" selection-end-line="888" />
+          <folding>
+            <element signature="e#32662#32663#0" expanded="true" />
+            <element signature="e#32708#32709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/SuiteRunnerWorker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#2034#2035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/SuiteRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="302" selection-start-line="302" selection-end-line="302" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/TestRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="360" selection-start-line="360" selection-end-line="360" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/internal/TestMethodWorker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/internal/Invoker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="803" selection-start-line="803" selection-end-line="803" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.4.0/selenium-support-3.4.0.jar!/org/openqa/selenium/support/pagefactory/internal/LocatingElementHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/costcomodule/src/test/resources/costcomodulerunner.xml" />
+    <entry file="file://$PROJECT_DIR$/costcomodule/src/main/java/costcopages/HomePageCostco.java" />
+    <entry file="file://$PROJECT_DIR$/costcomodule/src/test/java/testcostcopages/TestHomePageCostco.java" />
+    <entry file="file://$PROJECT_DIR$/amazonmodule/src/main/java/amazonpages/HomePageAmazon.java" />
+    <entry file="file://$PROJECT_DIR$/amazonmodule/src/test/java/testamazonpages/TestHomePageAmazon.java" />
     <entry file="file://$PROJECT_DIR$/Generic/src/main/java/base/CommonAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-270">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4922#4923#0" expanded="true" />
-            <element signature="e#4951#4952#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebAutomation2019.iml">
+    <entry file="file://$PROJECT_DIR$/Generic/src/main/java/databases/ConnectToSqlDB.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amazon/src/test/resources/AmazonTestRunner.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amazon/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-        </state>
-      </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Amazon</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
