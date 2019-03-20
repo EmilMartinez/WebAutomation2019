@@ -21,7 +21,7 @@ public class ExcelData {
     int numberOfRows, numberOfCol, rowNum;
 
     public String[][] fileReader1(String path,String sheetIndex) throws IOException {
-        String[][] data = {};
+        String[][] data = null;
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);
         wb = new HSSFWorkbook(fis);
