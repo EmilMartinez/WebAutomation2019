@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c333878-677b-4bf4-afcf-323c9bf8fa67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java" beforeDir="false" afterPath="$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java" beforeDir="false" afterPath="$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amazon/target/classes/amazonpages/HomePageAmazon.class" beforeDir="false" afterPath="$PROJECT_DIR$/Amazon/target/classes/amazonpages/HomePageAmazon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amazon/target/test-classes/amazontestrunner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Amazon/target/test-classes/amazontestrunner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amazon/target/test-classes/testamazonpages/TestHomePageAmazon.class" beforeDir="false" afterPath="$PROJECT_DIR$/Amazon/target/test-classes/testamazonpages/TestHomePageAmazon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generic/src/main/java/base/CommonAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Generic/src/main/java/base/CommonAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generic/src/main/java/databases/ExcelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Generic/src/main/java/databases/ExcelData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generic/target/classes/base/CommonAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/Generic/target/classes/base/CommonAPI.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/generic/target/" />
@@ -60,14 +51,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2058">
+            <state relative-caret-position="2730">
               <caret line="247" column="31" lean-forward="true" selection-start-line="247" selection-start-column="31" selection-end-line="247" selection-end-column="31" />
               <folding>
                 <element signature="e#7959#7960#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -115,6 +115,7 @@
         <option value="$PROJECT_DIR$/Amazon/src/test/resources/AmazonTestRunner.xml" />
         <option value="$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java" />
         <option value="$PROJECT_DIR$/Amazon/src/test/java/testamazonpages/TestHomePageAmazon.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -145,8 +146,8 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="29" />
-    <option name="y" value="23" />
+    <option name="x" value="2048" />
+    <option name="y" value="-393" />
     <option name="width" value="1093" />
     <option name="height" value="728" />
   </component>
@@ -205,7 +206,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553114604485" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553123017764" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
@@ -316,10 +317,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="23" width="1093" height="728" extended-state="0" />
+    <frame x="2048" y="-393" width="1093" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27783063" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27783063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -328,7 +329,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3548387" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3548387" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -658,11 +659,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Amazon/src/main/java/amazonpages/HomePageAmazon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2058">
+        <state relative-caret-position="2730">
           <caret line="247" column="31" lean-forward="true" selection-start-line="247" selection-start-column="31" selection-end-line="247" selection-end-column="31" />
           <folding>
             <element signature="e#7959#7960#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
