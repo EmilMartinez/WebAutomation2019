@@ -1,5 +1,7 @@
 package base;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -25,7 +27,7 @@ public class CommonAPI {
     public String saucelabs_accesskey = "";
 
     @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
                               String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
@@ -97,9 +99,162 @@ public class CommonAPI {
         return driver;
     }
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void cleanUp() {
         driver.quit();
     }
 
+    /**
+     * Typing value of a general locator. Method will choose what technique to use.
+     *
+     * @param locator: locator technique: cssSelector, name, xpath and id.
+     * @param value: Value being assigned to the locator.
+     */
+    public void typeOnElem(String locator, String value) {
+        try {
+            // Check by cssSelector
+            driver.findElement(By.cssSelector(locator)).sendKeys(value);
+        } catch (Exception e1) {
+            try {
+                // Check by name
+                driver.findElement(By.name(locator)).sendKeys(value);
+            } catch (Exception e2) {
+                try {
+                    // Check by xpath
+                    driver.findElement(By.xpath(locator)).sendKeys(value);
+                } catch (Exception e3) {
+                    // Check by id
+                    driver.findElement(By.id(locator)).sendKeys(value);
+                }
+            }
+        }
+    }
+
+    /**
+     * Typing value of a general locator. Method will choose what technique to use and hit 'ENTER'
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id).
+     * @param value: Value being assigned to the locator.
+     */
+    public static void typeOnElementNEnter(String locator, String value) {
+        try {
+            // Check and enter by cssSelector
+            driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
+        } catch (Exception e1) {
+            try {
+                // Check and enter by name
+                driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
+            } catch (Exception e2) {
+                try {
+                    // Check and enter by xpath
+                    driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
+                } catch (Exception e3) {
+                    // Check and enter by id
+                    driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
+                }
+            }
+        }
+    }
+
+    /**
+     *  Checking with locator technique and clicking on it.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
+    public void clickOnElem(String locator) {
+        try {
+            // Check and click by cssSelector
+            driver.findElement(By.cssSelector(locator)).click();
+        } catch (Exception e1) {
+            try {
+                // Check and click by name
+                driver.findElement(By.name(locator)).click();
+            } catch (Exception e2) {
+                try {
+                    // Check and click by xpath
+                    driver.findElement(By.xpath(locator)).click();
+                } catch (Exception e3) {
+                    // Check and click by id
+                    driver.findElement(By.id(locator)).click();
+                }
+            }
+        }
+    }
+
+    /**
+     *  Checking with locator technique and hitting 'ENTER' on it.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
+    public void enterOnElem(String locator) {
+        try {
+            // Check and enter by cssSelector
+            driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
+        } catch (Exception e1) {
+            try {
+                // Check and enter by name
+                driver.findElement(By.name(locator)).sendKeys(Keys.ENTER);
+            } catch (Exception e2) {
+                try {
+                    // Check and enter by xpath
+                    driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
+                } catch (Exception e3) {
+                    // Check and enter by id
+                    driver.findElement(By.id(locator)).sendKeys(Keys.ENTER);
+                }
+            }
+        }
+    }
+
+    /**
+     *  Checking with locator technique and clearing its value.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
+    public void clearInputField(String locator) {
+        try {
+            // Check and clear by cssSelector
+            driver.findElement(By.cssSelector(locator)).clear();
+        } catch (Exception e1) {
+            try {
+                // Check and clear by name
+                driver.findElement(By.name(locator)).clear();
+            } catch (Exception e2) {
+                try {
+                    // Check and clear by xpath
+                    driver.findElement(By.xpath(locator)).clear();
+                } catch (Exception e3) {
+                    // Check and clear by id
+                    driver.findElement(By.id(locator)).clear();
+                }
+            }
+        }
+    }
+
+    /**
+     * Server sleeps for 2000 milliseconds.
+     * @throws InterruptedException
+     */
+    public static void sleepForTwoSec() throws InterruptedException {
+        Thread.sleep(2000);
+    }
+
+    /**
+     * Server sleeps for user's given seconds.
+     *
+     * @param sec: Number of seconds for the server to sleep.
+     * @throws InterruptedException
+     */
+    public static void sleepFor(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+    }
+
+    /**
+     * Returns current page's URL
+     *
+     * @return: String of the url.
+     */
+    public String getCurrUrl() {
+        return driver.getCurrentUrl();
+    }
 }
