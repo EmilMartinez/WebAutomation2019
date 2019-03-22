@@ -34,7 +34,7 @@ public class ConnectToSqlDB {
         return connect;
     }
 
-    public List<String> readDataBase(String tableName, String columnName, String propertiesFilePath)throws Exception{
+    public List<String> readDataBase(String tableName, String columnName, String propertiesFilePath) throws Exception {
         List<String> data = new ArrayList<String>();
         try {
             connectToSqlDatabase(propertiesFilePath);
@@ -47,10 +47,45 @@ public class ConnectToSqlDB {
             }
         } catch (ClassNotFoundException e) {
             throw e;
-        }finally{
+        } finally {
             close();
         }
         return data;
+    }
+
+    /**
+     * This method assumes there is an existing table with two String columns(column1, column2) and returns
+     * the content of column2 where in the row where column1 is equal to 'specific'. This method was created
+     * by @anikasian for her AlJazeera module.
+     *
+     * @param filepath: The system.properties file path.
+     * @param specifics: The String content/item in column1.
+     * @param table: The table you're grabbing the info from. Must be a table of 2 String columns.
+     * @param column1: First column name where you're searching 'specifics'. Must be String.
+     * @param column2: Second column name where you're returning the content.
+     * @return A string value of the content in column2.
+     */
+    public String readCol2FromSpecifiedCol1FromDB(String filepath, String specifics, String table, String column1, String column2) throws NullPointerException {
+        String result = "";
+
+        try {
+            connectToSqlDatabase(filepath);
+            // ex: select title(col2) from menu_titles(table) where menuname(col1)='home(specific)'
+            String query = "SELECT " + column2 + " FROM " + table + " WHERE " + column1 + "=\'" + specifics + "\'";
+            resultSet = connect.createStatement().executeQuery(query);
+            if (resultSet.next())
+                result = resultSet.getString(column2);
+        } catch (IOException ioEx) {
+            ioEx.printStackTrace();
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } catch (ClassNotFoundException cnfEx) {
+            cnfEx.printStackTrace();
+        } finally {
+            close();
+        }
+
+        return result;
     }
 
     private void close() {
