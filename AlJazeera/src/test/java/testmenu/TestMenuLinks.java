@@ -1,6 +1,6 @@
 package testmenu;
 import base.CommonAPI;
-import menu.Navigation;
+import menu.MenuLinks;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -9,19 +9,17 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TestNavigation extends CommonAPI {
-   Navigation newNav;
+public class TestMenuLinks extends CommonAPI {
+   MenuLinks newNav;
 
    @BeforeMethod
    public void initialize() {
-      newNav =  PageFactory.initElements(driver, Navigation.class);
+      newNav =  PageFactory.initElements(driver, MenuLinks.class);
    }
 
-
-   @Test (priority = 1, description = "Test #1 -- Checking main page title")
+   @Test (priority = 1, description = "Test #1 -- Checking main page title.")
    public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
       String temp = "";
       try {

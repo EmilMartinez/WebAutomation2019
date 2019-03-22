@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Navigation {
+public class MenuLinks {
    @FindBy(css = ".navigation-wrapper > div.navbar-collapse.collapse > ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3) > a.dropdown-toggle")
    private WebElement link_newsDD;
 

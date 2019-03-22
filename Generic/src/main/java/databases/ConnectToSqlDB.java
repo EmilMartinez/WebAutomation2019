@@ -88,6 +88,29 @@ public class ConnectToSqlDB {
         return result;
     }
 
+    public void insertDataFromArrayListToSqlTable(String filepath, List<String> list, String tableName, String columnName)
+    {
+        try {
+            connectToSqlDatabase(filepath);
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS "+ tableName);
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE " + tableName + " (" + columnName + " VARCHAR(120));");
+            ps.executeUpdate();
+            for(String st : list){
+                ps = connect.prepareStatement("INSERT INTO " + tableName+ " ( " + columnName + " ) VALUES(?)");
+                ps.setObject(1, st);
+                ps.executeUpdate();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void close() {
         try{
             if(resultSet != null){
