@@ -83,29 +83,29 @@ public class Navigation extends CommonAPI {
     @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'Sweaters + Knits')]")
     public static WebElement dd_women_sweaters;
 
-//    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'Branded')]")
-//    public static WebElement dd_women_branded;
-//
-//    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'Basics Shop')]")
-//    public static WebElement dd_women_basics;
-//
-//    @FindBy(xpath = "//a[@href='/us/shop/catalog/category/f21/backinstock-women?dynamic=true']")
-//    public static WebElement dd_women_backInStock;
-//
-//    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Coming Soon')]")
-//    public static WebElement dd_women_comingSoon;
-//
-//    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Gift Cards')]")
-//    public static WebElement dd_women_giftCards;
-//
-//    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'The Outlet')]")
-//    public static WebElement dd_women_outlet;
-//
-//    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Style Deals')]")
-//    public static WebElement dd_women_styleDeals;
-//
-//    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Sale')]")
-//    public static WebElement dd_women_sale;
+    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'Branded')]")
+    public static WebElement dd_women_branded;
+
+    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'Basics Shop')]")
+    public static WebElement dd_women_basics;
+
+    @FindBy(xpath = "//a[@href='/us/shop/catalog/category/f21/backinstock-women?dynamic=true']")
+    public static WebElement dd_women_backInStock;
+
+    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Coming Soon')]")
+    public static WebElement dd_women_comingSoon;
+
+    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Gift Cards')]")
+    public static WebElement dd_women_giftCards;
+
+    @FindBy(xpath = "//div[@class='vt']//a[contains(text(),'The Outlet')]")
+    public static WebElement dd_women_outlet;
+
+    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Style Deals')]")
+    public static WebElement dd_women_styleDeals;
+
+    @FindBy(xpath = "//div[@class='d_new_mega_menu hover_p bg_gray']//a[contains(text(),'Sale')]")
+    public static WebElement dd_women_sale;
 
     WebDriverWait wait = new WebDriverWait(driver, 1);
 
