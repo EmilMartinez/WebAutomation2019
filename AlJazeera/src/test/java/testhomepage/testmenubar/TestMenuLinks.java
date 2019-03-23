@@ -1,0 +1,59 @@
+package testhomepage.testmenubar;
+import base.CommonAPI;
+import homepage.menubar.MenuLinks;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
+
+public class TestMenuLinks extends CommonAPI {
+   MenuLinks newNav;
+
+   @BeforeMethod
+   public void init() {
+      newNav =  PageFactory.initElements(driver, MenuLinks.class);
+   }
+
+   @Test (priority = 1, description = "Test #1")
+   public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
+      String temp = "";
+      try {
+         temp = newNav.getMainPageTitle();
+      } catch (NullPointerException e) {
+         System.out.println("String is null");
+      }
+      Assert.assertEquals(temp, driver.getTitle());
+   }
+
+   @Test (priority = 2, description = "Test #2-9")
+   public void clickAllMenuLinks() throws InterruptedException, NullPointerException {
+      for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
+         w.click();
+         CommonAPI.sleepForTwoSec();
+         driver.navigate().back();
+      }
+   }
+
+   /**
+    * Clicks on each Menu link and checks to see if the title of each homepage.menu page is the expected title.
+    * Expected title is already stored in an SQL table.
+    *
+    * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
+    * file to connect or cannot define the class.
+    */
+   @Test (priority = 3, description = "Test #10-17")
+   public void clickAndCheckTitleOfMenuLinks() throws Exception {
+      for (int i = 0; i < newNav.returnWebElemListOfMenuLinks().size(); i++) {
+         newNav.returnWebElemListOfMenuLinks().get(i).click();
+         Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i),driver.getTitle());
+         driver.navigate().back();
+         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+      }
+   }
+
+}
