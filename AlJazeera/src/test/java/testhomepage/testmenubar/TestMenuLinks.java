@@ -1,6 +1,6 @@
-package testmenu;
+package testhomepage.testmenubar;
 import base.CommonAPI;
-import menu.MenuLinks;
+import homepage.menubar.MenuLinks;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -15,11 +15,11 @@ public class TestMenuLinks extends CommonAPI {
    MenuLinks newNav;
 
    @BeforeMethod
-   public void initialize() {
+   public void init() {
       newNav =  PageFactory.initElements(driver, MenuLinks.class);
    }
 
-   @Test (priority = 1, description = "Test #1 -- Checking main page title.")
+   @Test (priority = 1, description = "Test #1")
    public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
       String temp = "";
       try {
@@ -30,7 +30,7 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test (priority = 2, description = "Test #2 -- Checking Menu links.")
+   @Test (priority = 2, description = "Test #2")
    public void clickAllMenuLinks() throws InterruptedException, NullPointerException {
       for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
          w.click();
@@ -39,13 +39,35 @@ public class TestMenuLinks extends CommonAPI {
       }
    }
 
-   @Test (priority = 3, description = "Test #3 -- Checking the titles of all pages from Menu links.")
+   /**
+    * Clicks on each Menu link and checks to see if the title of each homepage.menu page is the expected title.
+    * Expected title is already stored in an SQL table.
+    *
+    * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
+    * file to connect or cannot define the class.
+    */
+   @Test (priority = 3, description = "Test #3-10")
    public void clickAndCheckTitleOfMenuLinks() throws Exception {
       for (int i = 0; i < newNav.returnWebElemListOfMenuLinks().size(); i++) {
          newNav.returnWebElemListOfMenuLinks().get(i).click();
          Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i),driver.getTitle());
          driver.navigate().back();
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+      }
+   }
+
+   /**
+    * Hovers over each menu link with a dropdown and checks if the dropdown is visible.
+    *
+    * @throws Exception This is when the driver cannot be stalled.
+    */
+   @Test (priority = 4, description = "Test#11-#14")
+   public void checkMenuLinksWithDropdowns() throws Exception {
+      for (WebElement w : newNav.returnWebElemListOfMenuLinksWithDD()) {
+         newNav.hoverOverMenuLink(w, driver);
+         CommonAPI.sleepFor(1);
+         // Checks to see if the dropdown is visible.
+         Assert.assertTrue(newNav.isDropDownVisible(w));
       }
    }
 

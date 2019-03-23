@@ -1,11 +1,8 @@
-package testmenu;
+package testhomepage.testmenubar;
 
 import base.CommonAPI;
 import databases.ConnectToSqlDB;
-import menu.Trending;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import homepage.menubar.Trending;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -14,19 +11,17 @@ import org.openqa.selenium.StaleElementReferenceException;
 
 
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
 
 public class TestTrending extends CommonAPI {
    Trending newTrend;
    ConnectToSqlDB conn = new ConnectToSqlDB();
 
    @BeforeMethod
-   public void initialize() {
+   public void init() {
       newTrend = PageFactory.initElements(driver, Trending.class);
    }
 
-   @Test(priority = 1, description = "Test#4 - Checking if trending links correspond to its page article's title.")
+   @Test(priority = 1, description = "Test #25-29")
    public void testTrendingPageArticleTitle() throws StaleElementReferenceException {
       for (String s : newTrend.getStrAllWebElemTrendingXpath()) {
          String trendingName = newTrend.getTextFromTrendingLinkOnMainPage(s, driver);
@@ -37,14 +32,16 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 2, description = "Test #5 - Check if titles of trending topics are correct.")
+   @Test(priority = 2, description = "Test #30-34")
    public void checkPageTitleOfTrendingLinks() throws Exception {
-      newTrend.addTrendingNameAndPageTitleToDB(driver);
+      // Creates a table with all the trending page's title.
+      newTrend.addTrendingPageTitleToDB(driver);
 
       // These two lists should be the same size.
       List<String> listOfTrendingXpathStr = newTrend.getStrAllWebElemTrendingXpath();
-      List<String> listOfPageTitlesFromEachTrendingLink = newTrend.getListOfElementsFromSql();
+      List<String> listOfPageTitlesFromEachTrendingLink = newTrend.getListOfTrendingTitlesFromSql();
 
+      // Going through each trending link to grab the title and make an assertion.
       for (int i = 0; i < listOfTrendingXpathStr.size(); i++) {
          String xpathStr = listOfTrendingXpathStr.get(i);
          newTrend.findElemAndClick(driver, xpathStr);
@@ -53,16 +50,17 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 3, description = "Test #6 - Click 'SHOW MORE' button for all of the trending topics")
-   public void testShowMoreButton() {
+   @Test(priority = 3, description = "Test #35-39")
+   public void testShowMoreButton() throws InterruptedException {
       List<String> listOfTrendingXpathStr = newTrend.getStrAllWebElemTrendingXpath();
 
-      for (String s: listOfTrendingXpathStr) {
+      for (String s : listOfTrendingXpathStr) {
          newTrend.findElemAndClick(driver, s);
          // Scrolling down the page.
          newTrend.scrollDownByPixel(2500, driver);
-
+         // finding and clicking on the 'SHOW MORE' button.
          newTrend.findElemAndClick(driver, "#btn_showmore_b1_418");
+         CommonAPI.sleepForTwoSec();
       }
    }
 }
