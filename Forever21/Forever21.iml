@@ -8,7 +8,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../Forever21/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../Forever21/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../Forever21/target" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -47,5 +46,6 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.10.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.4" level="project" />
   </component>
 </module>

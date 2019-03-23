@@ -1,6 +1,7 @@
 package amazonpages;
 
 import base.CommonAPI;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -51,11 +52,20 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(css = "a-row.a-spacing-mini")
    private List<WebElement> langSettings;
 
-   @FindBy(xpath = "//*[@id='leftNav']//ul[1]//input")
+   //@FindBy(name = "locationID")
+   @FindBy(xpath = "//*[@id='nav-flyout-prime']/div[2]/div[1]/div[3]/form/span/span/input")
+    private WebElement primeLink;
+
+   @FindBy(css = "#pet_your_prime > div.pet_your_prime_content_container > a > img")
+   private WebElement primeWithLogin;
+
+   //@FindBy(xpath = "//*[@id='leftNav']//ul[1]//input")
+   @FindBy(css = "#leftNav > ul:nth-child(3) > div > li")
    private List<WebElement> giftcardDeliveryTypes;
 
-   @FindBy(xpath = "//*[@id='ad-feedback-sprite-right-7']")
-   private WebElement adFeedback;
+   //@FindBy(xpath = "//*[@id='ad-feedback-sprite-right-7']")
+    @FindBy(css = "#ad-feedback-text-right-2")
+    private WebElement adFeedback;
 
    @FindBy(xpath = "//input[@type='radio' and @name='sharedPlacementRelevanceButton' and @value='5']")
    private WebElement adFeedbackRelevantRadio5;
@@ -66,7 +76,7 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(xpath = "//span[@id='da-feedback-send-feedback-button']/span/input")
    private WebElement adFeedbackSubmit;
 
-   @FindBy(xpath = "//*[@id='nav-link-prime']/span[2]")
+   @FindBy(css = "#nav-link-prime > span.nav-line-2")
    private WebElement tryPrime;
 
    @FindBy(xpath = "//*[@id='primeComparisonTable']/tbody/tr")
@@ -106,8 +116,32 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(xpath = "//*[@id='navSwmHoliday']/a")
    private WebElement upperRightLink;
 
-/*************************************************************************************************/
-   /////All internal links on the home page
+/************************************ Image locators **************************************************************/
+
+   @FindBy(xpath = "//img[@alt='Low-cost device accessories']")
+   private WebElement bargainFindsImage;
+
+   //@FindBy(xpath = "//p[contains(text(),'Device accessories')]")
+    @FindBy(xpath = "//h2[contains(text(),'Bargain')]")
+    private WebElement bargainFindsImageTitle;
+
+    @FindBy(xpath = "//img[@alt='Furniture sold exclusively on Amazon']")
+    private WebElement furnitureImage;
+
+    @FindBy(xpath = "//h2[contains(text(),'Lounge')]")
+    private WebElement furnituresImageTitle;
+
+    @FindBy(xpath = "//img[@alt='Women’s shoes']")
+    private WebElement shoesImage;
+
+    @FindBy(xpath = "//h2[contains(text(),'Women')]")
+    private WebElement shoesImageTitle;
+
+/********************************Internal Links on the home page ***************************************************/
+
+   @FindBy(id = "nav-recently-viewed")
+   private WebElement browsingHistory;
+
    @FindBy(id="nav-your-amazon")
    private WebElement yourAmazon;
     //a[@class='nav-a' and @tabindex='48']
@@ -134,6 +168,9 @@ public class HomePageAmazon extends CommonAPI {
 
    @FindBy(xpath = "//a[@id='nav-orders' and @class='nav-a nav-a-2 nav-single-row-link']")
    private WebElement cart;
+
+   @FindBy(css = "#nav-cart-count")
+   private WebElement cartCount;
 
    @FindBy(xpath = "//img[@alt='Low-cost device accessories']")
    private WebElement bargainFinds;
@@ -175,13 +212,19 @@ public class HomePageAmazon extends CommonAPI {
    private WebElement orders;
 
 ////////////////////////////  Your Lists //////////////////////////////////////
-   @FindBy(xpath = "//*[@id='nav-al-your-account']/a[1]/span")
-   private WebElement yourAccount;
+   @FindBy(css = "#nav-item-signout > span")
+   private WebElement signOut;
+
+    //@FindBy(xpath = "//*[@id='nav-al-your-account']/a[1]")
+    //@FindBy(xpath = "//a[@id='nav_prefetch_yourorders']")
+    @FindBy(css ="#nav-al-your-account > a:nth-child(2)")
+    private WebElement yourAccount;
 
    @FindBy(xpath = "//*[@id='nav_prefetch_yourorders']/span")
    private WebElement yourOrders;
 
-   @FindBy(id = "nav-al-title")
+   //@FindBy(css = "#nav-al-title")
+   @FindBy(css = "#nav-al-your-account > a:nth-child(5)")
    private WebElement yourLists;
 
    @FindBy(xpath = "//div[@id='nav-al-your-account']/a[4]/span")
@@ -194,8 +237,155 @@ public class HomePageAmazon extends CommonAPI {
 
 /************************************************************************************************/
 
+/**************************** Bottom Links *******************************************************/
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[1]")
+    private WebElement amazonMusic;
 
-   public void searchForItems(String item) {
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[3]")
+    private WebElement amazonAdvertising;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[5]")
+    private WebElement amazonDrive;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[7]")
+    @FindBy(xpath = "//a[@href='http://www.6pm.com']")
+    private WebElement sixpmDeals;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[9]")
+    @FindBy(xpath = "//a[@href='https://www.abebooks.com']")
+    private WebElement abeBooks;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[11]")
+    @FindBy(xpath = "//a[@href='http://www.acx.com/']")
+    private WebElement acx;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[13]")
+    @FindBy(xpath = "//a[@href='http://www.alexa.com']")
+    private WebElement alexa;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[1]")
+    private WebElement amazonBusiness;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[3]")
+    private WebElement amazonFresh;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[5]")
+    private WebElement amazonGlobal;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[7]")
+    private WebElement homeService;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[9]")
+    private WebElement amazonInspire;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[11]")
+    private WebElement amazonRapids;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[3]/td[13]")
+    private WebElement amazonRestaurants;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[1]")
+    private WebElement amazonWebServices;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[3]")
+    @FindBy(xpath = "//a[@href='https://www.audible.com']")
+    private WebElement audible;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[5]")
+    @FindBy(xpath = "//a[@href='http://www.bookdepository.com']")
+    private WebElement bookDepository;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[7]")
+    @FindBy(xpath = "//a[@href='http://www.boxofficemojo.com/?ref_=amzn_nav_ftr']")
+    private WebElement boxOfficeMojo;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[9]")
+    @FindBy(xpath = "//a[@href='http://www.comixology.com']")
+    private WebElement comixology;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[11]")
+    @FindBy(xpath = "//a[@href='http://www.createspace.com']")
+    private WebElement createSpace;
+
+    @FindBy(xpath = "//a[@href='http://www.dpreview.com']")
+    //@FindBy(linkText = "DPReview")
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[13]")
+    private WebElement dpReview;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[1]")
+    @FindBy(xpath = "//a[@href='http://www.eastdane.com/welcome']")
+    private WebElement eastDane;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[3]")
+    @FindBy(xpath = "//a[@href='http://www.fabric.com']")
+    private WebElement fabric;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[5]")
+    @FindBy(xpath = "//a[@href='http://www.goodreads.com']")
+    private WebElement goodReads;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[7]")
+    @FindBy(xpath = "//a[@href='http://www.imdb.com']")
+    private WebElement imdb;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[9]")
+    @FindBy(xpath = "//a[@href='http://pro.imdb.com?ref_=amzn_nav_ftr']")
+    private WebElement imdbPro;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[11]")
+    @FindBy(xpath = "//a[@href='http://www.junglee.com']")
+    private WebElement junglee;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[13]")
+    private WebElement kindleDirectPublishing;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[1]")
+    private WebElement primeNow;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[3]")
+    private WebElement amazonPhotos;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[5]")
+    private WebElement primeVideoDirect;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[7]")
+    @FindBy(xpath = "//a[@href='http://www.shopbop.com/welcome']")
+    private WebElement shopBop;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[9]")
+    private WebElement amazonWarehouse;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[11]")
+    @FindBy(xpath = "//a[@href='http://www.wholefoodsmarket.com']")
+    private WebElement wholeFoodsMarket;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[13]")
+    @FindBy(xpath = "//a[@href='https://www.woot.com/']")
+    private WebElement woot;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[1]")
+    @FindBy(xpath = "//a[@href='http://www.zappos.com']")
+    private WebElement zappos;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[3]")
+    @FindBy(xpath = "//a[@href='https://www.souq.com?ref=footer_souq']")
+    private WebElement souq;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[5]")
+    private WebElement amazonSubscribe;
+
+    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[7]")
+    @FindBy(xpath = "//a[@href='http://www.pillpack.com']")
+    private WebElement pillPack;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[9]")
+    private WebElement amazonRenewed;
+
+    @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[11]")
+    private WebElement amazonSecondChance;
+
+/************************************End Bottom Links *****************************************************************/
+    public void searchForItems(String item) {
       searchBox.clear();
       try {
          Thread.sleep(3000);
@@ -258,16 +448,13 @@ public class HomePageAmazon extends CommonAPI {
       }
    }
 
-   //Check internal links under Account & Lists
-   public void yourLists() {
-      yourLists.click();
-   }
-
    public String hoverOverAccountsAndSelect() throws Exception {
+      validSignIn();
       Actions action = new Actions(driver);
       action.moveToElement(signIn).perform();
-      action.moveToElement(yourLists).click().perform();
-      Thread.sleep(4000);
+       JavascriptExecutor js = (JavascriptExecutor)driver;
+       js.executeScript("arguments[0].click();", yourLists);
+      //action.moveToElement(yourLists).click().perform();
       return driver.getTitle();
    }
 
@@ -282,7 +469,15 @@ public class HomePageAmazon extends CommonAPI {
    }
 
    public void adFeedbackWindow() {
-      adFeedback.click();
+       JavascriptExecutor js = (JavascriptExecutor)driver;
+       js.executeScript("arguments[0].click();", adFeedback);
+      //adFeedback.click();
+      //wait.until(ExpectedConditions.elementToBeClickable(adFeedbackRelevantRadio5));
+       try {
+           Thread.sleep(1500);
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       }
       adFeedbackRelevantRadio5.click();
       adFeedbackComments.sendKeys("Add more kid friendly programs");
       try {
@@ -351,13 +546,33 @@ public class HomePageAmazon extends CommonAPI {
       signInSubmitButton.click();
    }
 
+   public void signOut() {
+        validSignIn();
+        Actions action = new Actions(driver);
+        action.moveToElement(signIn).perform();
+         //action.moveToElement(signOut).click().perform();
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("arguments[0].click();", primeWithLogin);
+    }
+
+   public void primeLink() {
+        validSignIn();
+        Actions action = new Actions(driver);
+        action.moveToElement(tryPrime).perform();
+       JavascriptExecutor js = (JavascriptExecutor)driver;
+       js.executeScript("arguments[0].click();", primeWithLogin);
+       //action.moveToElement(primeLink).click().perform();
+   }
    public void yourAccountLinks() {
       validSignIn();
       Actions action = new Actions(driver);
       action.moveToElement(signIn).perform();
-      wait.until(ExpectedConditions.visibilityOf(yourAccount));
-      action.moveToElement(yourAccount).click().perform();
+      //wait.until(ExpectedConditions.visibilityOf(yourAccount));
+      //action.moveToElement(yourAccount).click().perform();
+       JavascriptExecutor js = (JavascriptExecutor)driver;
+       js.executeScript("arguments[0].click();", yourAccount);
       System.out.println(driver.getTitle());
+      //signOut();
    }
 
    public void addToCart() {
@@ -366,6 +581,7 @@ public class HomePageAmazon extends CommonAPI {
       chapStick.click();
       wait.until(ExpectedConditions.elementToBeClickable(addToCart));
       addToCart.click();
+      System.out.println("Number of items in cart: " + cartCount.getText());
    }
 
    public void iFrameExample() {
@@ -379,7 +595,7 @@ public class HomePageAmazon extends CommonAPI {
          e.printStackTrace();
       }
       System.out.println(driver.getTitle());
-      System.out.println(driver.getPageSource());
+      //System.out.println(driver.getPageSource());
       driver.switchTo().parentFrame();
    }
 
@@ -401,7 +617,262 @@ public class HomePageAmazon extends CommonAPI {
       public void upperRightLink() {
          upperRightLink.click();
          System.out.println(driver.getTitle());
-   }
+      }
+/************************************ Images check methods ****************************************************/
 
+    public void imagePresent(List<String> imgInfo) {
+
+        imgInfo.add(imageInfo(bargainFindsImage, bargainFindsImageTitle));
+        imgInfo.add(imageInfo(furnitureImage, furnituresImageTitle));
+        //imgInfo.add(imageInfo(shoesImage, shoesImageTitle));
+
+    }
+    public String imageInfo(WebElement image, WebElement imageTitle) {
+         Boolean imagePresent = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image);
+         if (!imagePresent)
+            return imageTitle.getText() + " image not present";
+         else
+            return imageTitle.getText() + " image present";
+      }
+/**************************Internal Link check methods********************************************************/
+
+      public  void internalLinks(List<String> links) {
+
+          validSignIn();
+          if (browsingHistory.isDisplayed()) {
+              browsingHistory.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (yourAmazon.isDisplayed()) {
+              yourAmazon.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (todaysDeals.isDisplayed()) {
+              todaysDeals.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (giftCards.isDisplayed()) {
+              giftCards.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (wholeFoods.isDisplayed()) {
+              wholeFoods.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (sell.isDisplayed()) {
+              sell.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (registry.isDisplayed()) {
+              registry.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (help.isDisplayed()) {
+              help.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (upperRightLink.isDisplayed()) {
+              upperRightLink.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonMusic.isDisplayed()) {
+              amazonMusic.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonAdvertising.isDisplayed()) {
+              amazonAdvertising.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonDrive.isDisplayed()) {
+              amazonDrive.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonBusiness.isDisplayed()) {
+              amazonBusiness.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonFresh.isDisplayed()) {
+              amazonFresh.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonGlobal.isDisplayed()) {
+              amazonGlobal.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (homeService.isDisplayed()) {
+              homeService.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonInspire.isDisplayed()) {
+              amazonInspire.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonRapids.isDisplayed()) {
+              amazonRapids.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonRestaurants.isDisplayed()) {
+              amazonRestaurants.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonWebServices.isDisplayed()) {
+              amazonWebServices.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (kindleDirectPublishing.isDisplayed()) {
+              kindleDirectPublishing.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (primeNow.isDisplayed()) {
+              primeNow.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonPhotos.isDisplayed()) {
+              amazonPhotos.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (primeVideoDirect.isDisplayed()) {
+              primeVideoDirect.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonWarehouse.isDisplayed()) {
+              amazonWarehouse.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonSubscribe.isDisplayed()) {
+              amazonSubscribe.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonRenewed.isDisplayed()) {
+              amazonRenewed.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          if (amazonSecondChance.isDisplayed()) {
+              amazonSecondChance.click();
+              links.add(driver.getTitle());
+              driver.navigate().back();}
+
+          //signOut();
+      }
+
+      public void externalLinks(List<String> links) {
+
+         //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dpReview);
+          driver.navigate().to(dpReview.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+         //sixpmDeals.click();
+          driver.navigate().to(sixpmDeals.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(abeBooks.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(acx.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(alexa.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(audible.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(bookDepository.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(boxOfficeMojo.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(comixology.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(createSpace.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(eastDane.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(fabric.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(goodReads.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(imdb.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(imdbPro.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(junglee.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(shopBop.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(wholeFoodsMarket.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(woot.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(zappos.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(souq.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+
+          driver.navigate().to(pillPack.getAttribute("href"));
+          links.add(driver.getTitle());
+          driver.navigate().back();
+      }
 }
 
