@@ -11,7 +11,8 @@
     <modules>
         <module>Generic</module>
         <module>Amazon</module>
-        <module>AlJazeera</module>
+        <module>TedTalks</module>
+        <module>WellsFargo</module>
     </modules>
 
     <dependencyManagement>
@@ -45,6 +46,11 @@
                 <groupId>org.mongodb</groupId>
                 <artifactId>mongo-java-driver</artifactId>
                 <version>3.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>1.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
