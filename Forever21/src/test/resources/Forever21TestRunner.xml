@@ -9,11 +9,11 @@
     <parameter name="os_version" value="Sierra"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="30.0"/>
-    <parameter name="url" value="https://www.forever21.com/"/>
+    <parameter name="url" value="https://www.Forever21.com/"/>
 
     <test name = "Forever21 Home">
         <classes>
-            <class name=""/>
+            <class name="testmenu.TestNavigation"/>
         </classes>
     </test>
 

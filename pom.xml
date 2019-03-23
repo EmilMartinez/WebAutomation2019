@@ -11,6 +11,7 @@
     <modules>
         <module>Generic</module>
         <module>Amazon</module>
+        <module>Forever21</module>
     </modules>
 
     <dependencyManagement>
