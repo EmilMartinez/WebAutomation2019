@@ -13,9 +13,9 @@
 
     <test name = "Al Jazeera Home">
         <classes>
-            <class name = "testhomepage.testmenubar.TestMenuLinks" />
-            <class name = "testhomepage.testmenubar.TestTrending" />
-            <class name = "testhomepage.testmenubar.TestSearchBar" />
+            <!--<class name = "testhomepage.testmenubar.TestMenuLinks" />-->
+            <!--<class name = "testhomepage.testmenubar.TestTrending" />-->
+            <!--<class name = "testhomepage.testmenubar.TestSearchBar" />-->
             <class name = "testhomepage.testmenubar.testdropdowns.TestNews" />
         </classes>
     </test>

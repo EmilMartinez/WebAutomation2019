@@ -1,6 +1,7 @@
 package homepage.menubar.dropdowns;
 
 import databases.ConnectToSqlDB;
+import databases.ExcelData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,8 @@ public class News {
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
+   ExcelData excl = new ExcelData();
+   String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
    public List<String> getListOfDropdownWebElem(WebDriver driver) {
       String xpath = "//div[@id='article-main-header']//li[2]//ul[1]//li[1]//ul[1]";
@@ -35,9 +38,10 @@ public class News {
       Actions builder = new Actions(driver);
       builder.moveToElement(link_news).perform();
    }
-
-   public void hoverOverEachDropdownLink(WebElement w, WebDriver driver) {
+   
+   public void hoverOverEachDropdownLink(WebDriver driver, String text) {
       Actions builder = new Actions(driver);
+      WebElement w = driver.findElement(By.xpath(text));
       builder.moveToElement(w).perform();
    }
 

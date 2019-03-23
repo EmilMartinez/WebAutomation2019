@@ -2,6 +2,7 @@ package testhomepage.testmenubar.testdropdowns;
 
 import base.CommonAPI;
 import databases.ConnectToSqlDB;
+import databases.ExcelData;
 import homepage.menubar.dropdowns.News;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,21 +14,18 @@ import org.testng.annotations.Test;
 public class TestNews extends CommonAPI {
    News newNews;
    ConnectToSqlDB conn = new ConnectToSqlDB();
+   ExcelData excl = new ExcelData();
+   String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
+
 
    @BeforeMethod
-   public void init()  {
+   public void init() {
       newNews = PageFactory.initElements(driver, News.class);
    }
 
-   @Test (priority = 1, description = "Test #40")
+   @Test(priority = 1, description = "Test #40")
    public void checkDropdownLinkName() throws Exception {
       newNews.hoverOverNews(driver);
-      // 7 elements
-      System.out.println(newNews.getListOfDropdownWebElem(driver).size());
-      for(int i = 0; i < newNews.getListOfDropdownWebElem(driver).size(); i++) {
-         WebElement w = driver.findElement(By.xpath(newNews.getListOfDropdownWebElem(driver).get(i)));
-         newNews.hoverOverEachDropdownLink(w, driver);
-         w.click();
-      }
+      CommonAPI.sleepForTwoSec();
    }
 }
