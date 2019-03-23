@@ -49,6 +49,11 @@ public class HomePage extends CommonAPI {
    @FindBy(xpath = "//div[contains(text(),'Top Rated Skincare')]")
    WebElement topRatedSkincare;
 
+   @FindBy(xpath = "//div[contains(text(),'Recommended For You')]")
+   WebElement recommedForYou;
+
+   @FindBy(xpath = "//div[contains(@class,'css-ksbumn')]")
+   WebElement spotItShopIt;
 
 
    public HomePage(){ PageFactory.initElements(CommonAPI.driver, this); }
@@ -68,6 +73,9 @@ public class HomePage extends CommonAPI {
    public boolean validateText(){ return justArrived.isDisplayed(); }
 
    public boolean validateText2(){return topRatedSkincare.isDisplayed();}
+
+   public boolean validateText3(){return recommedForYou.isDisplayed();}
+   public boolean validateText4(){return spotItShopIt.isDisplayed();}
 
    public String validateHomePageTitle(){ return driver.getTitle(); }
 

@@ -77,6 +77,18 @@ public class HomePageTest extends CommonAPI {
         Assert.assertTrue(flag);
    }
 
+   @Test
+   public void text3Test(){
+        boolean flag = homePage.validateText3();
+        Assert.assertTrue(flag);
+   }
+
+    @Test
+    public void text4Test(){
+        boolean flag = homePage.validateText4();
+        Assert.assertTrue(flag);
+    }
+
    @Test(priority = 1)
 
     public void TitleTest(){
