@@ -5,6 +5,8 @@ import base.CommonAPI;
 import databases.ExcelData;
 import datasource.MongoDbData;
 import datasource.MySqlData;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -13,8 +15,14 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.swing.text.html.Option;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestHomePageAmazon extends CommonAPI {
@@ -23,6 +31,9 @@ public class TestHomePageAmazon extends CommonAPI {
    MongoDbData mongoDbData;
    ExcelData excelData = new ExcelData();
    String excelPath = "../Amazon/src/test/resources/testForSelenium.xls";
+   List<String> inLinks = new ArrayList<>();
+   List<String> extLinks = new ArrayList<>();
+   List<String> imageInfo = new ArrayList<>();
 
    @BeforeMethod
    public void initialize() {
@@ -32,12 +43,13 @@ public class TestHomePageAmazon extends CommonAPI {
       //excelData = new ExcelData();
    }
    //1
-   //@Test
+   @Test(description = "search bar")
    public void testSearchForItems() {
       homePageAmazon.searchForItems("alexa");
+      Assert.assertEquals(driver.getTitle(), "Amazon.com: alexa");
    }
    //2
-   //@Test
+   @Test(description = "mysql test")
    public void testSearchItemsSql() {
       List<String> list = null;
       try {
@@ -50,7 +62,7 @@ public class TestHomePageAmazon extends CommonAPI {
       }
    }
    //3
-   //@Test
+   @Test(description = "mongo database")
    public void testSearchForItemsMongo() throws Exception, IOException, SQLException, ClassNotFoundException {
       List<String> list = mongoDbData.getItemsListFromDB();
       for (String s : list) {
@@ -58,25 +70,25 @@ public class TestHomePageAmazon extends CommonAPI {
       }
    }
 
-   //@Test
+   @Test(description = "search button")
    public void testSearchButton() {
       homePageAmazon.searchButton("scarf");
    }
 
-   //@Test
+   @Test(description = "search results")
    public void testSearchResults() {
       String item = "iphones";
       System.out.println(homePageAmazon.searchResults(item) + " " + item);
    }
 
    //There are at least 5 tests in here
-   //@Test
+   @Test(description = "dropdown test1")
    public void testSetDropdown() {
       boolean checkTitle = true;
       Assert.assertEquals(homePageAmazon.setDropdown().endsWith("AmazonFresh"), checkTitle);
    }
 
-   //@Test
+   @Test(description = "dropdown options")
    public void testGetDropdownOptions() {
       List<WebElement> options = homePageAmazon.getDropdownOptions();
       for (WebElement element : options) {
@@ -85,7 +97,7 @@ public class TestHomePageAmazon extends CommonAPI {
    }
 
    //4
-   //@Test
+   @Test(description = "sign in")
    public void testSignInLink() {
       homePageAmazon.signInLink();
       String signInPageTitle = "Amazon Sign In";
@@ -104,7 +116,7 @@ public class TestHomePageAmazon extends CommonAPI {
       System.out.println(homePageAmazon.invalidAccountSignIn(email, pwd));
    }
    //5
-   //@Test
+   @Test(description = "navigation")
    public void testNavigation() {
       String subUrl = "https://www.google.com/";
       driver.navigate().to(subUrl);
@@ -113,24 +125,25 @@ public class TestHomePageAmazon extends CommonAPI {
       Assert.assertEquals(driver.getCurrentUrl(), subUrl);
    }
 
-   //@Test
+   @Test(description = "?")
    public void testClickLangSettings() {
       homePageAmazon.clickLangSettings();
    }
    //6.Mouse Hover
-   //@Test
+
+   @Test(description = "mouse hover your list link")
    public void testYourLists() throws Exception {
       System.out.println(homePageAmazon.hoverOverAccountsAndSelect());
 
    }
    //7.checkboxes
-   //@Test
+   @Test(description = "checkboxes")
    public void testCheckboxesInGiftCards() throws Exception {
       homePageAmazon.checkboxesInGiftCards();
    }
 
    //radio button test, text area test and pop up window
-   //@Test
+   @Test(description = "form, radiobuttons, text area")
    public void testAdFeedbackWindow() {
       homePageAmazon.adFeedbackWindow();
    }
@@ -140,39 +153,88 @@ public class TestHomePageAmazon extends CommonAPI {
       System.out.println(homePageAmazon.handleWindows());
    }
 
-   //@Test
+   @Test(description = "web table")
    public void testPrimePageTable() {
       homePageAmazon.primePageTable();
    }
 
-   //@Test
+   @Test(description = "tabs")
    public void testGetPrimePageTabs() {
       homePageAmazon.getPrimePageTabs();
    }
 
-   //@Test
+   @Test(description = "your account")
    public void testYourAccountLists() {
       homePageAmazon.yourAccountLinks();
    }
 
-   //@Test - Not working
-   /*public void testSortByList() {
-      homePageAmazon.sortByList();
+   @Test(description = "try prime")
+   public void testPrimeLink() {
+      homePageAmazon.primeLink();
+      Assert.assertEquals(driver.getTitle(),"Prime Delivery");
+   }
+
+   /*@Test
+   public void testSignOut() {
+      homePageAmazon.signOut();
    }*/
 
-   //@Test
+   @Test(description = "Add to cart")
    public void testAddToCart() {
       homePageAmazon.addToCart();
    }
 
-   //@Test
+   @Test(description = "iframe")
    public void testIFrameExample() {
       homePageAmazon.iFrameExample();
    }
 
-   //@Test
+   @Test(description = "top right link")
    public void testUpperRightLink() {
       homePageAmazon.upperRightLink();
    }
 
+   @Test(description = "Image present test")
+    public void testImagePresent() {
+       homePageAmazon.imagePresent(imageInfo);
+       for (String info : imageInfo) {
+         System.out.println(info);
+      }
+       String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/ImagesPresent.txt";
+       writeToCsv(imageInfo, csvpath, "Images check" );
+       //Assert.assertEquals(true,homePageAmazon.bargainFindsImage());
+   }
+
+   @Test(description = "Internal Links")
+   public void testInternalLinks() {
+      homePageAmazon.internalLinks(inLinks);
+      for (String linkTitle: inLinks) {
+         System.out.println(linkTitle);
+      }
+      String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/InternalLinks.txt";
+      writeToCsv(inLinks, csvpath, "Internal Links");
+   }
+
+   @Test(description = "External Links")
+   public void testExaternalLinks() {
+      homePageAmazon.externalLinks(extLinks);
+      for (String linkTitle: extLinks) {
+         System.out.println(linkTitle);
+      }
+      String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/ExternalLinks.txt";
+      writeToCsv(extLinks, csvpath, "External Links");
+   }
+
+   public void writeToCsv(List<String> csvData, String csvpath, String header) {
+      try {
+         BufferedWriter writer = Files.newBufferedWriter(Paths.get(csvpath));
+         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(header));
+         for (String data : csvData) {
+            csvPrinter.printRecord(data);
+         }
+         csvPrinter.flush();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
 }
