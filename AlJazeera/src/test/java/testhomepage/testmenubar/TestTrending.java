@@ -21,7 +21,7 @@ public class TestTrending extends CommonAPI {
       newTrend = PageFactory.initElements(driver, Trending.class);
    }
 
-   @Test(priority = 1, description = "Test #18-22")
+   @Test(priority = 1, description = "Test #25-29")
    public void testTrendingPageArticleTitle() throws StaleElementReferenceException {
       for (String s : newTrend.getStrAllWebElemTrendingXpath()) {
          String trendingName = newTrend.getTextFromTrendingLinkOnMainPage(s, driver);
@@ -32,7 +32,7 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 2, description = "Test #23-27")
+   @Test(priority = 2, description = "Test #30-34")
    public void checkPageTitleOfTrendingLinks() throws Exception {
       // Creates a table with all the trending page's title.
       newTrend.addTrendingPageTitleToDB(driver);
@@ -50,7 +50,7 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 3, description = "Test #28-32")
+   @Test(priority = 3, description = "Test #35-39")
    public void testShowMoreButton() throws InterruptedException {
       List<String> listOfTrendingXpathStr = newTrend.getStrAllWebElemTrendingXpath();
 

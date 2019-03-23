@@ -1,7 +1,10 @@
 package homepage.menubar;
 
 import databases.ConnectToSqlDB;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.IOException;
@@ -23,28 +26,28 @@ import java.util.List;
  *    - Live
  */
 public class MenuLinks {
-   @FindBy(css = ".navigation-wrapper > div.navbar-collapse.collapse > ul.nav.navbar-nav > li.dropdown.homepage.menu-large:nth-child(3) > a.dropdown-toggle")
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
    private WebElement link_newsDD;
 
-   @FindBy(css = ".nav-item-140311071122120:nth-child(4) > a:nth-child(1)")
+   @FindBy(css = ".nav-item-140311071122120:nth-child(4)")
    private WebElement link_middleEast;
 
-   @FindBy(css = ".navigation-wrapper > div.navbar-collapse.collapse > ul.nav.navbar-nav > li.dropdown.homepage.menu-large:nth-child(5) > a.dropdown-toggle")
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(5)")
    private WebElement link_documentariesDD;
 
-   @FindBy(css = ".navigation-wrapper > div.navbar-collapse.collapse > ul.nav.navbar-nav > li.dropdown.homepage.menu-large:nth-child(6) > a.dropdown-toggle")
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(6)")
    private WebElement link_showsDD;
 
-   @FindBy(css = ".nav-item-141105143951929:nth-child(7) > a:nth-child(1)")
+   @FindBy(css = ".nav-item-141105143951929:nth-child(7)")
    private WebElement link_investigations;
 
-   @FindBy(css = ".nav-item-181119115524858:nth-child(8) > a:nth-child(1)")
+   @FindBy(css = ".nav-item-181119115524858:nth-child(8)")
    private WebElement link_opinion;
 
-   @FindBy(css = ".nav-item-161027083327112:nth-child(9) > a:nth-child(1)")
+   @FindBy(css = ".nav-item-161027083327112:nth-child(9)")
    private WebElement link_inPictures;
 
-   @FindBy(css = ".navigation-wrapper > div.navbar-collapse.collapse > ul.nav.navbar-nav > li.dropdown.homepage.menu-large:nth-child(10) > a.dropdown-toggle")
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(10)")
    private WebElement field_moreDD;
 
    @FindBy(css = ".search-btn-section.watchLive-pad ul:nth-child(1) li.watch-live-sticky a:nth-child(1) > span.watch-live--stickyWord")
@@ -71,6 +74,22 @@ public class MenuLinks {
       listOfMenuLinks.add(link_live);
 
       return listOfMenuLinks;
+   }
+
+   /**
+    * Gathers all the WebElements of the Menu bar with a dropdown, stores into a list and returns it.
+    *
+    * @return This is a list of all the WebElements with dropdowns.
+    */
+   public List<WebElement> returnWebElemListOfMenuLinksWithDD() {
+      List<WebElement> list = new ArrayList<WebElement>();
+
+      list.add(link_newsDD);
+      list.add(link_documentariesDD);
+      list.add(link_showsDD);
+      list.add(field_moreDD);
+
+      return list;
    }
 
    /**
@@ -106,9 +125,25 @@ public class MenuLinks {
       return temp;
    }
 
-   public void clickNews() throws InterruptedException, NullPointerException {
-      link_newsDD.click();
-      Thread.sleep(2000);
+   public boolean isDropDownVisible(WebElement webElement) {
+      // Finding the WebElement of the dropdown modal.
+      WebElement dropdown = webElement.findElement(By.cssSelector("ul.dropdown-menu.megamenu.row"));
+
+      // Checks if dropdown is visible.
+      if(dropdown.isDisplayed())
+         return true;
+      return false;
+   }
+
+   /**
+    * Hovers over a menu link.
+    *
+    * @param webElement Menu's WebElement to be hovered over.
+    * @param driver This is the driver for the current session.
+    */
+   public void hoverOverMenuLink(WebElement webElement, WebDriver driver) {
+      Actions builder = new Actions(driver);
+      builder.moveToElement(webElement).perform();
    }
 
 

@@ -19,14 +19,14 @@ public class TestSearchBar extends CommonAPI {
       newSearch = PageFactory.initElements(driver, SearchBar.class);
    }
 
-   @Test (priority = 1, description = "Test #33")
+   @Test (priority = 1, description = "Test #15")
    public void testClickOnSearchButton() throws Exception {
       newSearch.clickOnSearchButton();
       CommonAPI.sleepForTwoSec();
    }
 
 
-   @Test(priority = 2, description = "Test #34-#41")
+   @Test(priority = 2, description = "Test #16-#23")
    public void testSearch() throws Exception {
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();
@@ -42,7 +42,7 @@ public class TestSearchBar extends CommonAPI {
       }
    }
 
-   @Test(priority = 3, description = "Test #42")
+   @Test(priority = 3, description = "Test #24")
    public void testSearchAndEnter() throws Exception {
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();

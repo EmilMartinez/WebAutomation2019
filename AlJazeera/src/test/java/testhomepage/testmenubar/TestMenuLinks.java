@@ -30,7 +30,7 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test (priority = 2, description = "Test #2-9")
+   @Test (priority = 2, description = "Test #2")
    public void clickAllMenuLinks() throws InterruptedException, NullPointerException {
       for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
          w.click();
@@ -46,13 +46,28 @@ public class TestMenuLinks extends CommonAPI {
     * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
     * file to connect or cannot define the class.
     */
-   @Test (priority = 3, description = "Test #10-17")
+   @Test (priority = 3, description = "Test #3-10")
    public void clickAndCheckTitleOfMenuLinks() throws Exception {
       for (int i = 0; i < newNav.returnWebElemListOfMenuLinks().size(); i++) {
          newNav.returnWebElemListOfMenuLinks().get(i).click();
          Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i),driver.getTitle());
          driver.navigate().back();
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+      }
+   }
+
+   /**
+    * Hovers over each menu link with a dropdown and checks if the dropdown is visible.
+    *
+    * @throws Exception This is when the driver cannot be stalled.
+    */
+   @Test (priority = 4, description = "Test#11-#14")
+   public void checkMenuLinksWithDropdowns() throws Exception {
+      for (WebElement w : newNav.returnWebElemListOfMenuLinksWithDD()) {
+         newNav.hoverOverMenuLink(w, driver);
+         CommonAPI.sleepFor(1);
+         // Checks to see if the dropdown is visible.
+         Assert.assertTrue(newNav.isDropDownVisible(w));
       }
    }
 
