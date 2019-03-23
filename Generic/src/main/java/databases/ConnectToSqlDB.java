@@ -19,20 +19,20 @@ public class ConnectToSqlDB {
     public static PreparedStatement ps = null;
     public static ResultSet resultSet = null;
 
-    /*public static Properties loadProperties() throws IOException {
+    public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
-        InputStream ism = new FileInputStream("C:\\Users\\Mira\\Documents\\GitHub\\DatabaseOpsJan2019-master\\src\\secret.properties");
+        InputStream ism = new FileInputStream("C:\\Users\\Mira\\Documents\\GitHub\\WebAutomation2019\\Generic\\src\\secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
-    }*/
+    }
 
     public static Connection connectToSqlDatabase() throws IOException, SQLException, ClassNotFoundException {
-        //Properties prop = loadProperties();
-        // String driverClass = prop.getProperty("MYSQLJDBC.driver");
-        String url = "jdbc:mysql://localhost:3306/pnt";
-        String userName = "Mira";
-        String password = "google1014";
+        Properties prop = loadProperties();
+        //String driverClass = prop.getProperty("MYSQLJDBC.driver");
+        String url = prop.getProperty("url");
+        String userName = prop.getProperty("username");
+        String password = prop.getProperty("password");
         connect = DriverManager.getConnection(url, userName, password);
         System.out.println("Database is connected");
         return connect;
@@ -211,8 +211,9 @@ public class ConnectToSqlDB {
         }
     }
 
-
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
+
+        connectToSqlDatabase();
 
     }
 }

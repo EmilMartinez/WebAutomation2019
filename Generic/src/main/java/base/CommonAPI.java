@@ -1,5 +1,7 @@
 package base;
 
+import com.qa.util.TestUtil;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,12 +13,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.seleniumhq.jetty9.server.PushBuilder;
 import org.testng.annotations.*;
+
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.PublicKey;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CommonAPI {
+public class CommonAPI extends TestUtil {
 
     public static WebDriver driver = null;
     public String browserstack_username= "";
@@ -32,7 +37,7 @@ public class CommonAPI {
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
-    @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
+   /* @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
@@ -47,10 +52,10 @@ public class CommonAPI {
         }else{
             getLocalDriver(os, browserName);
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.get(url);
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
     }
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
@@ -87,7 +92,6 @@ public class CommonAPI {
 
     }
 
-
     public WebDriver getCloudDriver(String envName,String envUsername, String envAccessKey,String os, String os_version,String browserName,
                                     String browserVersion)throws IOException {
         DesiredCapabilities cap = new DesiredCapabilities();
@@ -105,7 +109,21 @@ public class CommonAPI {
                     "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
         return driver;
+    }*/
+
+    @BeforeMethod
+    public void setUp(){
+
+        System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.get("https://www.sephora.com/");
+
     }
+
 
     @AfterMethod
     public void cleanUp() {
@@ -196,7 +214,7 @@ public class CommonAPI {
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
-            ;
+
         }
 
     }

@@ -1,4 +1,4 @@
-package datasource;
+/*package datasource;
 
 import databases.ConnectToSqlDB;
 
@@ -16,4 +16,4 @@ public class MySqlData {
         list = connectToSqlDB.readDataBase("ItemList", "items", filepath);
         return list;
     }
-}
+}*/
