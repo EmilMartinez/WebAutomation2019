@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="25" passed="25">
   <reporter-output>
   </reporter-output>
-  <suite name="Amazon Automation Script " duration-ms="8536" started-at="2019-03-18T11:39:00Z" finished-at="2019-03-18T11:39:09Z">
+  <suite name="Amazon Automation Script " duration-ms="446049" started-at="2019-03-23T22:25:14Z" finished-at="2019-03-23T22:32:40Z">
     <groups>
     </groups>
-    <test name="Amazon Home" duration-ms="8536" started-at="2019-03-18T11:39:00Z" finished-at="2019-03-18T11:39:09Z">
+    <test name="Amazon Home" duration-ms="446049" started-at="2019-03-23T22:25:14Z" finished-at="2019-03-23T22:32:40Z">
       <class name="testamazonpages.TestHomePageAmazon">
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6fb554cc]" name="setUp" is-config="true" duration-ms="6842" started-at="2019-03-18T11:39:00Z" finished-at="2019-03-18T11:39:07Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="6007" started-at="2019-03-23T22:25:14Z" finished-at="2019-03-23T22:25:20Z">
           <params>
             <param index="0">
               <value>
@@ -31,7 +31,7 @@
             </param>
             <param index="4">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[chrome-options]]>
               </value>
             </param>
             <param index="5">
@@ -48,15 +48,1311 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6fb554cc]" name="initialize" is-config="true" duration-ms="33" started-at="2019-03-18T11:39:07Z" finished-at="2019-03-18T11:39:07Z">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="41" started-at="2019-03-23T22:25:20Z" finished-at="2019-03-23T22:25:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="testSearchForItems()[pri:0, instance:testamazonpages.TestHomePageAmazon@6fb554cc]" name="testSearchForItems" duration-ms="1517" started-at="2019-03-18T11:39:07Z" finished-at="2019-03-18T11:39:08Z">
+        <test-method status="PASS" signature="testAdFeedbackWindow()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testAdFeedbackWindow" duration-ms="3506" started-at="2019-03-23T22:25:20Z" description="form, radiobuttons, text area" finished-at="2019-03-23T22:25:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdFeedbackWindow -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="78" started-at="2019-03-23T22:25:23Z" finished-at="2019-03-23T22:25:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4345" started-at="2019-03-23T22:25:24Z" finished-at="2019-03-23T22:25:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="2" started-at="2019-03-23T22:25:28Z" finished-at="2019-03-23T22:25:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testAddToCart()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testAddToCart" duration-ms="15099" started-at="2019-03-23T22:25:28Z" description="Add to cart" finished-at="2019-03-23T22:25:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddToCart -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="75" started-at="2019-03-23T22:25:43Z" finished-at="2019-03-23T22:25:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4799" started-at="2019-03-23T22:25:43Z" finished-at="2019-03-23T22:25:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="3" started-at="2019-03-23T22:25:48Z" finished-at="2019-03-23T22:25:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testCheckboxesInGiftCards()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testCheckboxesInGiftCards" duration-ms="16831" started-at="2019-03-23T22:25:48Z" description="checkboxes" finished-at="2019-03-23T22:26:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCheckboxesInGiftCards -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="76" started-at="2019-03-23T22:26:05Z" finished-at="2019-03-23T22:26:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4744" started-at="2019-03-23T22:26:05Z" finished-at="2019-03-23T22:26:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="2" started-at="2019-03-23T22:26:10Z" finished-at="2019-03-23T22:26:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testClickLangSettings()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testClickLangSettings" duration-ms="10713" started-at="2019-03-23T22:26:10Z" description="?" finished-at="2019-03-23T22:26:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickLangSettings -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="75" started-at="2019-03-23T22:26:20Z" finished-at="2019-03-23T22:26:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4665" started-at="2019-03-23T22:26:20Z" finished-at="2019-03-23T22:26:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="2" started-at="2019-03-23T22:26:25Z" finished-at="2019-03-23T22:26:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testExaternalLinks()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testExaternalLinks" duration-ms="82400" started-at="2019-03-23T22:26:25Z" description="External Links" finished-at="2019-03-23T22:27:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExaternalLinks -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="77" started-at="2019-03-23T22:27:47Z" finished-at="2019-03-23T22:27:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4688" started-at="2019-03-23T22:27:47Z" finished-at="2019-03-23T22:27:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:27:52Z" finished-at="2019-03-23T22:27:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testGetDropdownOptions()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testGetDropdownOptions" duration-ms="1329" started-at="2019-03-23T22:27:52Z" description="dropdown options" finished-at="2019-03-23T22:27:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetDropdownOptions -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="78" started-at="2019-03-23T22:27:53Z" finished-at="2019-03-23T22:27:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4802" started-at="2019-03-23T22:27:54Z" finished-at="2019-03-23T22:27:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="2" started-at="2019-03-23T22:27:58Z" finished-at="2019-03-23T22:27:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testGetPrimePageTabs()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testGetPrimePageTabs" duration-ms="9522" started-at="2019-03-23T22:27:58Z" description="tabs" finished-at="2019-03-23T22:28:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetPrimePageTabs -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="76" started-at="2019-03-23T22:28:08Z" finished-at="2019-03-23T22:28:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4707" started-at="2019-03-23T22:28:08Z" finished-at="2019-03-23T22:28:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testIFrameExample()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testIFrameExample" duration-ms="2499" started-at="2019-03-23T22:28:13Z" description="iframe" finished-at="2019-03-23T22:28:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testIFrameExample -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="0" started-at="2019-03-23T22:28:13Z" finished-at="2019-03-23T22:28:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="74" started-at="2019-03-23T22:28:15Z" finished-at="2019-03-23T22:28:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4694" started-at="2019-03-23T22:28:15Z" finished-at="2019-03-23T22:28:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:28:20Z" finished-at="2019-03-23T22:28:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testImagePresent()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testImagePresent" duration-ms="550" started-at="2019-03-23T22:28:20Z" description="Image present test" finished-at="2019-03-23T22:28:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testImagePresent -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="75" started-at="2019-03-23T22:28:21Z" finished-at="2019-03-23T22:28:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4748" started-at="2019-03-23T22:28:21Z" finished-at="2019-03-23T22:28:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:28:25Z" finished-at="2019-03-23T22:28:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testInternalLinks()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testInternalLinks" duration-ms="65065" started-at="2019-03-23T22:28:25Z" description="Internal Links" finished-at="2019-03-23T22:29:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInternalLinks -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="131" started-at="2019-03-23T22:29:30Z" finished-at="2019-03-23T22:29:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="5142" started-at="2019-03-23T22:29:31Z" finished-at="2019-03-23T22:29:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="3" started-at="2019-03-23T22:29:36Z" finished-at="2019-03-23T22:29:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testInvalidAccountSignIn(java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testInvalidAccountSignIn" duration-ms="3694" started-at="2019-03-23T22:29:36Z" data-provider="signInExcelData" finished-at="2019-03-23T22:29:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[testuser1@test.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[testpassword1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidAccountSignIn -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="75" started-at="2019-03-23T22:29:40Z" finished-at="2019-03-23T22:29:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4807" started-at="2019-03-23T22:29:40Z" finished-at="2019-03-23T22:29:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:29:44Z" finished-at="2019-03-23T22:29:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testInvalidAccountSignIn(java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testInvalidAccountSignIn" duration-ms="3647" started-at="2019-03-23T22:29:44Z" data-provider="signInExcelData" finished-at="2019-03-23T22:29:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[testuser2@test.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[testpassword2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidAccountSignIn -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="73" started-at="2019-03-23T22:29:48Z" finished-at="2019-03-23T22:29:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4678" started-at="2019-03-23T22:29:48Z" finished-at="2019-03-23T22:29:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:29:53Z" finished-at="2019-03-23T22:29:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testNavigation()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testNavigation" duration-ms="2322" started-at="2019-03-23T22:29:53Z" description="navigation" finished-at="2019-03-23T22:29:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigation -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="73" started-at="2019-03-23T22:29:55Z" finished-at="2019-03-23T22:29:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4809" started-at="2019-03-23T22:29:55Z" finished-at="2019-03-23T22:30:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:30:00Z" finished-at="2019-03-23T22:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testPrimeLink()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testPrimeLink" duration-ms="6734" started-at="2019-03-23T22:30:00Z" description="try prime" finished-at="2019-03-23T22:30:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrimeLink -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="79" started-at="2019-03-23T22:30:07Z" finished-at="2019-03-23T22:30:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4568" started-at="2019-03-23T22:30:07Z" finished-at="2019-03-23T22:30:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:30:11Z" finished-at="2019-03-23T22:30:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testPrimePageTable()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testPrimePageTable" duration-ms="31504" started-at="2019-03-23T22:30:11Z" description="web table" finished-at="2019-03-23T22:30:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPrimePageTable -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="74" started-at="2019-03-23T22:30:43Z" finished-at="2019-03-23T22:30:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="7221" started-at="2019-03-23T22:30:43Z" finished-at="2019-03-23T22:30:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:30:50Z" finished-at="2019-03-23T22:30:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchButton()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSearchButton" duration-ms="5483" started-at="2019-03-23T22:30:50Z" description="search button" finished-at="2019-03-23T22:30:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchButton -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="77" started-at="2019-03-23T22:30:56Z" finished-at="2019-03-23T22:30:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4702" started-at="2019-03-23T22:30:56Z" finished-at="2019-03-23T22:31:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:31:00Z" finished-at="2019-03-23T22:31:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchForItems()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSearchForItems" duration-ms="4721" started-at="2019-03-23T22:31:00Z" description="search bar" finished-at="2019-03-23T22:31:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchForItems -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6fb554cc]" name="cleanUp" is-config="true" duration-ms="119" started-at="2019-03-18T11:39:08Z" finished-at="2019-03-18T11:39:09Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="74" started-at="2019-03-23T22:31:05Z" finished-at="2019-03-23T22:31:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="5523" started-at="2019-03-23T22:31:05Z" finished-at="2019-03-23T22:31:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:31:11Z" finished-at="2019-03-23T22:31:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchForItemsMongo()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSearchForItemsMongo" duration-ms="16940" started-at="2019-03-23T22:31:11Z" description="mongo database" finished-at="2019-03-23T22:31:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchForItemsMongo -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="80" started-at="2019-03-23T22:31:28Z" finished-at="2019-03-23T22:31:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="5137" started-at="2019-03-23T22:31:28Z" finished-at="2019-03-23T22:31:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:31:33Z" finished-at="2019-03-23T22:31:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchItemsSql()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSearchItemsSql" duration-ms="16134" started-at="2019-03-23T22:31:33Z" description="mysql test" finished-at="2019-03-23T22:31:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchItemsSql -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="78" started-at="2019-03-23T22:31:49Z" finished-at="2019-03-23T22:31:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="7572" started-at="2019-03-23T22:31:49Z" finished-at="2019-03-23T22:31:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:31:57Z" finished-at="2019-03-23T22:31:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchResults()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSearchResults" duration-ms="2090" started-at="2019-03-23T22:31:57Z" description="search results" finished-at="2019-03-23T22:31:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchResults -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="73" started-at="2019-03-23T22:31:59Z" finished-at="2019-03-23T22:31:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4632" started-at="2019-03-23T22:31:59Z" finished-at="2019-03-23T22:32:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:32:04Z" finished-at="2019-03-23T22:32:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSetDropdown()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSetDropdown" duration-ms="2095" started-at="2019-03-23T22:32:04Z" description="dropdown test1" finished-at="2019-03-23T22:32:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetDropdown -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="73" started-at="2019-03-23T22:32:06Z" finished-at="2019-03-23T22:32:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4609" started-at="2019-03-23T22:32:06Z" finished-at="2019-03-23T22:32:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="2" started-at="2019-03-23T22:32:10Z" finished-at="2019-03-23T22:32:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSignInLink()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testSignInLink" duration-ms="585" started-at="2019-03-23T22:32:10Z" description="sign in" finished-at="2019-03-23T22:32:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignInLink -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="76" started-at="2019-03-23T22:32:11Z" finished-at="2019-03-23T22:32:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4692" started-at="2019-03-23T22:32:11Z" finished-at="2019-03-23T22:32:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:32:16Z" finished-at="2019-03-23T22:32:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testUpperRightLink()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testUpperRightLink" duration-ms="3005" started-at="2019-03-23T22:32:16Z" description="top right link" finished-at="2019-03-23T22:32:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpperRightLink -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="586" started-at="2019-03-23T22:32:19Z" finished-at="2019-03-23T22:32:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4601" started-at="2019-03-23T22:32:19Z" finished-at="2019-03-23T22:32:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:32:24Z" finished-at="2019-03-23T22:32:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testYourAccountLists()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testYourAccountLists" duration-ms="6338" started-at="2019-03-23T22:32:24Z" description="your account" finished-at="2019-03-23T22:32:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testYourAccountLists -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="77" started-at="2019-03-23T22:32:30Z" finished-at="2019-03-23T22:32:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="setUp" is-config="true" duration-ms="4978" started-at="2019-03-23T22:32:30Z" finished-at="2019-03-23T22:32:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[browserstack]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Sierra]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[chrome-options]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[30.0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[https://www.amazon.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="initialize" is-config="true" duration-ms="1" started-at="2019-03-23T22:32:35Z" finished-at="2019-03-23T22:32:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testYourLists()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="testYourLists" duration-ms="4645" started-at="2019-03-23T22:32:35Z" description="mouse hover your list link" finished-at="2019-03-23T22:32:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testYourLists -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testamazonpages.TestHomePageAmazon@6537cf78]" name="cleanUp" is-config="true" duration-ms="76" started-at="2019-03-23T22:32:40Z" finished-at="2019-03-23T22:32:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
