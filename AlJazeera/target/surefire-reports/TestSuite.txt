@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 452.038 s <<< FAILURE! - in TestSuite
+clickAndCheckTitleOfMenuLinks(testhomepage.testmenubar.TestMenuLinks)  Time elapsed: 8.512 s  <<< FAILURE!
+java.lang.AssertionError: expected [Breaking News, World News and Video from Al Jazeera] but found [Investigations - Al Jazeera English]
+	at testhomepage.testmenubar.TestMenuLinks.clickAndCheckTitleOfMenuLinks(TestMenuLinks.java:53)
+
+checkPageTitleOfTrendingLinks(testhomepage.testmenubar.TestTrending)  Time elapsed: 76.277 s  <<< FAILURE!
+java.lang.AssertionError: expected [Brazil News - Top stories from Al Jazeera] but found [Mozambique News - Top stories from Al Jazeera]
+	at testhomepage.testmenubar.TestTrending.checkPageTitleOfTrendingLinks(TestTrending.java:49)
+

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class News {
-   @FindBy (css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
+   @FindBy(xpath = "//body/form[@id='Default']/div[@id='article-main-header']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col-sm-9 navigation-block']/div[@class='navigation']/div[@class='navbar navbar-default']/div[@class='container']/div[@class='navigation-wrapper']/div[@class='navbar-collapse collapse']/ul[@class='nav navbar-nav']/li[2]")
    private WebElement link_news;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
@@ -23,16 +23,20 @@ public class News {
    String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
    public List<String> getListOfDropdownWebElem(WebDriver driver) {
+      List<String> list = new ArrayList<String>();
       String xpath = "//div[@id='article-main-header']//li[2]//ul[1]//li[1]//ul[1]";
+
       WebElement w = driver.findElement(By.xpath(xpath));
+      // Getting all elements in following that path.
       int total = w.findElements(By.tagName("li")).size();
-      List <String> list = new ArrayList<String>();
+      // First element is not present under the drop down so the total is one less.
+      total--;
       int counter = 0;
 
-      while(counter < total) {
-         list.add(xpath + "//li[" + (counter + 1) + "]");
+      while (counter < total) {
+         list.add(xpath + "//li[" + (counter + 2) + "]");
+         counter++;
       }
-
       return list;
    }
 
@@ -40,7 +44,7 @@ public class News {
       Actions builder = new Actions(driver);
       builder.moveToElement(link_news).perform();
    }
-   
+
    public void hoverOverEachDropdownLink(WebDriver driver, String text) {
       Actions builder = new Actions(driver);
       WebElement w = driver.findElement(By.xpath(text));
@@ -52,7 +56,7 @@ public class News {
       Thread.sleep(2000);
    }
 
-   public List<String> getListOfNewsLinkNames() throws Exception {
+   public List<String> getListOfNewsLinkNamesFromDB() throws Exception {
       return conn.readDataBase("news_dd", "LinkTitle", filepath);
    }
 
@@ -60,15 +64,23 @@ public class News {
       return w.getText();
    }
 
+   public boolean isDropdownVisible() {
+
+      WebElement dropdown = link_news.findElement(By.xpath("ul[1]"));
+      if(dropdown.isDisplayed())
+         return true;
+
+      return false;
+   }
+
    /**
-    *
     * @param featureName
     * @param driver
     * @throws IOException
     * @throws InterruptedException
     */
-   public void selectFrom(String featureName, WebDriver driver) throws IOException, InterruptedException{
-      switch(featureName){
+   public void selectFrom(String featureName, WebDriver driver) throws IOException, InterruptedException {
+      switch (featureName) {
          case "Go Live":
             break;
          case "Send Investigation":

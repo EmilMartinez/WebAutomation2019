@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Al Jazeera Automation Script]">
+  <parameter name="useCloudEnv" value="false"/>
+  <parameter name="os" value="OS X"/>
+  <parameter name="os_version" value="Sierra"/>
+  <parameter name="browserVersion" value="30.0"/>
+  <parameter name="browserName" value="chrome"/>
+  <parameter name="cloudEnvName" value="browserstack"/>
+  <parameter name="url" value="https://www.aljazeera.com/"/>
+  <test thread-count="5" verbose="0" name="Al Jazeera Home(failed)">
+    <classes>
+      <class name="testhomepage.testmenubar.TestTrending">
+        <methods>
+          <include name="init"/>
+          <include name="checkPageTitleOfTrendingLinks"/>
+          <include name="setUp"/>
+          <include name="cleanUp"/>
+        </methods>
+      </class> <!-- testhomepage.testmenubar.TestTrending -->
+      <class name="testhomepage.testmenubar.TestMenuLinks">
+        <methods>
+          <include name="init"/>
+          <include name="clickAndCheckTitleOfMenuLinks"/>
+          <include name="setUp"/>
+          <include name="cleanUp"/>
+        </methods>
+      </class> <!-- testhomepage.testmenubar.TestMenuLinks -->
+    </classes>
+  </test> <!-- Al Jazeera Home(failed) -->
+</suite> <!-- Failed suite [Al Jazeera Automation Script] -->

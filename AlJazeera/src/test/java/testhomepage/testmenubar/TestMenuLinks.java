@@ -1,4 +1,5 @@
 package testhomepage.testmenubar;
+
 import base.CommonAPI;
 import homepage.menubar.MenuLinks;
 import org.openqa.selenium.WebElement;
@@ -16,10 +17,10 @@ public class TestMenuLinks extends CommonAPI {
 
    @BeforeMethod
    public void init() {
-      newNav =  PageFactory.initElements(driver, MenuLinks.class);
+      newNav = PageFactory.initElements(driver, MenuLinks.class);
    }
 
-   @Test (priority = 1, description = "Test #1")
+   @Test
    public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
       String temp = "";
       try {
@@ -30,11 +31,27 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test (priority = 2, description = "Test #2")
-   public void clickAllMenuLinks() throws InterruptedException, NullPointerException {
+   @Test
+   public void clickOnLogo() {
+      newNav.clickOnLogo();
+   }
+
+   @Test
+   public void checkTitleAfterClickOnLogo() throws IOException, SQLException, ClassNotFoundException {
+      newNav.clickOnLogo();
+      String temp = "";
+      try {
+         temp = newNav.getMainPageTitle();
+      } catch (NullPointerException e) {
+         e.printStackTrace();
+      }
+      Assert.assertEquals(temp, driver.getTitle());
+   }
+
+   @Test
+   public void clickAllMenuLinks() throws NullPointerException {
       for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
          w.click();
-         CommonAPI.sleepForTwoSec();
          driver.navigate().back();
       }
    }
@@ -44,13 +61,13 @@ public class TestMenuLinks extends CommonAPI {
     * Expected title is already stored in an SQL table.
     *
     * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
-    * file to connect or cannot define the class.
+    *                   file to connect or cannot define the class.
     */
-   @Test (priority = 3, description = "Test #3-10")
+   @Test
    public void clickAndCheckTitleOfMenuLinks() throws Exception {
       for (int i = 0; i < newNav.returnWebElemListOfMenuLinks().size(); i++) {
          newNav.returnWebElemListOfMenuLinks().get(i).click();
-         Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i),driver.getTitle());
+         Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i), driver.getTitle());
          driver.navigate().back();
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
       }
@@ -61,11 +78,10 @@ public class TestMenuLinks extends CommonAPI {
     *
     * @throws Exception This is when the driver cannot be stalled.
     */
-   @Test (priority = 4, description = "Test#11-#14")
+   @Test
    public void checkMenuLinksWithDropdowns() throws Exception {
       for (WebElement w : newNav.returnWebElemListOfMenuLinksWithDD()) {
          newNav.hoverOverMenuLink(w, driver);
-         CommonAPI.sleepFor(1);
          // Checks to see if the dropdown is visible.
          Assert.assertTrue(newNav.isDropDownVisible(w));
       }

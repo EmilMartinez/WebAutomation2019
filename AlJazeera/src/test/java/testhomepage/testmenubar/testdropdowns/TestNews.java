@@ -22,9 +22,19 @@ public class TestNews extends CommonAPI {
       newNews = PageFactory.initElements(driver, News.class);
    }
 
-   @Test(priority = 1, description = "Test #40")
-   public void checkDropdownLinkName() throws Exception {
+   @Test
+   public void checkIfDropdownIsVisible() throws Exception {
+      newNews.hoverOverNews(driver);
+      CommonAPI.sleepFor(1);
+      Assert.assertTrue(newNews.isDropdownVisible());
+   }
+
+   @Test
+   public void checkEachDropdownLink() throws Exception {
       newNews.hoverOverNews(driver);
       CommonAPI.sleepForTwoSec();
+      for (String s : newNews.getListOfDropdownWebElem(driver)) {
+         newNews.hoverOverEachDropdownLink(driver, s);
+      }
    }
 }

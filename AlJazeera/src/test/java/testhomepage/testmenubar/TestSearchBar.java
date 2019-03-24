@@ -19,38 +19,33 @@ public class TestSearchBar extends CommonAPI {
       newSearch = PageFactory.initElements(driver, SearchBar.class);
    }
 
-   @Test (priority = 1, description = "Test #15")
-   public void testClickOnSearchButton() throws Exception {
+   @Test
+   public void testClickOnSearchButton() {
       newSearch.clickOnSearchButton();
-      CommonAPI.sleepForTwoSec();
    }
 
-
-   @Test(priority = 2, description = "Test #16-#23")
+   @Test
    public void testSearch() throws Exception {
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();
 
-      for(String s : newSearch.getAllSearchValuesFromSqlDB()) {
+      for (String s : newSearch.getAllSearchValuesFromSqlDB()) {
          newSearch.clearSearch();
          newSearch.search(s);
 
          // Checking to see if the value of searchbar is the same as we had inputted.
          Assert.assertEquals(newSearch.getSearchValue(), s);
-
-         CommonAPI.sleepFor(1);
       }
    }
 
-   @Test(priority = 3, description = "Test #24")
+   @Test(description = "Test #24")
    public void testSearchAndEnter() throws Exception {
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();
 
-      for(String s : newSearch.getAllSearchValuesFromSqlDB()) {
+      for (String s : newSearch.getAllSearchValuesFromSqlDB()) {
          newSearch.clearSearch();
          newSearch.searchAndEnter(s);
-         CommonAPI.sleepFor(1);
          // After hitting enter, menu's search bar is not visible.
          // Must reveal it again to do the next search.
          newSearch.revealSearchbar();

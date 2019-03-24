@@ -53,8 +53,15 @@ public class MenuLinks {
    @FindBy(css = ".search-btn-section.watchLive-pad ul:nth-child(1) li.watch-live-sticky a:nth-child(1) > span.watch-live--stickyWord")
    private WebElement link_live;
 
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-header > a.navbar-brand")
+   private WebElement pic_logo;
+
    private ConnectToSqlDB conn = new ConnectToSqlDB();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
+
+   public void clickOnLogo() {
+      pic_logo.click();
+   }
 
    /**
     * Gathers all the WebElements of the Menu bar, stores into a list and returns it.
@@ -83,7 +90,6 @@ public class MenuLinks {
     */
    public List<WebElement> returnWebElemListOfMenuLinksWithDD() {
       List<WebElement> list = new ArrayList<WebElement>();
-
       list.add(link_newsDD);
       list.add(link_documentariesDD);
       list.add(link_showsDD);
