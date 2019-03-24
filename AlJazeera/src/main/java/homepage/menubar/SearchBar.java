@@ -2,7 +2,9 @@ package homepage.menubar;
 
 import databases.ConnectToSqlDB;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -22,6 +24,11 @@ public class SearchBar {
       link_searchButton.click();
    }
 
+   public void clickAwayFromSearchBar(WebDriver driver) {
+      Actions builder = new Actions(driver);
+      builder.moveToElement(input_searchBar, 0, 25).click().build().perform();
+   }
+
    public void search(String s) {
       input_searchBar.sendKeys(s);
    }
@@ -30,7 +37,7 @@ public class SearchBar {
       input_searchBar.clear();
    }
 
-   private boolean isSearchBarVisible() {
+   public boolean isSearchBarVisible() {
       if (input_searchBar.isDisplayed())
          return true;
       return false;
