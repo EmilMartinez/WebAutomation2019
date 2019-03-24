@@ -44,6 +44,7 @@ public class TestSearchBar extends CommonAPI {
    /**
     * Checks to see if the search-bar goes away when we double click on the search button.
     */
+   @Test
    public void testSearchBarAfterDoubleClickOnSearchButton() {
       newSearch.clickOnSearchButton();
       newSearch.clickOnSearchButton();

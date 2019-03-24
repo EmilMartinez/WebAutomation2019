@@ -23,18 +23,32 @@ public class TestNews extends CommonAPI {
    }
 
    @Test
-   public void checkIfDropdownIsVisible() throws Exception {
+   public void clickOnNews() {
+      newNews.clickNews();
+   }
+
+   @Test
+   public void checkIfDropdownIsVisible() {
       newNews.hoverOverNews(driver);
-      CommonAPI.sleepFor(1);
       Assert.assertTrue(newNews.isDropdownVisible());
    }
 
    @Test
-   public void checkEachDropdownLink() throws Exception {
+   public void checkEachDropdownLink() {
       newNews.hoverOverNews(driver);
-      CommonAPI.sleepForTwoSec();
       for (String s : newNews.getListOfDropdownWebElem(driver)) {
          newNews.hoverOverEachDropdownLink(driver, s);
+      }
+   }
+
+   @Test
+   public void clickOnEachDropdownLink() throws InterruptedException{
+      newNews.hoverOverNews(driver);
+
+      for (String s : newNews.getListOfDropdownWebElem(driver)) {
+         newNews.clickOnLink(driver, s);
+         // After each click, the drop down will go away. Need to hover again.
+         newNews.hoverOverNews(driver);
       }
    }
 }

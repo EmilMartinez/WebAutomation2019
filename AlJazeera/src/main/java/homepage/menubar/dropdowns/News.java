@@ -14,8 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class News {
-   @FindBy(xpath = "//body/form[@id='Default']/div[@id='article-main-header']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col-sm-9 navigation-block']/div[@class='navigation']/div[@class='navbar navbar-default']/div[@class='container']/div[@class='navigation-wrapper']/div[@class='navbar-collapse collapse']/ul[@class='nav navbar-nav']/li[2]")
+   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) > a.dropdown-toggle")
    private WebElement link_news;
+
+   @FindBy(xpath = "//body/form[@id='Default']/div[@id='article-main-header']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col-sm-9 navigation-block']/div[@class='navigation']/div[@class='navbar navbar-default']/div[@class='container']/div[@class='navigation-wrapper']/div[@class='navbar-collapse collapse']/ul[@class='nav navbar-nav']/li[2]")
+   private WebElement field_news;
+
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
@@ -51,9 +55,8 @@ public class News {
       builder.moveToElement(w).perform();
    }
 
-   public void clickNews() throws InterruptedException, NullPointerException {
+   public void clickNews() throws NullPointerException {
       link_news.click();
-      Thread.sleep(2000);
    }
 
    public List<String> getListOfNewsLinkNamesFromDB() throws Exception {
@@ -65,12 +68,14 @@ public class News {
    }
 
    public boolean isDropdownVisible() {
-
-      WebElement dropdown = link_news.findElement(By.xpath("ul[1]"));
+      WebElement dropdown = field_news.findElement(By.xpath("ul[1]"));
       if(dropdown.isDisplayed())
          return true;
-
       return false;
+   }
+
+   public void clickOnLink(WebDriver driver, String path) {
+      driver.findElement(By.xpath(path)).click();
    }
 
    /**

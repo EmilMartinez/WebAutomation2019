@@ -86,4 +86,27 @@ public class TestMenuLinks extends CommonAPI {
          Assert.assertTrue(newNav.isDropDownVisible(w));
       }
    }
+
+   /**
+    * Checks to see if the Menu dropdown appears when you reduce the size of the browser window.
+    */
+   @Test
+   public void checkMenuAfterReducingWindowSize() {
+      newNav.decreaseWindowSize(driver);
+      Assert.assertTrue(newNav.isSmallNavbarVisible(driver));
+   }
+
+   @Test
+   public void checkSmallMenuCloseButton() throws InterruptedException {
+      newNav.decreaseWindowSize(driver);
+      Thread.sleep(2000);
+      newNav.clickOnSmallNavBar(driver);
+      Assert.assertTrue(newNav.isSmallNavbarCloseButtonVisible(driver));
+   }
+
+   @Test
+   public void checkLiveAfterSmallWindow() {
+      newNav.decreaseWindowSize(driver);
+      Assert.assertTrue(newNav.isLiveVisible(driver));
+   }
 }

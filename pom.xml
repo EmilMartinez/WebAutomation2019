@@ -52,6 +52,11 @@
                 <artifactId>commons-csv</artifactId>
                 <version>1.4</version>
             </dependency>
+            <dependency>
+                <groupId>com.aventstack</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>${version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

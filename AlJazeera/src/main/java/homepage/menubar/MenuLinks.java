@@ -2,6 +2,7 @@ package homepage.menubar;
 
 import databases.ConnectToSqlDB;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,15 +16,15 @@ import java.util.List;
 /**
  * This class will handle the 8 links in the top navigation bar.
  * Menu Links:
- *    - News (drop-down)
- *    - Middle East
- *    - Documentaries (drop-down)
- *    - Shows (drop-down)
- *    - Investigations
- *    - Opinion
- *    - In Pictures
- *    - More (not a link, only a drop-down)
- *    - Live
+ * - News (drop-down)
+ * - Middle East
+ * - Documentaries (drop-down)
+ * - Shows (drop-down)
+ * - Investigations
+ * - Opinion
+ * - In Pictures
+ * - More (not a link, only a drop-down)
+ * - Live
  */
 public class MenuLinks {
    @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
@@ -104,8 +105,8 @@ public class MenuLinks {
     * @param filepath This is the file with the login credentials.
     * @param menuLink This is the specific homepage.menu link you are trying to get the title for.
     * @return The title of the page of your specified homepage.menu link.
-    * @throws IOException If system.properties could not be found.
-    * @throws SQLException If 'menu_titles' could not be found.
+    * @throws IOException            If system.properties could not be found.
+    * @throws SQLException           If 'menu_titles' could not be found.
     * @throws ClassNotFoundException If class cannot be found in the classpath.
     */
    private String getTitleFromSpecificMenuLink(String filepath, String menuLink) throws IOException, SQLException, ClassNotFoundException {
@@ -121,7 +122,7 @@ public class MenuLinks {
     *
     * @return A list of all of the homepage.menu page's title.
     * @throws Exception If the file with the login credentials haven't been found, 'menu_titles' table doesn't exist
-    * or class could not be fond in the classpath.
+    *                   or class could not be fond in the classpath.
     */
    public List<String> getListOfTitlesFromMenuLinks() throws Exception {
       List<String> temp = conn.readDataBase("menu_titles", "Title", filepath);
@@ -136,7 +137,7 @@ public class MenuLinks {
       WebElement dropdown = webElement.findElement(By.cssSelector("ul.dropdown-menu.megamenu.row"));
 
       // Checks if dropdown is visible.
-      if(dropdown.isDisplayed())
+      if (dropdown.isDisplayed())
          return true;
       return false;
    }
@@ -145,10 +146,43 @@ public class MenuLinks {
     * Hovers over a menu link.
     *
     * @param webElement Menu's WebElement to be hovered over.
-    * @param driver This is the driver for the current session.
+    * @param driver     This is the driver for the current session.
     */
    public void hoverOverMenuLink(WebElement webElement, WebDriver driver) {
       Actions builder = new Actions(driver);
       builder.moveToElement(webElement).perform();
+   }
+
+   /**
+    * Resizes the window to 200x200.
+    *
+    * @param driver The driver currently running the session.
+    */
+   public void decreaseWindowSize(WebDriver driver) {
+      driver.manage().window().setSize(new Dimension(200, 200));
+   }
+
+   public boolean isSmallNavbarVisible(WebDriver driver) {
+      WebElement w = driver.findElement(By.xpath("//button[@id='ChangeToggleMobile']"));
+      if(w.isDisplayed())
+         return true;
+      return false;
+   }
+
+   public void clickOnSmallNavBar(WebDriver driver) {
+      driver.findElement(By.xpath("//button[@id='ChangeToggleMobile']")).click();
+   }
+
+   public boolean isSmallNavbarCloseButtonVisible(WebDriver driver) {
+      WebElement w = driver.findElement(By.xpath("//div[@id='navbar-close-mobile']"));
+      if(w.isDisplayed())
+         return true;
+      return false;
+   }
+
+   public boolean isLiveVisible(WebDriver driver) {
+      if(driver.findElement(By.xpath("//li[@id='Li2']")).isDisplayed())
+         return true;
+      return false;
    }
 }
