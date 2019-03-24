@@ -47,16 +47,16 @@ public class ExcelData {
         FileInputStream fis = new FileInputStream(file);
         wb = new HSSFWorkbook(fis);
         sheet = wb.getSheetAt(sheetIndex);
-        numberOfRows = sheet.getLastRowNum();
+        numberOfRows = sheet.getLastRowNum()+1;
         numberOfCol = sheet.getRow(0).getLastCellNum();
-        data = new String[numberOfRows + 1];
+        data = new String[numberOfRows-1];
 
-        for (int i = 1; i < data.length; i++) {
+        for (int i = 1; i < numberOfRows; i++) {
             HSSFRow rows = sheet.getRow(i);
             for (int j = 0; j < numberOfCol; j++) {
                 HSSFCell cell = rows.getCell(j);
                 String cellData = getCellValue(cell);
-                data[i] = cellData;
+                data[i-1] = cell.getStringCellValue();
             }
         }
         return data;

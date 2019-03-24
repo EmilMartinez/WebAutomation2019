@@ -381,11 +381,6 @@ public class HomePageAmazon extends CommonAPI {
 /************************************End Bottom Links *****************************************************************/
     public void searchForItems(String item) {
       searchBox.clear();
-      try {
-         Thread.sleep(3000);
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
       searchBox.sendKeys(item, Keys.ENTER);
    }
 

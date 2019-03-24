@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="446.29" tests="25" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="435.788" tests="25" errors="0" skipped="0" failures="1">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire/surefirebooter8254936318895038554.jar /Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire 2019-03-23T15-25-12_194-jvmRun1 surefire6126449725086390465tmp surefire_01586361779128653643tmp"/>
+    <property name="sun.java.command" value="/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire/surefirebooter9176773995168352103.jar /Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire 2019-03-23T15-49-39_964-jvmRun1 surefire2517701724838420840tmp surefire_04139067798586188163tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="surefire.test.class.path" value="/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/test-classes:/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/classes:/Users/varija/.m2/repository/com/pnt/webautomation/Generic/1.0-SNAPSHOT/Generic-1.0-SNAPSHOT.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar:/Users/varija/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar:/Users/varija/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/varija/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/Users/varija/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/varija/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/varija/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/varija/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/varija/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/varija/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar:/Users/varija/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/selenium-server/3.141.59/selenium-server-3.141.59.jar:/Users/varija/.m2/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/Users/varija/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/Users/varija/.m2/repository/org/seleniumhq/selenium/jetty-repacked/9.4.12.v20180830/jetty-repacked-9.4.12.v20180830.jar:/Users/varija/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/Users/varija/.m2/repository/org/yaml/snakeyaml/1.19/snakeyaml-1.19.jar:/Users/varija/.m2/repository/org/testng/testng/6.14.3/testng-6.14.3.jar:/Users/varija/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/Users/varija/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar:/Users/varija/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/varija/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/Users/varija/.m2/repository/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar:/Users/varija/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar:/Users/varija/.m2/repository/org/mongodb/mongo-java-driver/3.10.0/mongo-java-driver-3.10.0.jar:/Users/varija/.m2/repository/org/apache/commons/commons-csv/1.4/commons-csv-1.4.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire/surefirebooter8254936318895038554.jar"/>
+    <property name="surefire.real.class.path" value="/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/target/surefire/surefirebooter9176773995168352103.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -62,29 +62,52 @@
     <property name="java.class.version" value="52.0"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="testAdFeedbackWindow" classname="testamazonpages.TestHomePageAmazon" time="3.507"/>
-  <testcase name="testAddToCart" classname="testamazonpages.TestHomePageAmazon" time="15.099"/>
-  <testcase name="testCheckboxesInGiftCards" classname="testamazonpages.TestHomePageAmazon" time="16.831"/>
-  <testcase name="testClickLangSettings" classname="testamazonpages.TestHomePageAmazon" time="10.713"/>
-  <testcase name="testExaternalLinks" classname="testamazonpages.TestHomePageAmazon" time="82.401"/>
-  <testcase name="testGetDropdownOptions" classname="testamazonpages.TestHomePageAmazon" time="1.328"/>
-  <testcase name="testGetPrimePageTabs" classname="testamazonpages.TestHomePageAmazon" time="9.522"/>
-  <testcase name="testIFrameExample" classname="testamazonpages.TestHomePageAmazon" time="2.498"/>
-  <testcase name="testImagePresent" classname="testamazonpages.TestHomePageAmazon" time="0.551"/>
-  <testcase name="testInternalLinks" classname="testamazonpages.TestHomePageAmazon" time="65.064"/>
-  <testcase name="testInvalidAccountSignIn" classname="testamazonpages.TestHomePageAmazon" time="3.694"/>
-  <testcase name="testInvalidAccountSignIn" classname="testamazonpages.TestHomePageAmazon" time="3.647"/>
-  <testcase name="testNavigation" classname="testamazonpages.TestHomePageAmazon" time="2.321"/>
-  <testcase name="testPrimeLink" classname="testamazonpages.TestHomePageAmazon" time="6.735"/>
-  <testcase name="testPrimePageTable" classname="testamazonpages.TestHomePageAmazon" time="31.504"/>
-  <testcase name="testSearchButton" classname="testamazonpages.TestHomePageAmazon" time="5.482"/>
-  <testcase name="testSearchForItems" classname="testamazonpages.TestHomePageAmazon" time="4.72"/>
-  <testcase name="testSearchForItemsMongo" classname="testamazonpages.TestHomePageAmazon" time="16.94"/>
-  <testcase name="testSearchItemsSql" classname="testamazonpages.TestHomePageAmazon" time="16.134"/>
-  <testcase name="testSearchResults" classname="testamazonpages.TestHomePageAmazon" time="2.09"/>
-  <testcase name="testSetDropdown" classname="testamazonpages.TestHomePageAmazon" time="2.095"/>
-  <testcase name="testSignInLink" classname="testamazonpages.TestHomePageAmazon" time="0.585"/>
-  <testcase name="testUpperRightLink" classname="testamazonpages.TestHomePageAmazon" time="3.005"/>
-  <testcase name="testYourAccountLists" classname="testamazonpages.TestHomePageAmazon" time="6.338"/>
-  <testcase name="testYourLists" classname="testamazonpages.TestHomePageAmazon" time="4.644"/>
+  <testcase name="testAdFeedbackWindow" classname="testamazonpages.TestHomePageAmazon" time="4.122"/>
+  <testcase name="testAddToCart" classname="testamazonpages.TestHomePageAmazon" time="12.789"/>
+  <testcase name="testCheckboxesInGiftCards" classname="testamazonpages.TestHomePageAmazon" time="16.722"/>
+  <testcase name="testClickLangSettings" classname="testamazonpages.TestHomePageAmazon" time="10.706"/>
+  <testcase name="testExaternalLinks" classname="testamazonpages.TestHomePageAmazon" time="82.262"/>
+  <testcase name="testGetDropdownOptions" classname="testamazonpages.TestHomePageAmazon" time="0.605"/>
+  <testcase name="testGetPrimePageTabs" classname="testamazonpages.TestHomePageAmazon" time="12.358"/>
+  <testcase name="testIFrameExample" classname="testamazonpages.TestHomePageAmazon" time="20.507">
+    <failure message="Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //img[@id=&apos;staticImage&apos;]&apos; (tried for 1 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //img[@id='staticImage']' (tried for 1 second(s) with 500 milliseconds interval)
+	at testamazonpages.TestHomePageAmazon.testIFrameExample(TestHomePageAmazon.java:180)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//img[@id='staticImage']"}
+  (Session info: chrome=73.0.3683.86)
+  (Driver info: chromedriver=2.46.628411 (3324f4c8be9ff2f70a05a30ebc72ffb013e1a71e),platform=Mac OS X 10.14.3 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Varijas-MacBook-Pro.local', ip: 'fe80:0:0:0:4d4:5cbf:b365:82c8%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.3', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.46.628411 (3324f4c8be9ff2..., userDataDir: /var/folders/5m/8t7g_9lj783...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52950}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 73.0.3683.86, webStorageEnabled: true}
+Session ID: 6e9308bded9ec2fc221cd8071193451e
+*** Element info: {Using=xpath, value=//img[@id='staticImage']}
+	at testamazonpages.TestHomePageAmazon.testIFrameExample(TestHomePageAmazon.java:180)
+</failure>
+    <system-err><![CDATA[Starting ChromeDriver 2.46.628411 (3324f4c8be9ff2f70a05a30ebc72ffb013e1a71e) on port 5081
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Mar 23, 2019 3:52:33 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+]]></system-err>
+  </testcase>
+  <testcase name="testImagePresent" classname="testamazonpages.TestHomePageAmazon" time="0.13"/>
+  <testcase name="testInternalLinks" classname="testamazonpages.TestHomePageAmazon" time="67.151"/>
+  <testcase name="testInvalidAccountSignIn" classname="testamazonpages.TestHomePageAmazon" time="4.321"/>
+  <testcase name="testInvalidAccountSignIn" classname="testamazonpages.TestHomePageAmazon" time="3.8"/>
+  <testcase name="testNavigation" classname="testamazonpages.TestHomePageAmazon" time="2.4"/>
+  <testcase name="testPrimeLink" classname="testamazonpages.TestHomePageAmazon" time="4.462"/>
+  <testcase name="testPrimePageTable" classname="testamazonpages.TestHomePageAmazon" time="31.986"/>
+  <testcase name="testSearchButton" classname="testamazonpages.TestHomePageAmazon" time="3.106"/>
+  <testcase name="testSearchForItems" classname="testamazonpages.TestHomePageAmazon" time="4.671"/>
+  <testcase name="testSearchForItemsMongo" classname="testamazonpages.TestHomePageAmazon" time="16.619"/>
+  <testcase name="testSearchItemsSql" classname="testamazonpages.TestHomePageAmazon" time="16.351"/>
+  <testcase name="testSearchResults" classname="testamazonpages.TestHomePageAmazon" time="2.208"/>
+  <testcase name="testSetDropdown" classname="testamazonpages.TestHomePageAmazon" time="2.262"/>
+  <testcase name="testSignInLink" classname="testamazonpages.TestHomePageAmazon" time="0.548"/>
+  <testcase name="testUpperRightLink" classname="testamazonpages.TestHomePageAmazon" time="3.4"/>
+  <testcase name="testYourAccountLists" classname="testamazonpages.TestHomePageAmazon" time="3.82"/>
+  <testcase name="testYourLists" classname="testamazonpages.TestHomePageAmazon" time="6.019"/>
 </testsuite>

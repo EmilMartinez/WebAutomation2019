@@ -43,8 +43,8 @@ public class CommonAPI {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
         driver.get(url);
-        //driver.navigate().to(url);
-        driver.navigate().refresh();
+        // driver.navigate().to(url);
+        // driver.navigate().refresh();
         driver.manage().window().maximize();
     }
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){

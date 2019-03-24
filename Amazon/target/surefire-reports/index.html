@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Amazon_Automation_Script_">
-              <span class="suite-name border-passed">Amazon Automation Script </span>
+              <span class="suite-name border-failed">Amazon Automation Script </span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">25 methods,   25 passed</span>
+                    <span class="method-stats">25 methods, 1 failed,   24 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Amazon_Automation_Script_" class="hide-methods failed suite-Amazon_Automation_Script_"> (hide)</a> <!-- hide-methods failed suite-Amazon_Automation_Script_ -->
+                      <a href="#" panel-name="suite-Amazon_Automation_Script_" class="show-methods failed suite-Amazon_Automation_Script_"> (show)</a> <!-- show-methods failed suite-Amazon_Automation_Script_ -->
+                    </span>
+                    <div class="method-list-content failed suite-Amazon_Automation_Script_">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testIFrameExample">testIFrameExample</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Amazon_Automation_Script_ -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -137,11 +151,6 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testIFrameExample">testIFrameExample</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testImagePresent">testImagePresent</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -152,12 +161,12 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testInvalidAccountSignIn(testuser1@test.com, testpassword1)">testInvalidAccountSignIn(testuser1@test.com, testpassword1)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testInvalidAccountSignIn(testuser2@test.com, testpassword2)">testInvalidAccountSignIn(testuser2@test.com, testpassword2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testInvalidAccountSignIn(testuser2@test.com, testpassword2)">testInvalidAccountSignIn(testuser2@test.com, testpassword2)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Amazon_Automation_Script_" title="testamazonpages.TestHomePageAmazon" hash-for-method="testInvalidAccountSignIn(testuser1@test.com, testpassword1)">testInvalidAccountSignIn(testuser1@test.com, testpassword1)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -237,6 +246,64 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Amazon_Automation_Script_" class="panel Amazon_Automation_Script_">
+          <div class="suite-Amazon_Automation_Script_-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testamazonpages.TestHomePageAmazon</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testIFrameExample">
+                  </a> <!-- testIFrameExample -->
+                  <span class="method-name">testIFrameExample</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //img[@id=&apos;staticImage&apos;]&apos; (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at amazonpages.HomePageAmazon.iFrameExample(HomePageAmazon.java:581)
+	at testamazonpages.TestHomePageAmazon.testIFrameExample(TestHomePageAmazon.java:180)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//img[@id=&apos;staticImage&apos;]&quot;}
+  (Session info: chrome=73.0.3683.86)
+  (Driver info: chromedriver=2.46.628411 (3324f4c8be9ff2f70a05a30ebc72ffb013e1a71e),platform=Mac OS X 10.14.3 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;Varijas-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:4d4:5cbf:b365:82c8%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.3&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.46.628411 (3324f4c8be9ff2..., userDataDir: /var/folders/5m/8t7g_9lj783...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52950}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 73.0.3683.86, webStorageEnabled: true}
+Session ID: 6e9308bded9ec2fc221cd8071193451e
+*** Element info: {Using=xpath, value=//img[@id=&apos;staticImage&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy10.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:670)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:666)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(iframe)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Amazon_Automation_Script_-class-failed -->
           <div class="suite-Amazon_Automation_Script_-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -308,15 +375,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testIFrameExample">
-                  </a> <!-- testIFrameExample -->
-                  <span class="method-name">testIFrameExample</span>
-                  <em>
-(iframe)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="testImagePresent">
                   </a> <!-- testImagePresent -->
                   <span class="method-name">testImagePresent</span>
@@ -335,18 +393,18 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testInvalidAccountSignIn(testuser1@test.com, testpassword1)">
-                  </a> <!-- testInvalidAccountSignIn(testuser1@test.com, testpassword1) -->
-                  <span class="method-name">testInvalidAccountSignIn</span>
-                  <span class="parameters">(testuser1@test.com, testpassword1)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="testInvalidAccountSignIn(testuser2@test.com, testpassword2)">
                   </a> <!-- testInvalidAccountSignIn(testuser2@test.com, testpassword2) -->
                   <span class="method-name">testInvalidAccountSignIn</span>
                   <span class="parameters">(testuser2@test.com, testpassword2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testInvalidAccountSignIn(testuser1@test.com, testpassword1)">
+                  </a> <!-- testInvalidAccountSignIn(testuser1@test.com, testpassword1) -->
+                  <span class="method-name">testInvalidAccountSignIn</span>
+                  <span class="parameters">(testuser1@test.com, testpassword1)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -531,103 +589,103 @@ data.addRows(25);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testExaternalLinks')
 data.setCell(0, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(0, 3, 82400);
+data.setCell(0, 3, 82262);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testInternalLinks')
 data.setCell(1, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(1, 3, 65065);
+data.setCell(1, 3, 67151);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testPrimePageTable')
 data.setCell(2, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(2, 3, 31504);
+data.setCell(2, 3, 31986);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testSearchForItemsMongo')
+data.setCell(3, 1, 'testIFrameExample')
 data.setCell(3, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(3, 3, 16940);
+data.setCell(3, 3, 20501);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'testCheckboxesInGiftCards')
 data.setCell(4, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(4, 3, 16831);
+data.setCell(4, 3, 16723);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testSearchItemsSql')
+data.setCell(5, 1, 'testSearchForItemsMongo')
 data.setCell(5, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(5, 3, 16134);
+data.setCell(5, 3, 16620);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'testAddToCart')
+data.setCell(6, 1, 'testSearchItemsSql')
 data.setCell(6, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(6, 3, 15099);
+data.setCell(6, 3, 16351);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'testClickLangSettings')
+data.setCell(7, 1, 'testAddToCart')
 data.setCell(7, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(7, 3, 10713);
+data.setCell(7, 3, 12789);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'testGetPrimePageTabs')
 data.setCell(8, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(8, 3, 9522);
+data.setCell(8, 3, 12358);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'testPrimeLink')
+data.setCell(9, 1, 'testClickLangSettings')
 data.setCell(9, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(9, 3, 6734);
+data.setCell(9, 3, 10707);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'testYourAccountLists')
+data.setCell(10, 1, 'testYourLists')
 data.setCell(10, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(10, 3, 6338);
+data.setCell(10, 3, 6018);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'testSearchButton')
+data.setCell(11, 1, 'testSearchForItems')
 data.setCell(11, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(11, 3, 5483);
+data.setCell(11, 3, 4671);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'testSearchForItems')
+data.setCell(12, 1, 'testPrimeLink')
 data.setCell(12, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(12, 3, 4721);
+data.setCell(12, 3, 4462);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'testYourLists')
+data.setCell(13, 1, 'testInvalidAccountSignIn')
 data.setCell(13, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(13, 3, 4645);
+data.setCell(13, 3, 4321);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'testInvalidAccountSignIn')
+data.setCell(14, 1, 'testAdFeedbackWindow')
 data.setCell(14, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(14, 3, 3694);
+data.setCell(14, 3, 4121);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'testInvalidAccountSignIn')
+data.setCell(15, 1, 'testYourAccountLists')
 data.setCell(15, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(15, 3, 3647);
+data.setCell(15, 3, 3820);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'testAdFeedbackWindow')
+data.setCell(16, 1, 'testInvalidAccountSignIn')
 data.setCell(16, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(16, 3, 3506);
+data.setCell(16, 3, 3800);
 data.setCell(17, 0, 17)
 data.setCell(17, 1, 'testUpperRightLink')
 data.setCell(17, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(17, 3, 3005);
+data.setCell(17, 3, 3400);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'testIFrameExample')
+data.setCell(18, 1, 'testSearchButton')
 data.setCell(18, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(18, 3, 2499);
+data.setCell(18, 3, 3106);
 data.setCell(19, 0, 19)
 data.setCell(19, 1, 'testNavigation')
 data.setCell(19, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(19, 3, 2322);
+data.setCell(19, 3, 2400);
 data.setCell(20, 0, 20)
 data.setCell(20, 1, 'testSetDropdown')
 data.setCell(20, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(20, 3, 2095);
+data.setCell(20, 3, 2262);
 data.setCell(21, 0, 21)
 data.setCell(21, 1, 'testSearchResults')
 data.setCell(21, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(21, 3, 2090);
+data.setCell(21, 3, 2207);
 data.setCell(22, 0, 22)
 data.setCell(22, 1, 'testGetDropdownOptions')
 data.setCell(22, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(22, 3, 1329);
+data.setCell(22, 3, 605);
 data.setCell(23, 0, 23)
 data.setCell(23, 1, 'testSignInLink')
 data.setCell(23, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(23, 3, 585);
+data.setCell(23, 3, 548);
 data.setCell(24, 0, 24)
 data.setCell(24, 1, 'testImagePresent')
 data.setCell(24, 2, 'testamazonpages.TestHomePageAmazon')
-data.setCell(24, 3, 550);
+data.setCell(24, 3, 130);
 window.suiteTableData['Amazon_Automation_Script_']= { tableData: data, tableDiv: 'times-div-Amazon_Automation_Script_'}
 return data;
 }
@@ -665,399 +723,401 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">6007 ms</span>
+                <span class="method-start">4270 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testAdFeedbackWindow</span>
-                <span class="method-start">6048 ms</span>
+                <span class="method-start">4310 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">9555 ms</span>
+                <span class="method-start">8432 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">9633 ms</span>
+                <span class="method-start">8513 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">13978 ms</span>
+                <span class="method-start">14722 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testAddToCart</span>
-                <span class="method-start">13980 ms</span>
+                <span class="method-start">14725 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">29079 ms</span>
+                <span class="method-start">27514 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">29155 ms</span>
+                <span class="method-start">27590 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">33954 ms</span>
+                <span class="method-start">31195 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testCheckboxesInGiftCards</span>
-                <span class="method-start">33957 ms</span>
+                <span class="method-start">31197 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">50788 ms</span>
+                <span class="method-start">47920 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">50864 ms</span>
+                <span class="method-start">47997 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">55608 ms</span>
+                <span class="method-start">51511 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testClickLangSettings</span>
-                <span class="method-start">55610 ms</span>
+                <span class="method-start">51512 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">66323 ms</span>
+                <span class="method-start">62219 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">66398 ms</span>
+                <span class="method-start">62294 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">71063 ms</span>
+                <span class="method-start">66500 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testExaternalLinks</span>
-                <span class="method-start">71066 ms</span>
+                <span class="method-start">66502 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">153467 ms</span>
+                <span class="method-start">148764 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">153544 ms</span>
+                <span class="method-start">148843 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">158232 ms</span>
+                <span class="method-start">153108 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testGetDropdownOptions</span>
-                <span class="method-start">158233 ms</span>
+                <span class="method-start">153110 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">159562 ms</span>
+                <span class="method-start">153715 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">159640 ms</span>
+                <span class="method-start">153794 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">164442 ms</span>
+                <span class="method-start">159385 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testGetPrimePageTabs</span>
-                <span class="method-start">164444 ms</span>
+                <span class="method-start">159386 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">173966 ms</span>
+                <span class="method-start">171744 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">174043 ms</span>
+                <span class="method-start">171821 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">178750 ms</span>
+                <span class="method-start">175545 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">testIFrameExample</span>
-                <span class="method-start">178750 ms</span>
+                <span class="method-start">175546 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">181249 ms</span>
+                <span class="method-start">196052 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">181324 ms</span>
+                <span class="method-start">196129 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">186018 ms</span>
+                <span class="method-start">200581 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testImagePresent</span>
-                <span class="method-start">186019 ms</span>
+                <span class="method-start">200582 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">186570 ms</span>
+                <span class="method-start">200712 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">186645 ms</span>
+                <span class="method-start">200791 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">191393 ms</span>
+                <span class="method-start">204387 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testInternalLinks</span>
-                <span class="method-start">191394 ms</span>
+                <span class="method-start">204388 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">256459 ms</span>
+                <span class="method-start">271539 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">256760 ms</span>
+                <span class="method-start">271833 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">261902 ms</span>
+                <span class="method-start">275465 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testInvalidAccountSignIn(testuser1@test.com, testpassword1)</span>
-                <span class="method-start">261905 ms</span>
+                <span class="method-start">275466 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">265599 ms</span>
+                <span class="method-start">279787 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">265674 ms</span>
+                <span class="method-start">279860 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">270481 ms</span>
+                <span class="method-start">283301 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testInvalidAccountSignIn(testuser2@test.com, testpassword2)</span>
-                <span class="method-start">270482 ms</span>
+                <span class="method-start">283302 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">274129 ms</span>
+                <span class="method-start">287102 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">274202 ms</span>
+                <span class="method-start">287176 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">278880 ms</span>
+                <span class="method-start">290498 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testNavigation</span>
-                <span class="method-start">278881 ms</span>
+                <span class="method-start">290500 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">281203 ms</span>
+                <span class="method-start">292900 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">281276 ms</span>
+                <span class="method-start">292978 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">286085 ms</span>
+                <span class="method-start">296584 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testPrimeLink</span>
-                <span class="method-start">286086 ms</span>
+                <span class="method-start">296585 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">292820 ms</span>
+                <span class="method-start">301047 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">292899 ms</span>
+                <span class="method-start">301122 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">297467 ms</span>
+                <span class="method-start">304800 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testPrimePageTable</span>
-                <span class="method-start">297468 ms</span>
+                <span class="method-start">304802 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">328972 ms</span>
+                <span class="method-start">336788 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">329047 ms</span>
+                <span class="method-start">336864 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">336268 ms</span>
+                <span class="method-start">343349 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSearchButton</span>
-                <span class="method-start">336269 ms</span>
+                <span class="method-start">343351 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">341752 ms</span>
+                <span class="method-start">346457 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">341829 ms</span>
+                <span class="method-start">346534 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">346531 ms</span>
+                <span class="method-start">350113 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSearchForItems</span>
-                <span class="method-start">346532 ms</span>
+                <span class="method-start">350115 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">351253 ms</span>
+                <span class="method-start">354786 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">351328 ms</span>
+                <span class="method-start">354860 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">356852 ms</span>
+                <span class="method-start">358365 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSearchForItemsMongo</span>
-                <span class="method-start">356853 ms</span>
+                <span class="method-start">358365 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">373793 ms</span>
+                <span class="method-start">374985 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">373873 ms</span>
+                <span class="method-start">375065 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">379010 ms</span>
+                <span class="method-start">378603 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSearchItemsSql</span>
-                <span class="method-start">379011 ms</span>
+                <span class="method-start">378604 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">395145 ms</span>
+                <span class="method-start">394955 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">395223 ms</span>
+                <span class="method-start">395032 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">402795 ms</span>
+                <span class="method-start">398920 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSearchResults</span>
-                <span class="method-start">402796 ms</span>
+                <span class="method-start">398921 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">404886 ms</span>
+                <span class="method-start">401129 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">404960 ms</span>
+                <span class="method-start">401203 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">409592 ms</span>
+                <span class="method-start">404635 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSetDropdown</span>
-                <span class="method-start">409593 ms</span>
+                <span class="method-start">404636 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">411688 ms</span>
+                <span class="method-start">406898 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">411761 ms</span>
+                <span class="method-start">406972 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">416370 ms</span>
+                <span class="method-start">410502 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testSignInLink</span>
-                <span class="method-start">416372 ms</span>
+                <span class="method-start">410503 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">416957 ms</span>
+                <span class="method-start">411051 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">417033 ms</span>
+                <span class="method-start">411124 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">421725 ms</span>
+                <span class="method-start">414744 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testUpperRightLink</span>
-                <span class="method-start">421726 ms</span>
+                <span class="method-start">414745 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">424731 ms</span>
+                <span class="method-start">418145 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">425317 ms</span>
+                <span class="method-start">418220 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">429918 ms</span>
+                <span class="method-start">421920 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testYourAccountLists</span>
-                <span class="method-start">429919 ms</span>
+                <span class="method-start">421921 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">436257 ms</span>
+                <span class="method-start">425741 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp(false, browserstack, OS X, Sierra, chrome-options, 30.0, https://www.amazon.com/)</span>
-                <span class="method-start">436334 ms</span>
+                <span class="method-start">425818 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initialize</span>
-                <span class="method-start">441312 ms</span>
+                <span class="method-start">429417 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testYourLists</span>
-                <span class="method-start">441313 ms</span>
+                <span class="method-start">429418 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">cleanUp</span>
-                <span class="method-start">445958 ms</span>
+                <span class="method-start">435437 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
