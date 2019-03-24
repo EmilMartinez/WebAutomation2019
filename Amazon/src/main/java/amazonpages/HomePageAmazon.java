@@ -46,9 +46,9 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(id = "auth-warning-message-box")
    private WebElement signInWarning;
 
-   //cssselector=a-row.a-spacing-mini title = Change Language Settings
    @FindBy(xpath = "//span[@class='icp-nav-link-inner']")
    private WebElement langLink;
+
    @FindBy(css = "a-row.a-spacing-mini")
    private List<WebElement> langSettings;
 
@@ -59,13 +59,11 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(css = "#pet_your_prime > div.pet_your_prime_content_container > a > img")
    private WebElement primeWithLogin;
 
-   //@FindBy(xpath = "//*[@id='leftNav']//ul[1]//input")
    @FindBy(css = "#leftNav > ul:nth-child(3) > div > li")
    private List<WebElement> giftcardDeliveryTypes;
 
-   //@FindBy(xpath = "//*[@id='ad-feedback-sprite-right-7']")
-    @FindBy(css = "#ad-feedback-text-right-2")
-    private WebElement adFeedback;
+   @FindBy(css = "#ad-feedback-text-right-2")
+   private WebElement adFeedback;
 
    @FindBy(xpath = "//input[@type='radio' and @name='sharedPlacementRelevanceButton' and @value='5']")
    private WebElement adFeedbackRelevantRadio5;
@@ -215,9 +213,7 @@ public class HomePageAmazon extends CommonAPI {
    @FindBy(css = "#nav-item-signout > span")
    private WebElement signOut;
 
-    //@FindBy(xpath = "//*[@id='nav-al-your-account']/a[1]")
-    //@FindBy(xpath = "//a[@id='nav_prefetch_yourorders']")
-    @FindBy(css ="#nav-al-your-account > a:nth-child(2)")
+   @FindBy(css ="#nav-al-your-account > a:nth-child(2)")
     private WebElement yourAccount;
 
    @FindBy(xpath = "//*[@id='nav_prefetch_yourorders']/span")
@@ -232,8 +228,6 @@ public class HomePageAmazon extends CommonAPI {
 
    @FindBy(xpath = "//div[@id='nav-al-your-account']/a[5]/span")
    private WebElement yourSubscribe;
-
-   //help-gateway-category-1
 
 /************************************************************************************************/
 
@@ -387,11 +381,6 @@ public class HomePageAmazon extends CommonAPI {
 /************************************End Bottom Links *****************************************************************/
     public void searchForItems(String item) {
       searchBox.clear();
-      try {
-         Thread.sleep(3000);
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
       searchBox.sendKeys(item, Keys.ENTER);
    }
 
@@ -561,19 +550,16 @@ public class HomePageAmazon extends CommonAPI {
         action.moveToElement(tryPrime).perform();
        JavascriptExecutor js = (JavascriptExecutor)driver;
        js.executeScript("arguments[0].click();", primeWithLogin);
-       //action.moveToElement(primeLink).click().perform();
-   }
+    }
+
    public void yourAccountLinks() {
       validSignIn();
       Actions action = new Actions(driver);
       action.moveToElement(signIn).perform();
-      //wait.until(ExpectedConditions.visibilityOf(yourAccount));
-      //action.moveToElement(yourAccount).click().perform();
-       JavascriptExecutor js = (JavascriptExecutor)driver;
-       js.executeScript("arguments[0].click();", yourAccount);
+      JavascriptExecutor js = (JavascriptExecutor)driver;
+      js.executeScript("arguments[0].click();", yourAccount);
       System.out.println(driver.getTitle());
-      //signOut();
-   }
+    }
 
    public void addToCart() {
       validSignIn();
@@ -595,24 +581,8 @@ public class HomePageAmazon extends CommonAPI {
          e.printStackTrace();
       }
       System.out.println(driver.getTitle());
-      //System.out.println(driver.getPageSource());
       driver.switchTo().parentFrame();
    }
-
-   ///// List method
-   /*public void sortByList() {
-      searchBox.sendKeys("sunscreen", Keys.ENTER);
-      //wait.until(ExpectedConditions.elementToBeClickable(sortButton));
-      Select select = new Select(sortButton);
-      sortButton.click();
-      for (int i = 0; i < sortButtonOptions.size(); i++) {
-         select.selectByIndex(i);
-         try {
-            Thread.sleep(1500);
-         } catch (InterruptedException e) {
-            e.printStackTrace();
-         }
-      }*/
 
       public void upperRightLink() {
          upperRightLink.click();

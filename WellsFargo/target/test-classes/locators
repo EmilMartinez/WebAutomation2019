@@ -1,0 +1,13 @@
+1. Account summary
+//*[@id="destination"]/option
+#destination>option
+2. Username
+id = userid
+3. password
+id = password
+4. Sign on
+id = inputTopSearchField
+5. tabs(7 of them)
+//*[@class="c63controls"]/li
+
+
