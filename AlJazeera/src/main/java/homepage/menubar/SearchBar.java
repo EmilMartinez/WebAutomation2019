@@ -52,5 +52,4 @@ public class SearchBar {
    public void searchAndEnter(String value) {
       input_searchBar.sendKeys(value, Keys.ENTER);
    }
-
 }

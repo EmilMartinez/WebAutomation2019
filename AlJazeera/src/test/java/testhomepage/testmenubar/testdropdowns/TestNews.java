@@ -17,7 +17,6 @@ public class TestNews extends CommonAPI {
    ExcelData excl = new ExcelData();
    String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
-
    @BeforeMethod
    public void init() {
       newNews = PageFactory.initElements(driver, News.class);

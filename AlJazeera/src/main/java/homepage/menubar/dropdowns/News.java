@@ -3,11 +3,13 @@ package homepage.menubar.dropdowns;
 import databases.ConnectToSqlDB;
 import databases.ExcelData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,5 +58,27 @@ public class News {
 
    public String getLinkName(WebElement w) {
       return w.getText();
+   }
+
+   /**
+    *
+    * @param featureName
+    * @param driver
+    * @throws IOException
+    * @throws InterruptedException
+    */
+   public void selectFrom(String featureName, WebDriver driver) throws IOException, InterruptedException{
+      switch(featureName){
+         case "Go Live":
+            break;
+         case "Send Investigation":
+            break;
+         case "Send Tip":
+            break;
+         case "Scroll Down":
+            break;
+         default:
+            break;
+      }
    }
 }

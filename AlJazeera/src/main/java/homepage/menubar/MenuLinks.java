@@ -145,6 +145,4 @@ public class MenuLinks {
       Actions builder = new Actions(driver);
       builder.moveToElement(webElement).perform();
    }
-
-
 }

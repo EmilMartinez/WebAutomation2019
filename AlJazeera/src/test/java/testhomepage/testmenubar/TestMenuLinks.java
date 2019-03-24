@@ -70,5 +70,4 @@ public class TestMenuLinks extends CommonAPI {
          Assert.assertTrue(newNav.isDropDownVisible(w));
       }
    }
-
 }
