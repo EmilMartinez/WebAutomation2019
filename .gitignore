@@ -4,3 +4,5 @@
 # Ignoring the file structure dot file (for Mac users)
 .DS_Store
 
+# Ignoring all the .iml files to prevent merge conflicts.
+*.iml
