@@ -1,4 +1,4 @@
-package com.sephora.qa.inputdata;
+package com.kiehls.qa.inputdata;
 
 import java.io.FileInputStream;
 import java.io.IOException;

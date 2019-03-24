@@ -11,7 +11,6 @@ import java.util.Properties;
 
 
 public class HomePage extends CommonAPI {
-
    RegisterPage registerPage;
 
    //Page Factory /OR
@@ -75,17 +74,13 @@ public class HomePage extends CommonAPI {
    public boolean validateText2(){return topRatedSkincare.isDisplayed();}
 
    public boolean validateText3(){return recommedForYou.isDisplayed();}
+
    public boolean validateText4(){return spotItShopIt.isDisplayed();}
 
    public String validateHomePageTitle(){ return driver.getTitle(); }
 
    public void  validateEmailSignUpInput(String mail) throws IOException {
-
       emailSignUpInput.sendKeys(mail);
       signupBttn.click();
-
    }
-
-
-
 }

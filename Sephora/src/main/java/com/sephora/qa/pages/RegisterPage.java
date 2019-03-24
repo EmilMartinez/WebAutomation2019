@@ -49,7 +49,7 @@ public class RegisterPage {
     @FindBy(css = ".css-1cf8bj1 ")
     WebElement subscribeTextBox;
 
-    @FindBy (id = "zipCode")
+    @FindBy (xpath = "//input[@name='zipCode']")
     WebElement inputZipCode;
 
     @FindBy(xpath = "//button[@type='submit'][contains(text(),'Register')]")
@@ -63,7 +63,6 @@ public class RegisterPage {
     }
 
     //Actions
-
     public boolean validateTitleIsDisplayed(){return modalTitle.isDisplayed();}
 
     public boolean validateRequiredInfoDisplayed(){return requiredInfo.isDisplayed();}
@@ -73,7 +72,6 @@ public class RegisterPage {
     public void validateCheckBox(){ checkBox.click(); }
 
     public HomePage validateRegistration(String fName, String lName, String mail, String pword) throws InterruptedException {
-
             Thread.sleep(3000);
             registerBttn.click();
             firstName.clear();
@@ -91,9 +89,12 @@ public class RegisterPage {
 
         }
 
-    public void validateZipCode(String zCode){
-
+    public HomePage validateInputZipCode(String zCode) throws InterruptedException {
+        registerBttn.click();
+        inputZipCode.clear();
+        Thread.sleep(3000);
         inputZipCode.sendKeys(zCode);
+        Thread.sleep(3000);
+        return  new HomePage();
     }
-
 }

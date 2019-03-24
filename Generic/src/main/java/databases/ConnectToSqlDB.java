@@ -21,7 +21,7 @@ public class ConnectToSqlDB {
 
     public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
-        InputStream ism = new FileInputStream("C:\\Users\\Mira\\Documents\\GitHub\\WebAutomation2019\\Generic\\src\\secret.properties");
+        InputStream ism = new FileInputStream("C:\\Users\\Mira\\Documents\\GitHub\\WebAutomation2019\\Kiehl's\\src\\test\\resources\\secret.properties");
         prop.load(ism);
         ism.close();
         return prop;

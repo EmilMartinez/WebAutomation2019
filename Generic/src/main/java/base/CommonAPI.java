@@ -1,35 +1,24 @@
 package base;
 
-import com.qa.util.TestUtil;
-import org.apache.poi.ss.formula.functions.T;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.seleniumhq.jetty9.server.PushBuilder;
 import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 
-
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.security.PublicKey;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CommonAPI extends TestUtil {
+public class CommonAPI {
 
     public static WebDriver driver = null;
     public String browserstack_username= "";
@@ -37,12 +26,11 @@ public class CommonAPI extends TestUtil {
     public String saucelabs_username = "";
     public String saucelabs_accesskey = "";
 
-   /* @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
+    @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
                               String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
-        //System.setProperty("webdriver.chrome.driver", "/Users/peoplentech/eclipse-workspace-March2018/SeleniumProject1/driver/chromedriver");
         if(useCloudEnv==true){
             if(cloudEnvName.equalsIgnoreCase("browserstack")) {
                 getCloudDriver(cloudEnvName,browserstack_username,browserstack_accesskey,os,os_version, browserName, browserVersion);
@@ -52,45 +40,48 @@ public class CommonAPI extends TestUtil {
         }else{
             getLocalDriver(os, browserName);
         }
-        driver.manage().timeouts().implicitlyWait(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
         driver.get(url);
+        // driver.navigate().to(url);
+        // driver.navigate().refresh();
         driver.manage().window().maximize();
     }
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if(browserName.equalsIgnoreCase("chrome-options")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
+            options.addArguments("--incognito");
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver.exe");
             }
             driver = new ChromeDriver(options);
         }
 
         else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "../generic/browser-driver/geckodriver");
             }else if(OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "../generic/browser-driver/geckodriver.exe");
             }
             driver = new FirefoxDriver();
 
         } else if(browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", "../Generic/browser-driver/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", "../generic/browser-driver/IEDriverServer.exe");
             driver = new InternetExplorerDriver();
         }
         return driver;
-
     }
+
 
     public WebDriver getCloudDriver(String envName,String envUsername, String envAccessKey,String os, String os_version,String browserName,
                                     String browserVersion)throws IOException {
@@ -109,395 +100,166 @@ public class CommonAPI extends TestUtil {
                     "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
         return driver;
-    }*/
-
-    @BeforeMethod
-    public void setUp(){
-
-        System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.get("https://www.sephora.com/");
-
     }
+
 
 
     @AfterMethod
     public void cleanUp() {
-        driver.close();
+        driver.quit();
     }
 
-    //type
-    public void typeOnCss(String locator, String value) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(value);
-    }
-
-    public void typeOnID(String locator, String value) {
-        driver.findElement(By.id(locator)).sendKeys(value);
-    }
-
-    public void typeOnElement(String locator, String value) {
+    /**
+     * Typing value of a general locator. Method will choose what technique to use.
+     *
+     * @param locator: locator technique: cssSelector, name, xpath and id.
+     * @param value: Value being assigned to the locator.
+     */
+    public void typeOnElem(String locator, String value) {
         try {
+            // Check by cssSelector
             driver.findElement(By.cssSelector(locator)).sendKeys(value);
-        } catch (Exception ex1) {
+        } catch (Exception e1) {
             try {
-                System.out.println("First Attempt was not successful");
+                // Check by name
                 driver.findElement(By.name(locator)).sendKeys(value);
-            } catch (Exception ex2) {
+            } catch (Exception e2) {
                 try {
-                    System.out.println("Second Attempt was not successful");
+                    // Check by xpath
                     driver.findElement(By.xpath(locator)).sendKeys(value);
-                } catch (Exception ex3) {
-                    System.out.println("Third Attempt was not successful");
+                } catch (Exception e3) {
+                    // Check by id
                     driver.findElement(By.id(locator)).sendKeys(value);
                 }
             }
         }
     }
 
+    /**
+     * Typing value of a general locator. Method will choose what technique to use and hit 'ENTER'
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id).
+     * @param value: Value being assigned to the locator.
+     */
     public static void typeOnElementNEnter(String locator, String value) {
         try {
+            // Check and enter by cssSelector
             driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception ex1) {
+        } catch (Exception e1) {
             try {
-                System.out.println("First Attempt was not successful");
+                // Check and enter by name
                 driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
-            } catch (Exception ex2) {
+            } catch (Exception e2) {
                 try {
-                    System.out.println("Second Attempt was not successful");
+                    // Check and enter by xpath
                     driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
-                } catch (Exception ex3) {
-                    System.out.println("Third Attempt was not successful");
+                } catch (Exception e3) {
+                    // Check and enter by id
                     driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
                 }
             }
         }
     }
 
-    public static void typeOnElementNEnter(String locator, String value,WebDriver driver1) {
+    /**
+     *  Checking with locator technique and clicking on it.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
+    public void clickOnElem(String locator) {
         try {
-            driver1.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception ex1) {
+            // Check and click by cssSelector
+            driver.findElement(By.cssSelector(locator)).click();
+        } catch (Exception e1) {
             try {
-                System.out.println("First Attempt was not successful");
-                driver1.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
-            } catch (Exception ex2) {
+                // Check and click by name
+                driver.findElement(By.name(locator)).click();
+            } catch (Exception e2) {
                 try {
-                    System.out.println("Second Attempt was not successful");
-                    driver1.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
-                } catch (Exception ex3) {
-                    System.out.println("Third Attempt was not successful");
-                    driver1.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
+                    // Check and click by xpath
+                    driver.findElement(By.xpath(locator)).click();
+                } catch (Exception e3) {
+                    // Check and click by id
+                    driver.findElement(By.id(locator)).click();
                 }
             }
         }
     }
-    public void clearField(String locator) {
-        driver.findElement(By.id(locator)).clear();
-    }
 
-    public void navigateBack() {
-        driver.navigate().back();
-    }
-
-    public static void captureScreenshot(WebDriver driver, String screenshotName) {
-        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
-        Date date = new Date();
-        df.format(date);
-
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    /**
+     *  Checking with locator technique and hitting 'ENTER' on it.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
+    public void enterOnElem(String locator) {
         try {
-            //FileUtils.copyFile(file, new File(System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png"));
-            System.out.println("Screenshot captured");
-        } catch (Exception e) {
-            System.out.println("Exception while taking screenshot " + e.getMessage());
-
-        }
-
-    }
-
-    public static String convertToString(String st) {
-        String splitString = "";
-        //splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
-        return splitString;
-    }
-
-    public void clickOnCss(String locator) {
-        driver.findElement(By.cssSelector(locator)).click();
-    }
-
-    public void clickOnElement(String locator) {
-        try {
-            driver.findElement(By.cssSelector(locator)).click();
-        } catch (Exception ex1) {
+            // Check and enter by cssSelector
+            driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
+        } catch (Exception e1) {
             try {
-                driver.findElement(By.xpath(locator)).click();
-            } catch (Exception ex2) {
-                driver.findElement(By.id(locator)).click();
+                // Check and enter by name
+                driver.findElement(By.name(locator)).sendKeys(Keys.ENTER);
+            } catch (Exception e2) {
+                try {
+                    // Check and enter by xpath
+                    driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
+                } catch (Exception e3) {
+                    // Check and enter by id
+                    driver.findElement(By.id(locator)).sendKeys(Keys.ENTER);
+                }
             }
         }
     }
 
-    public static void clickOnElement(String locator, WebDriver driver1) {
-        try {
-            driver1.findElement(By.cssSelector(locator)).click();
-        } catch (Exception ex1) {
-            try {
-                driver1.findElement(By.xpath(locator)).click();
-            } catch (Exception ex2) {
-                driver1.findElement(By.id(locator)).click();
-            }
-        }
-    }
-    public void typeOnInputField(String locator, String value) {
-        try {
-            driver.findElement(By.cssSelector(locator)).sendKeys(value);
-        } catch (Exception ex) {
-            driver.findElement(By.id(locator)).sendKeys(value);
-        }
-
-    }
-
-    public void clickByXpath(String locator) {
-        driver.findElement(By.xpath(locator)).click();
-    }
-
-    public void typeByCss(String locator, String value) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(value);
-    }
-
-    public void typeByCssNEnter(String locator, String value) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
-    }
-
-    public void typeByXpath(String locator, String value) {
-        driver.findElement(By.xpath(locator)).sendKeys(value);
-    }
-
-    public void takeEnterKeys(String locator) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
-    }
-
+    /**
+     *  Checking with locator technique and clearing its value.
+     *
+     * @param locator: locator technique(cssSelector, name, xpath and id)
+     */
     public void clearInputField(String locator) {
-        driver.findElement(By.cssSelector(locator)).clear();
-    }
-
-    public List<WebElement> getListOfWebElementsById(String locator) {
-        List<WebElement> list = new ArrayList<WebElement>();
-        list = driver.findElements(By.id(locator));
-        return list;
-    }
-
-    public static List<String> getTextFromWebElements(String locator) {
-        List<WebElement> element = new ArrayList<WebElement>();
-        List<String> text = new ArrayList<String>();
-        element = driver.findElements(By.cssSelector(locator));
-        for (WebElement web : element) {
-            String st = web.getText();
-            text.add(st);
+        try {
+            // Check and clear by cssSelector
+            driver.findElement(By.cssSelector(locator)).clear();
+        } catch (Exception e1) {
+            try {
+                // Check and clear by name
+                driver.findElement(By.name(locator)).clear();
+            } catch (Exception e2) {
+                try {
+                    // Check and clear by xpath
+                    driver.findElement(By.xpath(locator)).clear();
+                } catch (Exception e3) {
+                    // Check and clear by id
+                    driver.findElement(By.id(locator)).clear();
+                }
+            }
         }
-
-        return text;
     }
 
-    public static List<String> getTextFromWebElements(String locator, WebDriver driver1) {
-        List<WebElement> element = new ArrayList<WebElement>();
-        List<String> text = new ArrayList<String>();
-        element = driver1.findElements(By.cssSelector(locator));
-        for (WebElement web : element) {
-            String st = web.getText();
-            text.add(st);
-        }
-
-        return text;
+    /**
+     * Server sleeps for 2000 milliseconds.
+     * @throws InterruptedException
+     */
+    public static void sleepForTwoSec() throws InterruptedException {
+        Thread.sleep(2000);
     }
 
-    public static List<WebElement> getListOfWebElementsByCss(String locator) {
-        List<WebElement> list = new ArrayList<WebElement>();
-        list = driver.findElements(By.cssSelector(locator));
-        return list;
-    }
-
-    public static List<WebElement> getListOfWebElementsByCss(String locator, WebDriver driver1) {
-        List<WebElement> list = new ArrayList<WebElement>();
-        list = driver1.findElements(By.cssSelector(locator));
-        return list;
-    }
-    public List<WebElement> getListOfWebElementsByXpath(String locator) {
-        List<WebElement> list = new ArrayList<WebElement>();
-        list = driver.findElements(By.xpath(locator));
-        return list;
-    }
-
-    public String getCurrentPageUrl() {
-        String url = driver.getCurrentUrl();
-        return url;
-    }
-
-    public void navigateForward() {
-        driver.navigate().forward();
-    }
-
-    public String getTextByCss(String locator) {
-        String st = driver.findElement(By.cssSelector(locator)).getText();
-        return st;
-    }
-
-    public String getTextByXpath(String locator) {
-        String st = driver.findElement(By.xpath(locator)).getText();
-        return st;
-    }
-
-    public String getTextById(String locator) {
-        return driver.findElement(By.id(locator)).getText();
-    }
-
-    public String getTextByName(String locator) {
-        String st = driver.findElement(By.name(locator)).getText();
-        return st;
-    }
-
-    public List<String> getListOfString(List<WebElement> list) {
-        List<String> items = new ArrayList<String>();
-        for (WebElement element : list) {
-            items.add(element.getText());
-        }
-        return items;
-    }
-
-    public void selectOptionByVisibleText(WebElement element, String value) {
-        Select select = new Select(element);
-        select.selectByVisibleText(value);
-    }
-
+    /**
+     * Server sleeps for user's given seconds.
+     *
+     * @param sec: Number of seconds for the server to sleep.
+     * @throws InterruptedException
+     */
     public static void sleepFor(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
 
-    public void mouseHoverByCSS(String locator) {
-        try {
-            WebElement element = driver.findElement(By.cssSelector(locator));
-            Actions action = new Actions(driver);
-            Actions hover = action.moveToElement(element);
-        } catch (Exception ex) {
-            System.out.println("First attempt has been done, This is second try");
-            WebElement element = driver.findElement(By.cssSelector(locator));
-            Actions action = new Actions(driver);
-            action.moveToElement(element).perform();
-
-        }
-
-    }
-
-    public void mouseHoverByXpath(String locator) {
-        try {
-            WebElement element = driver.findElement(By.xpath(locator));
-            Actions action = new Actions(driver);
-            Actions hover = action.moveToElement(element);
-        } catch (Exception ex) {
-            System.out.println("First attempt has been done, This is second try");
-            WebElement element = driver.findElement(By.cssSelector(locator));
-            Actions action = new Actions(driver);
-            action.moveToElement(element).perform();
-
-        }
-
-    }
-
-    //handling Alert
-    public void okAlert() {
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-    }
-
-    public void cancelAlert() {
-        Alert alert = driver.switchTo().alert();
-        alert.dismiss();
-    }
-
-    //iFrame Handle
-    public void iframeHandle(WebElement element) {
-        driver.switchTo().frame(element);
-    }
-
-    public void goBackToHomeWindow() {
-        driver.switchTo().defaultContent();
-    }
-
-    //get Links
-    public void getLinks(String locator) {
-        driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
-    }
-
-    //Taking Screen shots
-    public void takeScreenShot() throws IOException {
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        //FileUtils.copyFile(file, new File("screenShots.png"));
-    }
-
-    //Synchronization
-    public void waitUntilClickAble(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-
-    public void waitUntilVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    public void waitUntilSelectable(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        boolean element = wait.until(ExpectedConditions.elementToBeSelected(locator));
-    }
-
-    public void upLoadFile(String locator, String path) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(path);
-        /* path example to upload a file/image
-           path= "C:\\Users\\rrt\\Pictures\\ds1.png";
-         */
-    }
-
-    public void clearInput(String locator) {
-        driver.findElement(By.cssSelector(locator)).clear();
-    }
-
-    public void keysInput(String locator) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
-    }
-
-    //Handling New Tabs
-    public static WebDriver handleNewTab(WebDriver driver1) {
-        String oldTab = driver1.getWindowHandle();
-        List<String> newTabs = new ArrayList<String>(driver1.getWindowHandles());
-        newTabs.remove(oldTab);
-        driver1.switchTo().window(newTabs.get(0));
-        return driver1;
-    }
-
-    public static boolean isPopUpWindowDisplayed(WebDriver driver1, String locator) {
-        boolean value = driver1.findElement(By.cssSelector(locator)).isDisplayed();
-        return value;
-    }
-
-    public void typeOnInputBox(String locator, String value) {
-        try {
-            driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception ex1) {
-            System.out.println("ID locator didn't work");
-        }
-        try {
-            driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception ex2) {
-            System.out.println("Name locator didn't work");
-        }
-        try {
-            driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception ex3) {
-            System.out.println("CSS locator didn't work");
-        }
+    /**
+     * Returns current page's URL
+     *
+     * @return: String of the url.
+     */
+    public String getCurrUrl() {
+        return driver.getCurrentUrl();
     }
 }
