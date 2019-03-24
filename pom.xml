@@ -13,7 +13,6 @@
         <module>Amazon</module>
         <module>AlJazeera</module>
         <module>Kayak</module>
-        <module>Kayak</module>
     </modules>
 
     <dependencyManagement>
