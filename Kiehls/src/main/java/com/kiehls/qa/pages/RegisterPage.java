@@ -1,11 +1,13 @@
 package com.kiehls.qa.pages;
 
 import base.CommonAPI;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegisterPage {
+public class RegisterPage extends CommonAPI {
 
 
     //Page Factory / OR
@@ -33,12 +35,12 @@ public class RegisterPage {
     @FindBy(id = "dwfrm_profile_login_passwordconfirm")
     WebElement confirmPassword;
 
-    @FindBy(id = "dwfrm_profile_customer_birthdayfields_month")
-    public static WebElement month;
+    @FindBy(xpath = "//select[@name='dwfrm_profile_customer_birthdayfields_month']")
+    WebElement month;
 
-    @FindBy(id = "dwfrm_profile_customer_birthdayfields_day")
+    @FindBy(xpath = "//select[@id='dwfrm_profile_customer_birthdayfields_day']")
     public static WebElement day;
-    @FindBy(id = "dwfrm_profile_customer_birthdayfields_year")
+    @FindBy(xpath = "//select[@id='dwfrm_profile_customer_birthdayfields_year']")
     public static WebElement year;
 
     @FindBy(css = ".button submit_button")
@@ -71,8 +73,7 @@ public class RegisterPage {
 
    // public void validateCheckBox(){ checkBox.click(); }
 
-    public HomePage validateRegistration(String fName, String lName, String mail, String pword, String cpword, String month1, String day1, String year1) throws InterruptedException {
-        Thread.sleep(3000);
+    public HomePage validateRegistration(String fName, String lName, String mail, String pword, String cpword) throws InterruptedException {
         singInButtn.click();
         createAccountButtn.click();
         firstName.clear();
@@ -86,17 +87,25 @@ public class RegisterPage {
         password.clear();
         password.sendKeys(pword);
         confirmPassword.clear();
-        month.sendKeys(month1);
-        day.sendKeys(day1);
-        year.sendKeys(year1);
         Thread.sleep(3000);
         confirmPassword.sendKeys(cpword);
         submitButton.click();
         Thread.sleep(2000);
 
-
         return new HomePage();
-
         }
 
+        public WebElement returnMonthWebElem() { return month; }
+
+        public WebElement returnDayWebElement(){ return day; }
+
+        public WebElement returnYearWebElement(){return year; }
+
+        public void setDOB(String month, String day, String year) {
+           WebElement month1 = returnMonthWebElem();
+        }
+//
+//         public void setDateDropdown(String month, String day, String year, WebDriver driver) {
+//            CommonAPI.selectOptionByVisibleText();
+//         }
 }

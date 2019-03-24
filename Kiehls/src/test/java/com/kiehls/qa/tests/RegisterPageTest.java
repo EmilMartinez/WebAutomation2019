@@ -4,6 +4,7 @@ import base.CommonAPI;
 import com.kiehls.qa.inputdata.ReadProperties;
 import com.kiehls.qa.pages.HomePage;
 import com.kiehls.qa.pages.RegisterPage;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,9 +22,9 @@ public class RegisterPageTest extends CommonAPI {
         registerPage = PageFactory.initElements(this.driver, RegisterPage.class);
     }
 
-    @Test
-    public void singInPageTest() {
-    }
+    //@Test
+   // public void singInPageTest() {
+    //}
 
     @Test
     public void registrationTest() throws IOException, InterruptedException {
@@ -33,11 +34,14 @@ public class RegisterPageTest extends CommonAPI {
         String mail = rp.loadProperties().getProperty("email");
         String pword = rp.loadProperties().getProperty("password");
         String cpword = rp.loadProperties().getProperty("confirmPassword");
-//        selectOptionByVisibleText(month, rp.loadProperties().getProperty("month"));
-//        selectOptionByVisibleText(day, rp.loadProperties().getProperty("day"));
-//        selectOptionByVisibleText(year, rp.loadProperties().getProperty("year"));
+        WebElement month = registerPage.returnMonthWebElem();
+        WebElement day = registerPage.returnDayWebElement();
+        WebElement year = registerPage.returnYearWebElement();
+        CommonAPI.selectOptionByVisibleText(month, rp.loadProperties().getProperty("month"));
+        CommonAPI.selectOptionByVisibleText(day, rp.loadProperties().getProperty("day"));
+        CommonAPI.selectOptionByVisibleText(year, rp.loadProperties().getProperty("year"));
 
-//        homePage = registerPage.validateRegistration(fName, lName, mail, pword, cpword, month1, day1, year1);
+        homePage = registerPage.validateRegistration(fName, lName, mail, pword, cpword);
     }
 
 

@@ -12,7 +12,7 @@
         <module>Generic</module>
         <module>Amazon</module>
         <module>Sephora</module>
-        <module>Khiels</module>
+        <module>Kiehls</module>
     </modules>
 
     <dependencyManagement>
