@@ -42,13 +42,13 @@ public class TestHomePageAmazon extends CommonAPI {
       mongoDbData = new MongoDbData();
       //excelData = new ExcelData();
    }
-   //1
+
    @Test(description = "search bar")
    public void testSearchForItems() {
       homePageAmazon.searchForItems("alexa");
       Assert.assertEquals(driver.getTitle(), "Amazon.com: alexa");
    }
-   //2
+
    @Test(description = "mysql test")
    public void testSearchItemsSql() {
       List<String> list = null;
@@ -61,7 +61,7 @@ public class TestHomePageAmazon extends CommonAPI {
          homePageAmazon.searchForItems(s);
       }
    }
-   //3
+
    @Test(description = "mongo database")
    public void testSearchForItemsMongo() throws Exception, IOException, SQLException, ClassNotFoundException {
       List<String> list = mongoDbData.getItemsListFromDB();
@@ -96,12 +96,10 @@ public class TestHomePageAmazon extends CommonAPI {
       }
    }
 
-   //4
    @Test(description = "sign in")
    public void testSignInLink() {
       homePageAmazon.signInLink();
       String signInPageTitle = "Amazon Sign In";
-      //System.out.println(driver.getTitle() + " " + signInPageTitle);
       Assert.assertEquals(driver.getTitle(), signInPageTitle);
    }
    //at least 10 tests equivalent
@@ -129,20 +127,18 @@ public class TestHomePageAmazon extends CommonAPI {
    public void testClickLangSettings() {
       homePageAmazon.clickLangSettings();
    }
-   //6.Mouse Hover
 
    @Test(description = "mouse hover your list link")
    public void testYourLists() throws Exception {
       System.out.println(homePageAmazon.hoverOverAccountsAndSelect());
 
    }
-   //7.checkboxes
+
    @Test(description = "checkboxes")
    public void testCheckboxesInGiftCards() throws Exception {
       homePageAmazon.checkboxesInGiftCards();
    }
 
-   //radio button test, text area test and pop up window
    @Test(description = "form, radiobuttons, text area")
    public void testAdFeedbackWindow() {
       homePageAmazon.adFeedbackWindow();
@@ -173,11 +169,6 @@ public class TestHomePageAmazon extends CommonAPI {
       homePageAmazon.primeLink();
       Assert.assertEquals(driver.getTitle(),"Prime Delivery");
    }
-
-   /*@Test
-   public void testSignOut() {
-      homePageAmazon.signOut();
-   }*/
 
    @Test(description = "Add to cart")
    public void testAddToCart() {

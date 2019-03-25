@@ -89,6 +89,7 @@ public class TestMenuLinks extends CommonAPI {
       }
    }
 
+<<<<<<< HEAD
    /**
     * Checks to see if the Menu dropdown appears when you reduce the size of the browser window.
     */
@@ -111,4 +112,6 @@ public class TestMenuLinks extends CommonAPI {
       newNav.decreaseWindowSize(driver);
       Assert.assertTrue(newNav.isLiveVisible(driver));
    }
+=======
+>>>>>>> develop
 }

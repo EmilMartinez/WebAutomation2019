@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>AlJazeera</artifactId>
+    <artifactId>WellsFargo</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -35,20 +36,9 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>target/test-classes/AlJazeeraTestRunner.xml</suiteXmlFiles>
+                        <suiteXmlFiles>target/test-classes/wellsfargorunner.xml</suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
