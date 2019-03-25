@@ -1,4 +1,0 @@
-base/CommonAPI.class
-databases/ConnectToMongoDB.class
-databases/ExcelData.class
-databases/ConnectToSqlDB.class
