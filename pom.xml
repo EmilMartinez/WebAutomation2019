@@ -15,6 +15,7 @@
         <module>Forever21</module>
         <module>TedTalks</module>
         <module>WellsFargo</module>
+        <module>Kayak</module>
     </modules>
 
     <dependencyManagement>
