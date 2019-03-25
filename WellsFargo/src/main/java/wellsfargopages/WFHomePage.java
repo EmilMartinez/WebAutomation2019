@@ -21,6 +21,12 @@ public class WFHomePage {
     @FindBy(xpath = "//*[@id='mainContent']/div[2]/div[1]/li")
     private List<WebElement> homePageTabs;
 
+    @FindBy(css = "#nbaDefault7")
+    private WebElement tab1;
+
+    @FindBy(xpath = "//*[@id='nbaDefault7']/following-sibling::li")
+    private List<WebElement> remainingTabs;
+
     @FindBy(css = "#nbaDefaultPanels1 > div > div > h3")
     private WebElement textForTab1;
 
@@ -60,15 +66,20 @@ public class WFHomePage {
         commercialLink.click();
     }
 
-    public List<String> homePageTabs(WebDriver driver) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", homePageTabs);
+    public void homePageTabs(WebDriver driver) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tab1);
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
         }
-        List<String> tabText = new ArrayList<String>();
+
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", tab1);
+        /*List<String> tabText = new ArrayList<String>();
         for (int i = 0; i < homePageTabs.size(); i++) {
-            homePageTabs.get(i).click();
+            //homePageTabs.get(i).click();
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript("arguments[0].click();", homePageTabs.get(i));
             switch (i) {
                 case 0:
                     tabText.add(textForTab1.getText());
@@ -93,6 +104,6 @@ public class WFHomePage {
                     break;
             }
         }
-        return tabText;
+        return tabText;*/
     }
 }

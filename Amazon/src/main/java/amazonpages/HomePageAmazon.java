@@ -9,12 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 public class HomePageAmazon extends CommonAPI {
    WebDriverWait wait = new WebDriverWait(driver, 1);
@@ -576,7 +573,7 @@ public class HomePageAmazon extends CommonAPI {
       wait.until(ExpectedConditions.elementToBeClickable(iframeLocator));
       iframeLocator.click();
       try {
-         Thread.sleep(1500);
+         Thread.sleep(2500);
       } catch (InterruptedException e) {
          e.printStackTrace();
       }
