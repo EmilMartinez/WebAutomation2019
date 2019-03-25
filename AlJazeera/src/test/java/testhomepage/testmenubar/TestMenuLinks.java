@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import reporting.TestLogger;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -50,6 +51,7 @@ public class TestMenuLinks extends CommonAPI {
 
    @Test
    public void clickAllMenuLinks() throws NullPointerException {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
       for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
          w.click();
          driver.navigate().back();

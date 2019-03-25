@@ -1,5 +1,4 @@
 package testhomepage.testfooterlinks;
 
-public class TestOtherNetworks {
-
+public class TestOurChannels {
 }
