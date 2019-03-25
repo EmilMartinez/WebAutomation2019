@@ -1,9 +1,9 @@
 package reporting;
 
 import com.relevantcodes.extentreports.LogStatus;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
+import org.apache.commons.lang3.StringUtils;
 
 public class TestLogger {
     public static void log(final String message){
