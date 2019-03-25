@@ -1,8 +1,0 @@
-base/CommonAPI.class
-reporting/ExtentManager.class
-databases/ConnectToMongoDB.class
-reporting/ApplicationLog.class
-reporting/ExtentTestManager.class
-reporting/TestLogger.class
-databases/ExcelData.class
-databases/ConnectToSqlDB.class
