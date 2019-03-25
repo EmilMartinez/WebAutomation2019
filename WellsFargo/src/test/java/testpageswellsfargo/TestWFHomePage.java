@@ -69,11 +69,12 @@ public class TestWFHomePage extends CommonAPI {
         }
     }
 
-    /*@Test
+    //@Test
     public void testHomePageTabs() {
-        List<String> tabTexts = wfHomePage.homePageTabs(driver);
-        for (String tabText : tabTexts) {
+        //List<String> tabTexts = wfHomePage.homePageTabs(driver);
+        /*for (String tabText : tabTexts) {
             System.out.println(tabText);
-        }
-    }*/
+        }*/
+        wfHomePage.homePageTabs(driver);
+    }
 }
