@@ -1,4 +1,8 @@
+/Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/reporting/ApplicationLog.java
 /Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/base/CommonAPI.java
 /Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/databases/ConnectToSqlDB.java
 /Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/databases/ExcelData.java
+/Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/reporting/ExtentManager.java
 /Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/databases/ConnectToMongoDB.java
+/Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/reporting/ExtentTestManager.java
+/Users/varija/Documents/Selenium/WebAutomation2019/Generic/src/main/java/reporting/TestLogger.java

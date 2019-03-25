@@ -13,11 +13,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import reporting.TestLogger;
 
-import javax.swing.text.html.Option;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -40,7 +38,7 @@ public class TestHomePageAmazon extends CommonAPI {
       this.homePageAmazon = PageFactory.initElements(this.driver, HomePageAmazon.class);
       mySqlData = new MySqlData();
       mongoDbData = new MongoDbData();
-      //excelData = new ExcelData();
+      TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
    }
 
    @Test(description = "search bar")
@@ -51,6 +49,7 @@ public class TestHomePageAmazon extends CommonAPI {
 
    @Test(description = "mysql test")
    public void testSearchItemsSql() {
+      TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
       List<String> list = null;
       try {
          list = mySqlData.getItemsListFromDB();
@@ -59,6 +58,7 @@ public class TestHomePageAmazon extends CommonAPI {
       }
       for (String s : list) {
          homePageAmazon.searchForItems(s);
+         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName())+" "+s);
       }
    }
 

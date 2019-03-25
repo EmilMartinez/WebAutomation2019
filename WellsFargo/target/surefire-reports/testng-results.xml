@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Wells Fargo Automation Script " duration-ms="9292" started-at="2019-03-24T08:31:26Z" finished-at="2019-03-24T08:31:36Z">
+  <suite name="Wells Fargo Automation Script " duration-ms="9618" started-at="2019-03-25T04:36:34Z" finished-at="2019-03-25T04:36:44Z">
     <groups>
     </groups>
-    <test name="WellsFargo Home" duration-ms="9292" started-at="2019-03-24T08:31:26Z" finished-at="2019-03-24T08:31:36Z">
+    <test name="WellsFargo Home" duration-ms="9618" started-at="2019-03-25T04:36:34Z" finished-at="2019-03-25T04:36:44Z">
       <class name="testpageswellsfargo.TestWFHomePage">
-        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="setUp" is-config="true" duration-ms="4803" started-at="2019-03-24T08:31:26Z" finished-at="2019-03-24T08:31:31Z">
+        <test-method status="PASS" signature="setUp(boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="setUp" is-config="true" duration-ms="5128" started-at="2019-03-25T04:36:34Z" finished-at="2019-03-25T04:36:39Z">
           <params>
             <param index="0">
               <value>
@@ -48,15 +48,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="initialize()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="initialize" is-config="true" duration-ms="21" started-at="2019-03-24T08:31:31Z" finished-at="2019-03-24T08:31:31Z">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="initialize" is-config="true" duration-ms="22" started-at="2019-03-25T04:36:39Z" finished-at="2019-03-25T04:36:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="testSteps()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="testSteps" duration-ms="4360" started-at="2019-03-24T08:31:31Z" finished-at="2019-03-24T08:31:36Z">
+        <test-method status="PASS" signature="testSteps()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="testSteps" duration-ms="4353" started-at="2019-03-25T04:36:39Z" finished-at="2019-03-25T04:36:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSteps -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="cleanUp" is-config="true" duration-ms="96" started-at="2019-03-24T08:31:36Z" finished-at="2019-03-24T08:31:36Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:testpageswellsfargo.TestWFHomePage@6537cf78]" name="cleanUp" is-config="true" duration-ms="100" started-at="2019-03-25T04:36:44Z" finished-at="2019-03-25T04:36:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
