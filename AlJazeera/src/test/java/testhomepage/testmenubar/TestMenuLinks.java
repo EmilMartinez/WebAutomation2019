@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import reporting.ApplicationLog;
 import reporting.TestLogger;
 
 import java.io.IOException;
@@ -21,8 +22,12 @@ public class TestMenuLinks extends CommonAPI {
       newNav = PageFactory.initElements(driver, MenuLinks.class);
    }
 
-   @Test
+   @Test(priority = 1, description = "Test #1")
    public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       String temp = "";
       try {
          temp = newNav.getMainPageTitle();
@@ -32,13 +37,17 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test
+   @Test(priority = 2, description = "Test #2")
    public void clickOnLogo() {
       newNav.clickOnLogo();
    }
 
-   @Test
+   @Test(priority = 3, description = "Test #3 -- Uses SQL Database")
    public void checkTitleAfterClickOnLogo() throws IOException, SQLException, ClassNotFoundException {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newNav.clickOnLogo();
       String temp = "";
       try {
@@ -49,9 +58,12 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test
+   @Test(priority = 4, description = "Test #4")
    public void clickAllMenuLinks() throws NullPointerException {
-      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       for (WebElement w : newNav.returnWebElemListOfMenuLinks()) {
          w.click();
          driver.navigate().back();
@@ -65,8 +77,12 @@ public class TestMenuLinks extends CommonAPI {
     * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
     *                   file to connect or cannot define the class.
     */
-   @Test
+   @Test(priority = 5, description = "Test #5")
    public void clickAndCheckTitleOfMenuLinks() throws Exception {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       for (int i = 0; i < newNav.returnWebElemListOfMenuLinks().size(); i++) {
          newNav.returnWebElemListOfMenuLinks().get(i).click();
          Assert.assertEquals(newNav.getListOfTitlesFromMenuLinks().get(i), driver.getTitle());
@@ -77,41 +93,51 @@ public class TestMenuLinks extends CommonAPI {
 
    /**
     * Hovers over each menu link with a dropdown and checks if the dropdown is visible.
-    *
-    * @throws Exception This is when the driver cannot be stalled.
     */
-   @Test
-   public void checkMenuLinksWithDropdowns() throws Exception {
+   @Test(priority = 6, description = "Test #6 -- Uses SQL DB")
+   public void checkMenuLinksWithDropdowns() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       for (WebElement w : newNav.returnWebElemListOfMenuLinksWithDD()) {
-         newNav.hoverOverMenuLink(w, driver);
+         newNav.hoverOverMenuLink(w);
          // Checks to see if the dropdown is visible.
          Assert.assertTrue(newNav.isDropDownVisible(w));
       }
    }
 
-<<<<<<< HEAD
    /**
     * Checks to see if the Menu dropdown appears when you reduce the size of the browser window.
     */
-   @Test
+   @Test(priority = 7, description = "Test #7")
    public void checkMenuAfterReducingWindowSize() {
-      newNav.decreaseWindowSize(driver);
-      Assert.assertTrue(newNav.isSmallNavbarVisible(driver));
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newNav.decreaseWindowSize();
+      Assert.assertTrue(newNav.isSmallNavbarVisible());
    }
 
-   @Test
-   public void checkSmallMenuCloseButton() throws InterruptedException {
-      newNav.decreaseWindowSize(driver);
-      Thread.sleep(2000);
-      newNav.clickOnSmallNavBar(driver);
-      Assert.assertTrue(newNav.isSmallNavbarCloseButtonVisible(driver));
+   @Test(priority = 8, description = "Test #8")
+   public void checkSmallMenuCloseButton() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newNav.decreaseWindowSize();
+      newNav.clickOnSmallNavBar();
+      Assert.assertTrue(newNav.isSmallNavbarCloseButtonVisible());
    }
 
-   @Test
+   @Test(priority = 9, description = "Test #9")
    public void checkLiveAfterSmallWindow() {
-      newNav.decreaseWindowSize(driver);
-      Assert.assertTrue(newNav.isLiveVisible(driver));
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newNav.decreaseWindowSize();
+      Assert.assertTrue(newNav.isLiveVisibleAfterReducingWindowSize());
    }
-=======
->>>>>>> develop
 }

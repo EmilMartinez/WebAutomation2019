@@ -1,5 +1,6 @@
 package homepage.menubar;
 
+import base.CommonAPI;
 import databases.ConnectToSqlDB;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -7,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import reporting.TestLogger;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,7 +28,7 @@ import java.util.List;
  * - More (not a link, only a drop-down)
  * - Live
  */
-public class MenuLinks {
+public class MenuLinks extends CommonAPI {
    @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
    private WebElement link_newsDD;
 
@@ -57,6 +59,15 @@ public class MenuLinks {
    @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-header > a.navbar-brand")
    private WebElement pic_logo;
 
+   @FindBy(xpath = "//button[@id='ChangeToggleMobile']")
+   private WebElement button_navDropdown;
+
+   @FindBy(xpath = "//div[@class='navbar-header']//div[2]")
+   private WebElement button_closeNavDropdown;
+
+   @FindBy(xpath = "//li[@id='Li2']")
+   private WebElement link_smallLive;
+
    private ConnectToSqlDB conn = new ConnectToSqlDB();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
 
@@ -70,6 +81,9 @@ public class MenuLinks {
     * @return This is a list of all the clickable homepage.menu links (excludes 'More' because it is not clickable).
     */
    public List<WebElement> returnWebElemListOfMenuLinks() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       List<WebElement> listOfMenuLinks = new ArrayList<WebElement>();
 
       listOfMenuLinks.add(link_newsDD);
@@ -90,6 +104,9 @@ public class MenuLinks {
     * @return This is a list of all the WebElements with dropdowns.
     */
    public List<WebElement> returnWebElemListOfMenuLinksWithDD() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       List<WebElement> list = new ArrayList<WebElement>();
       list.add(link_newsDD);
       list.add(link_documentariesDD);
@@ -110,10 +127,16 @@ public class MenuLinks {
     * @throws ClassNotFoundException If class cannot be found in the classpath.
     */
    private String getTitleFromSpecificMenuLink(String filepath, String menuLink) throws IOException, SQLException, ClassNotFoundException {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       return conn.readCol2FromSpecifiedCol1FromDB(filepath, menuLink, "menu_titles", "MenuName", "Title");
    }
 
    public String getMainPageTitle() throws IOException, SQLException, ClassNotFoundException {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       return getTitleFromSpecificMenuLink(filepath, "Home");
    }
 
@@ -125,6 +148,9 @@ public class MenuLinks {
     *                   or class could not be fond in the classpath.
     */
    public List<String> getListOfTitlesFromMenuLinks() throws Exception {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       List<String> temp = conn.readDataBase("menu_titles", "Title", filepath);
 
       // Removing the first element which is the main page title.
@@ -133,6 +159,9 @@ public class MenuLinks {
    }
 
    public boolean isDropDownVisible(WebElement webElement) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + webElement.getText() + ")");
+
       // Finding the WebElement of the dropdown modal.
       WebElement dropdown = webElement.findElement(By.cssSelector("ul.dropdown-menu.megamenu.row"));
 
@@ -146,42 +175,55 @@ public class MenuLinks {
     * Hovers over a menu link.
     *
     * @param webElement Menu's WebElement to be hovered over.
-    * @param driver     This is the driver for the current session.
     */
-   public void hoverOverMenuLink(WebElement webElement, WebDriver driver) {
-      Actions builder = new Actions(driver);
+   public void hoverOverMenuLink(WebElement webElement) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + webElement.getText() + ")");
+
+      Actions builder = new Actions(CommonAPI.driver);
       builder.moveToElement(webElement).perform();
    }
 
    /**
-    * Resizes the window to 200x200.
-    *
-    * @param driver The driver currently running the session.
+    * Resizes the window to 400x400.
     */
-   public void decreaseWindowSize(WebDriver driver) {
-      driver.manage().window().setSize(new Dimension(200, 200));
+   public void decreaseWindowSize() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      CommonAPI.driver.manage().window().setSize(new Dimension(400, 400));
    }
 
-   public boolean isSmallNavbarVisible(WebDriver driver) {
-      WebElement w = driver.findElement(By.xpath("//button[@id='ChangeToggleMobile']"));
-      if(w.isDisplayed())
+   public boolean isSmallNavbarVisible() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      if (button_navDropdown.isDisplayed())
          return true;
       return false;
    }
 
-   public void clickOnSmallNavBar(WebDriver driver) {
-      driver.findElement(By.xpath("//button[@id='ChangeToggleMobile']")).click();
+   public void clickOnSmallNavBar() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      button_navDropdown.click();
    }
 
-   public boolean isSmallNavbarCloseButtonVisible(WebDriver driver) {
-      WebElement w = driver.findElement(By.xpath("//div[@id='navbar-close-mobile']"));
-      if(w.isDisplayed())
+   public boolean isSmallNavbarCloseButtonVisible() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      if (button_closeNavDropdown.isDisplayed())
          return true;
       return false;
    }
 
-   public boolean isLiveVisible(WebDriver driver) {
-      if(driver.findElement(By.xpath("//li[@id='Li2']")).isDisplayed())
+   public boolean isLiveVisibleAfterReducingWindowSize() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      if (link_smallLive.isDisplayed())
          return true;
       return false;
    }
