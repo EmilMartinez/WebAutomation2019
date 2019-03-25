@@ -33,15 +33,12 @@ public class RegisterPageTest extends CommonAPI {
         String lName = rp.loadProperties().getProperty("lastName");
         String mail = rp.loadProperties().getProperty("email");
         String pword = rp.loadProperties().getProperty("password");
-        String cpword = rp.loadProperties().getProperty("confirmPassword");
-        WebElement month = registerPage.returnMonthWebElem();
-        WebElement day = registerPage.returnDayWebElement();
-        WebElement year = registerPage.returnYearWebElement();
-        CommonAPI.selectOptionByVisibleText(month, rp.loadProperties().getProperty("month"));
-        CommonAPI.selectOptionByVisibleText(day, rp.loadProperties().getProperty("day"));
-        CommonAPI.selectOptionByVisibleText(year, rp.loadProperties().getProperty("year"));
+        String confirmPassword = "loveK@1234";
+        String month = rp.loadProperties().getProperty("month");
+        String day = rp.loadProperties().getProperty("day");
+        String year = rp.loadProperties().getProperty("year");
 
-        homePage = registerPage.validateRegistration(fName, lName, mail, pword, cpword);
+        homePage = registerPage.validateRegistration(fName, lName, mail, pword, confirmPassword, month, day, year);
     }
 
 

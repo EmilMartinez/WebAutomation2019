@@ -43,11 +43,12 @@ public class CommonAPI {
         }else{
             getLocalDriver(os, browserName);
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         driver.get(url);
         // driver.navigate().to(url);
         // driver.navigate().refresh();
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
@@ -266,7 +267,7 @@ public class CommonAPI {
         return driver.getCurrentUrl();
     }
 
-    public static void selectOptionByVisibleText(WebElement element, String value) {
+    public static void selectOptionByVisibleText(WebElement element, String value) throws NullPointerException {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
