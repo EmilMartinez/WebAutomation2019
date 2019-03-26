@@ -410,11 +410,6 @@ public class HomePageAmazon extends CommonAPI {
 
    public String invalidAccountSignIn(String email, String pwd) {
       signInLink();
-      try {
-         Thread.sleep(2000);
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
       emailAccount.sendKeys(email, Keys.ENTER);
       password.sendKeys(pwd);
       try {
@@ -425,6 +420,13 @@ public class HomePageAmazon extends CommonAPI {
       }
 
    }
+
+   public void InvalidSignInScreenShot(String email, String pwd) {
+       signInLink();
+       emailAccount.sendKeys(email, Keys.ENTER);
+       password.sendKeys(pwd);
+       signInSubmitButton.click();
+    }
 
    //radio buttons
    public void clickLangSettings() {
