@@ -17,7 +17,7 @@ public class Trending extends CommonAPI {
    @FindBy(xpath = "//nav[@class='nav-homepage-topics nav-wide']//ul")
    WebElement field_trendingTopics;
 
-   @FindBy(id = "#btn_showmore_b1_418")
+   @FindBy(xpath = "//button[contains(text(),'Show More')]")
    WebElement button_showMore;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
@@ -118,5 +118,12 @@ public class Trending extends CommonAPI {
       }.getClass().getEnclosingMethod().getName()));
 
       button_showMore.click();
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 }

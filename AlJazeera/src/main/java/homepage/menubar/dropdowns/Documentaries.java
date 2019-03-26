@@ -14,46 +14,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Documentaries extends CommonAPI {
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > a.dropdown-toggle")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > a.dropdown-toggle")
    private WebElement link_docs;
 
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > ul.dropdown-menu.megamenu.row")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > ul.dropdown-menu.megamenu.row li.col-sm-4 > ul:nth-child(1)")
    private WebElement field_docsDropdown;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[1]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(1) > a:nth-child(1)")
    private WebElement link_featuredDocumentaries;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[2]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(2) > a:nth-child(1)")
    private WebElement link_witness;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[3]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(3) > a:nth-child(1)")
    private WebElement link_ajWorld;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[4]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(4) > a:nth-child(1)")
    private WebElement link_101East;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[5]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(5) > a:nth-child(1)")
    private WebElement link_peopleNPower;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[6]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(6) > a:nth-child(1)")
    private WebElement link_faultLines;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[7]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(7) > a:nth-child(1)")
    private WebElement link_radYouth;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[8]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(8) > a:nth-child(1)")
    private WebElement link_ajCorrespondent;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[9]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(9) > a:nth-child(1)")
    private WebElement link_thisIsEuro;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[10]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(10) > a:nth-child(1)")
    private WebElement link_ajSelects;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[11]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(11) > a:nth-child(1)")
    private WebElement link_rewind;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[12]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(12) > a:nth-child(1)")
    private WebElement link_all;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
@@ -90,7 +90,7 @@ public class Documentaries extends CommonAPI {
       builder.moveToElement(link_docs).perform();
    }
 
-   public void hoverOverEachDropdownLink(WebElement w) {
+   public void hoverOverDropdownLink(WebElement w) {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
 
@@ -105,11 +105,11 @@ public class Documentaries extends CommonAPI {
       link_docs.click();
    }
 
-   public List<String> getListOfDropDownTextFromDB() throws Exception {
+   public List<String> getListOfDropDownTitleFromDB() throws Exception {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      return conn.readDataBase("docs_dd", "LinkTitle", filepath);
+      return conn.readDataBase("docs_dd", "PageTitle", filepath);
    }
 
    public boolean isDropdownVisible() {
@@ -119,6 +119,13 @@ public class Documentaries extends CommonAPI {
       if(field_docsDropdown.isDisplayed())
          return true;
       return false;
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 
    /**

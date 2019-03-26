@@ -20,7 +20,8 @@ public class TestDocumentaries extends CommonAPI {
       newDocs = PageFactory.initElements(driver, Documentaries.class);
    }
 
-   @Test(priority = 1, description = "Test #29")
+   @Test(priority = 6, description = "Test #19")
+//   @Test(priority = 19, description = "Test #19")
    public void clickOnDocs() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,7 +30,8 @@ public class TestDocumentaries extends CommonAPI {
       newDocs.clickDocs();
    }
 
-   @Test(priority = 2, description = "Test #30")
+   @Test(priority = 7, description = "Test #29")
+//   @Test(priority = 20, description = "Test #20")
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -39,19 +41,21 @@ public class TestDocumentaries extends CommonAPI {
       Assert.assertTrue(newDocs.isDropdownVisible());
    }
 
-   @Test(priority = 3, description = "Test #31")
-   public void checkEachDropdownLink() {
+   @Test(priority = 8, description = "Test #29")
+//   @Test(priority = 21, description = "Test #21")
+   public void hoverEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       newDocs.hoverOverDocs();
       for (WebElement w : newDocs.getListOfDropdownWebElem()) {
-         newDocs.hoverOverEachDropdownLink(w);
+         newDocs.hoverOverDropdownLink(w);
       }
    }
 
-   @Test(priority = 4, description = "Test #32")
+   @Test(priority = 9, description = "Test #29")
+//   @Test(priority = 22, description = "Test #22")
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -59,26 +63,31 @@ public class TestDocumentaries extends CommonAPI {
 
       for (WebElement w : newDocs.getListOfDropdownWebElem()) {
          newDocs.hoverOverDocs();
-         w.click();
+         newDocs.clickOnElem(w);
+         driver.navigate().back();
+         CommonAPI.waitForPageLoad();
       }
    }
 
-   @Test(priority = 5, description = "Test #33 - Uses SQL DB")
-   public void checkEachLinkText() throws Exception {
+   @Test(priority = 10, description = "Test #29")
+//   @Test(priority = 23, description = "Test #23 - Uses SQL DB")
+   public void checkEachLinkTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newDocs.getListOfDropdownWebElem();
-      List<String> listOfDDActualText = newDocs.getListOfDropDownTextFromDB();
+      List<String> listOfDDActualText = newDocs.getListOfDropDownTitleFromDB();
 
       for (int i = 0; i < listOfDDActualText.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newDocs.hoverOverDocs();
          String expectedTitle = listOfDDActualText.get(i);
-         listOfDDWebElem.get(i).click();
+         newDocs.clickOnElem(listOfDDWebElem.get(i));
+         CommonAPI.waitForPageLoad();
 
-         Assert.assertEquals(expectedTitle, CommonAPI.driver.getCurrentUrl());
+         Assert.assertEquals(expectedTitle, CommonAPI.driver.getTitle());
+         driver.navigate().back();
       }
    }
 }

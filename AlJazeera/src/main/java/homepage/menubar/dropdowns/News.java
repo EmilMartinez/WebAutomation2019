@@ -13,31 +13,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class News extends CommonAPI {
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) > a.dropdown-toggle")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) > a.dropdown-toggle")
    private WebElement link_news;
 
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) > ul.dropdown-menu.megamenu.row")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 > ul:nth-child(1)")
    private WebElement field_newsDropdown;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[2]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(2) > a:nth-child(1)")
    private WebElement link_africa;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[3]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(3) > a:nth-child(1)")
    private WebElement link_asia;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[4]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(4) > a:nth-child(1)")
    private WebElement link_usAndCanada;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[5]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(5) > a:nth-child(1)")
    private WebElement link_latinAmerica;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[6]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(6) > a:nth-child(1)")
    private WebElement link_europe;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[7]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(7) > a:nth-child(1)")
    private WebElement link_asiaPacific;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[2]//ul[1]//li[1]//ul[1]//li[8]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(3) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(8) > a:nth-child(1)")
    private WebElement link_all;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
@@ -84,11 +84,11 @@ public class News extends CommonAPI {
       link_news.click();
    }
 
-   public List<String> getListOfDropDownTextFromDB() throws Exception {
+   public List<String> getListOfDropDownTitleFromDB() throws Exception {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      return conn.readDataBase("news_dd", "LinkTitle", filepath);
+      return conn.readDataBase("news_dd", "PageTitle", filepath);
    }
 
    public boolean isDropdownVisible() {
@@ -98,6 +98,13 @@ public class News extends CommonAPI {
       if (field_newsDropdown.isDisplayed())
          return true;
       return false;
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 
    /**

@@ -13,49 +13,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shows extends CommonAPI {
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) > a.dropdown-toggle")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) > a.dropdown-toggle")
    private WebElement link_shows;
 
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) > ul.dropdown-menu.megamenu.row")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 > ul:nth-child(1)")
    private WebElement field_showsDropdown;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[1]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(1) > a:nth-child(1)")
    private WebElement link_insideStory;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[2]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(2) > a:nth-child(1)")
    private WebElement link_theStream;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[3]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(3) > a:nth-child(1)")
    private WebElement link_listeningPost;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[4]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(4) > a:nth-child(1)")
    private WebElement link_talkToAJ;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[5]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(5) > a:nth-child(1)")
    private WebElement link_bigPicture;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[6]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(6) > a:nth-child(1)")
    private WebElement link_head;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[7]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(7) > a:nth-child(1)")
    private WebElement link_countingTheCost;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[8]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(8) > a:nth-child(1)")
    private WebElement link_upFront;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[9]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(9) > a:nth-child(1)")
    private WebElement link_earthrise;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[10]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(10) > a:nth-child(1)")
    private WebElement link_empire;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[5]//ul[1]//li[1]//ul[1]//li[11]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(6) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(11) > a:nth-child(1)")
    private WebElement link_all;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
-   ExcelData excl = new ExcelData();
+   private ExcelData excl = new ExcelData();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
-   String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
+   private String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
    public List<WebElement> getListOfDropdownWebElem() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -101,20 +101,27 @@ public class Shows extends CommonAPI {
       link_shows.click();
    }
 
-   public List<String> getListOfDropDownTextFromDB() throws Exception {
+   public List<String> getListOfDropDownTitleFromDB() throws Exception {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      return conn.readDataBase("shows_dd", "LinkTitle", filepath);
+      return conn.readDataBase("shows_dd", "PageTitle", filepath);
    }
 
    public boolean isDropdownVisible() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      if(field_showsDropdown.isDisplayed())
+      if (field_showsDropdown.isDisplayed())
          return true;
       return false;
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 
    /**

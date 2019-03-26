@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import reporting.ApplicationLog;
 import reporting.TestLogger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestShows extends CommonAPI {
@@ -20,7 +21,8 @@ public class TestShows extends CommonAPI {
       newShow = PageFactory.initElements(driver, Shows.class);
    }
 
-   @Test(priority = 1, description = "Test #34")
+   @Test(description = "Test #34")
+   // @Test(priority = 34)
    public void clickOnShows() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,7 +31,8 @@ public class TestShows extends CommonAPI {
       newShow.clickShows();
    }
 
-   @Test(priority = 2, description = "Test #35")
+   @Test(description = "Test #35")
+   // @Test(priority = 35)
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -39,7 +42,8 @@ public class TestShows extends CommonAPI {
       Assert.assertTrue(newShow.isDropdownVisible());
    }
 
-   @Test(priority = 3, description = "Test #36")
+   @Test(description = "Test #36")
+   // @Test(priority = 36)
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -51,7 +55,8 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(priority = 4, description = "Test #37")
+   @Test(description = "Test #37")
+   // @Test(priority = 37)
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -59,27 +64,37 @@ public class TestShows extends CommonAPI {
 
       for (WebElement w : newShow.getListOfDropdownWebElem()) {
          newShow.hoverOverShows();
-         w.click();
+         newShow.clickOnElem(w);
+         if (CommonAPI.isThereMoreThanOneTabs())
+            CommonAPI.handleTabs();
+         else
+            driver.navigate().back();
       }
    }
 
-   @Test(priority = 5, description = "Test #38 - Uses SQL DB")
+   @Test(description = "Test #38 - Uses SQL DB")
+   // @Test(priority = 38, description = "Uses SQL DB")
    public void checkEachLinkText() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newShow.getListOfDropdownWebElem();
-      List<String> listOfDDActualText = newShow.getListOfDropDownTextFromDB();
+      List<String> listOfDDActualText = newShow.getListOfDropDownTitleFromDB();
 
       for(int i = 0; i < listOfDDActualText.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newShow.hoverOverShows();
          String expectedTitle = listOfDDActualText.get(i);
          WebElement w = listOfDDWebElem.get(i);
-         w.click();
+         newShow.clickOnElem(w);
+         CommonAPI.waitForPageLoad();
 
-         Assert.assertEquals(expectedTitle, CommonAPI.driver.getCurrentUrl());
+         Assert.assertEquals(expectedTitle, CommonAPI.driver.getTitle());
+         if (CommonAPI.isThereMoreThanOneTabs())
+            CommonAPI.handleTabs();
+         else
+            driver.navigate().back();
       }
    }
 }

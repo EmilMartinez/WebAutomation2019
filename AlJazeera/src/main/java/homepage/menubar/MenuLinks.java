@@ -28,16 +28,16 @@ import java.util.List;
  * - Live
  */
 public class MenuLinks extends CommonAPI {
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(3)")
    private WebElement link_newsDD;
 
    @FindBy(css = ".nav-item-140311071122120:nth-child(4)")
    private WebElement link_middleEast;
 
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(5)")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(5)")
    private WebElement link_documentariesDD;
 
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(6)")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(6)")
    private WebElement link_showsDD;
 
    @FindBy(css = ".nav-item-141105143951929:nth-child(7)")
@@ -49,13 +49,13 @@ public class MenuLinks extends CommonAPI {
    @FindBy(css = ".nav-item-161027083327112:nth-child(9)")
    private WebElement link_inPictures;
 
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(10)")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav > li.dropdown.menu-large:nth-child(10)")
    private WebElement field_moreDD;
 
    @FindBy(css = ".search-btn-section.watchLive-pad ul:nth-child(1) li.watch-live-sticky a:nth-child(1) > span.watch-live--stickyWord")
    private WebElement link_live;
 
-   @FindBy(css = "div.animated.article-main-header:nth-child(5) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-header > a.navbar-brand")
+   @FindBy(css = ".navbar-header > a.navbar-brand")
    private WebElement pic_logo;
 
    @FindBy(xpath = "//button[@id='ChangeToggleMobile']")
@@ -181,6 +181,13 @@ public class MenuLinks extends CommonAPI {
 
       Actions builder = new Actions(CommonAPI.driver);
       builder.moveToElement(webElement).perform();
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 
    /**

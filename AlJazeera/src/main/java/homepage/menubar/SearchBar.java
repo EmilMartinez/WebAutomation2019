@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchBar extends CommonAPI {
-   @FindBy(css = ".row div.col-sm-3.search-live-block.article-live-block div.search-btn-section.watchLive-pad ul:nth-child(1) li.search-btn-top > a.article-button-search-top-main")
+   @FindBy(css = ".search-btn-section.watchLive-pad ul:nth-child(1) li.search-btn-top > a.article-button-search-top-main")
    private WebElement link_searchButton;
 
    @FindBy(xpath = "//div[@id='article-main-header']//div//div//div//input[@id='searchText-main-header']")
@@ -28,12 +28,20 @@ public class SearchBar extends CommonAPI {
       link_searchButton.click();
    }
 
+   public void doubleClickOnSearchButton() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      Actions builder = new Actions(CommonAPI.driver);
+      builder.doubleClick();
+   }
+
    public void clickAwayFromSearchBar() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       Actions builder = new Actions(CommonAPI.driver);
-      builder.moveToElement(input_searchBar, 0, 25).click().build().perform();
+      builder.moveByOffset(1,700).click().build().perform();
    }
 
    public void search(String s) {

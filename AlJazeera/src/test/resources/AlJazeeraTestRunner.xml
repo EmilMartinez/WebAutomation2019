@@ -11,10 +11,10 @@
     <parameter name="browserVersion" value="30.0"/>
     <parameter name="url" value="https://www.aljazeera.com/"/>
 
-    <test name = "Al Jazeera Home">
+    <test name = "Al Jazeera Home" group-by-instances="true">
         <classes>
             <!--<class name = "testhomepage.testmenubar.TestMenuLinks" />-->
-            <class name = "testhomepage.testmenubar.TestSearchBar" />
+            <!--<class name = "testhomepage.testmenubar.TestSearchBar" />-->
             <!--<class name = "testhomepage.testmenubar.TestTrending" />-->
             <!--<class name = "testhomepage.testmenubar.testdropdowns.TestNews" />-->
             <!--<class name = "testhomepage.testmenubar.testdropdowns.TestDocumentaries" />-->
@@ -22,6 +22,7 @@
             <!--<class name = "testhomepage.testmenubar.testdropdowns.TestMore" />-->
             <!--<class name = "testhomepage.TestSocialMedia" />-->
             <!--<class name = "testhomepage.TestTopStory" />-->
+            <class name = "testhomepage.testfooterlinks.TestAbout" />
         </classes>
     </test>
 </suite>

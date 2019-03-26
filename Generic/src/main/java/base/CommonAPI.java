@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -24,6 +25,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -172,7 +174,7 @@ public class CommonAPI {
    }
 
 
-   @AfterMethod
+   @AfterMethod(alwaysRun = true)
    public void cleanUp() {
       driver.quit();
    }
@@ -352,5 +354,38 @@ public class CommonAPI {
       String splitString = "";
       splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
       return splitString;
+   }
+
+   public static void waitForPageLoad() {
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+   }
+
+   /**
+    * Handles links that opens up into a new tab instead of navigating within
+    * the current tab. It will close the newest tab and go back to the original page.
+    */
+   public static void handleTabs() {
+      ArrayList<String> allTabs = new ArrayList<String> (driver.getWindowHandles());
+      // There will always be 2 tabs.
+      driver.switchTo().window(allTabs.get(1));
+      driver.close();
+      driver.switchTo().window(allTabs.get(0));
+   }
+
+   /**
+    * This will switch to a new tab.
+    * @Precondition There must only be two tabs active.
+    */
+   public static void switchToActiveTab() throws Exception {
+      ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+      Thread.sleep(500);
+      driver.switchTo().window(tabs.get(1));
+   }
+
+   public static boolean isThereMoreThanOneTabs() {
+      if(driver.getWindowHandles().size() > 1)
+         return true;
+      return false;
    }
 }

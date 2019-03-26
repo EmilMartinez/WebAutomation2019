@@ -13,40 +13,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class More extends CommonAPI {
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) > a.dropdown-toggle")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) > a.dropdown-toggle")
    private WebElement link_more;
 
-   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) > ul.dropdown-menu.megamenu.row")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 > ul:nth-child(1)")
    private WebElement field_moreDropdown;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[1]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(1) > a:nth-child(1)")
    private WebElement link_features;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[4]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(4) > a:nth-child(1)")
    private WebElement link_interactive;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[5]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(5) > a:nth-child(1)")
    private WebElement link_interactiveDocs;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[6]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(6) > a:nth-child(1)")
    private WebElement link_ajShorts;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[7]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(7) > a:nth-child(1)")
    private WebElement link_podcasts;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[8]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(8) > a:nth-child(1)")
    private WebElement link_repNotebook;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[9]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(9) > a:nth-child(1)")
    private WebElement link_humanRights;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[10]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(10) > a:nth-child(1)")
    private WebElement link_sport;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[11]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(11) > a:nth-child(1)")
    private WebElement link_scienceNTech;
 
-   @FindBy(xpath = "//div[@id='sticky-header']//li[9]//ul[1]//li[1]//ul[1]//li[12]")
+   @FindBy(css = ".navigation-wrapper div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(10) ul.dropdown-menu.megamenu.row li.col-sm-4 ul:nth-child(1) li:nth-child(12) > a:nth-child(1)")
    private WebElement link_weather;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
@@ -96,20 +96,27 @@ public class More extends CommonAPI {
       link_more.click();
    }
 
-   public List<String> getListOfDropDownTextFromDB() throws Exception {
+   public List<String> getListOfDropDownTitleFromDB() throws Exception {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      return conn.readDataBase("more_dd", "LinkTitle", filepath);
+      return conn.readDataBase("more_dd", "PageTitle", filepath);
    }
 
    public boolean isDropdownVisible() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      if(field_moreDropdown.isDisplayed())
+      if (field_moreDropdown.isDisplayed())
          return true;
       return false;
+   }
+
+   public void clickOnElem(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      w.click();
    }
 
    /**

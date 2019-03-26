@@ -20,7 +20,8 @@ public class TestMore extends CommonAPI {
       newMore = PageFactory.initElements(driver, More.class);
    }
 
-   @Test(priority = 1, description = "Test #24")
+   @Test(description = "Test #24")
+   // @Test(priority = 24)
    public void clickOnMore() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,7 +30,8 @@ public class TestMore extends CommonAPI {
       newMore.clickMore();
    }
 
-   @Test(priority = 2, description = "Test #25")
+   @Test(description = "Test #25")
+   // @Test(priority = 25)
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -39,7 +41,8 @@ public class TestMore extends CommonAPI {
       Assert.assertTrue(newMore.isDropdownVisible());
    }
 
-   @Test(priority = 3, description = "Test #26")
+   @Test(description = "Test #26")
+   // @Test(priority = 26)
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -51,7 +54,8 @@ public class TestMore extends CommonAPI {
       }
    }
 
-   @Test(priority = 4, description = "Test #27")
+   @Test(description = "Test #27")
+   // @Test(priority = 27)
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -59,26 +63,27 @@ public class TestMore extends CommonAPI {
 
       for (WebElement w : newMore.getListOfDropdownWebElem()) {
          newMore.hoverOverMore();
-         w.click();
+         newMore.clickOnElem(w);
       }
    }
 
-   @Test(priority = 5, description = "Test #28 - Uses SQL DB")
-   public void checkEachLinkText() throws Exception {
+   @Test(description = "Test #28 - Uses SQL DB")
+   // @Test(priority = 28, description = "Uses SQL DB")
+   public void getListOfDropDownTitleFromDB() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newMore.getListOfDropdownWebElem();
-      List<String> listOfDDActualText = newMore.getListOfDropDownTextFromDB();
+      List<String> listOfDDActualText = newMore.getListOfDropDownTitleFromDB();
 
       for (int i = 0; i < listOfDDActualText.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newMore.hoverOverMore();
          String expectedTitle = listOfDDActualText.get(i);
-         listOfDDWebElem.get(i).click();
+         newMore.clickOnElem(listOfDDWebElem.get(i));
 
-         Assert.assertEquals(expectedTitle, CommonAPI.driver.getCurrentUrl());
+         Assert.assertEquals(expectedTitle, CommonAPI.driver.getTitle());
       }
    }
 }

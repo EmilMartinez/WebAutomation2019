@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import reporting.ApplicationLog;
 import reporting.TestLogger;
 
+import java.util.ArrayList;
+
 public class TestSocialMedia extends CommonAPI {
    SocialMedia newSocial;
 
@@ -21,177 +23,265 @@ public class TestSocialMedia extends CommonAPI {
       newSocial = PageFactory.initElements(driver, SocialMedia.class);
    }
 
-   @Test(priority = 1, description = "Test #39")
-   public void testClickOnFacebook() {
+   @Test(description = "Test #39")
+   // @Test(priority = 39)
+   public void testClickOnFacebook() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnFB();
    }
 
-   @Test(priority = 2, description = "Test #40")
-   public void testClickOnTwitter() {
+   @Test(description = "Test #40")
+   // @Test(priority = 40)
+   public void testClickOnTwitter() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnTwitter();
    }
 
-   @Test(priority = 3, description = "Test #41")
-   public void testClickOnGooglePlus() {
+   @Test(description = "Test #41")
+   // @Test(priority = 41)
+   public void testClickOnGooglePlus() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnGoogle();
    }
 
-   @Test(priority = 4, description = "Test #42")
-   public void testClickOnRSS() {
+   @Test(description = "Test #42")
+   // @Test(priority = 42)
+   public void testClickOnRSS() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnR();
    }
 
-   @Test(priority = 5, description = "Test #43")
-   public void testClickOnPodcasts() {
+   @Test(description = "Test #43")
+   // @Test(priority = 43)
+   public void testClickOnPodcasts() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnPod();
    }
 
-   @Test(priority = 6, description = "Test #44")
-   public void testClickOnYouTube() {
+   @Test(description = "Test #44")
+   // @Test(priority = 44)
+   public void testClickOnYouTube() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnYT();
    }
 
-   @Test(priority = 7, description = "Test #45")
-   public void checkFBTitle() {
+   @Test(description = "Test #45")
+   // @Test(priority = 45)
+   public void checkFBTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnFB();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(5000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("Al Jazeera English - Home | Facebook", driver.getTitle());
    }
 
-   @Test(priority = 8, description = "Test #46")
-   public void checkTwitterTitle() {
+   @Test(description = "Test #46")
+   // @Test(priority = 46)
+   public void checkTwitterTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnTwitter();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("Al Jazeera English (@AJEnglish) | Twitter", driver.getTitle());
    }
 
-   @Test(priority = 9, description = "Test #47")
-   public void checkGooglePlusTitle() {
+   @Test(description = "Test #47")
+   // @Test(priority = 47)
+   public void checkGooglePlusTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnGoogle();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("Al Jazeera English - Google+", driver.getTitle());
    }
 
-   @Test(priority = 10, description = "Test #48")
-   public void checkRSSTitle() {
+   @Test(description = "Test #49")
+   // @Test(priority = 48)
+   public void checkPodcastTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      newSocial.clickOnR();
-      Assert.assertEquals("https://www.aljazeera.com/xml/rss/all.xml", driver.getTitle());
-   }
-
-   @Test(priority = 11, description = "Test #49")
-   public void checkPodcastTitle() {
-      ApplicationLog.epicLogger();
-      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
-      }.getClass().getEnclosingMethod().getName()));
-
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnPod();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("Podcasts - Al Jazeera English", driver.getTitle());
    }
 
-   @Test(priority = 12, description = "Test #50")
-   public void checkYouTubeTitle() {
+   @Test(description = "Test #50")
+   // @Test(priority = 49)
+   public void checkYouTubeTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnYT();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(5000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("Al Jazeera English - YouTube", driver.getTitle());
    }
 
-   @Test(priority = 13, description = "Test #51")
-   public void checkFacebookURL() {
+   @Test(description = "Test #51")
+   // @Test(priority = 50)
+   public void checkFacebookURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnFB();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(5000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("https://www.facebook.com/aljazeera", driver.getCurrentUrl());
    }
 
-   @Test(priority = 14, description = "Test #52")
-   public void checkTwitterURL() {
+   @Test(description = "Test #52")
+   // @Test(priority = 51)
+   public void checkTwitterURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnTwitter();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("https://twitter.com/ajenglish", driver.getCurrentUrl());
    }
 
-   @Test(priority = 15, description = "Test #53")
-   public void checkGooglePlusURL() {
+   @Test(description = "Test #53")
+   // @Test(priority = 52)
+   public void checkGooglePlusURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnGoogle();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("https://plus.google.com/118055372303098301843", driver.getCurrentUrl());
    }
 
-   @Test(priority = 16, description = "Test #54")
-   public void checkRSSURL() {
+   @Test(description = "Test #55")
+   // @Test(priority = 53)
+   public void checkPodcastsURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      newSocial.clickOnR();
-      Assert.assertEquals("https://www.aljazeera.com/xml/rss/all.xml", driver.getCurrentUrl());
-   }
-
-   @Test(priority = 17, description = "Test #55")
-   public void checkPodcastsURL() {
-      ApplicationLog.epicLogger();
-      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
-      }.getClass().getEnclosingMethod().getName()));
-
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnPod();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("https://www.aljazeera.com/podcasts/", driver.getCurrentUrl());
    }
 
-   @Test(priority = 18, description = "Test #56")
-   public void checkYouTubeURL() {
+   @Test(description = "Test #56")
+   // @Test(priority = 54)
+   public void checkYouTubeURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
+      // Icon is not visible to click. Must scroll down.
+      newSocial.scrollToSocialMediaField();
       newSocial.clickOnYT();
+
+      // Waiting for the the tab to load.
+      Thread.sleep(4000);
+      CommonAPI.switchToActiveTab();
+      newSocial.waitDom();
+
       Assert.assertEquals("https://www.youtube.com/user/AlJazeeraEnglish?sub_confirmation=1", driver.getCurrentUrl());
    }
 }
