@@ -2,6 +2,7 @@ package base;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,6 +40,7 @@ public class CommonAPI {
     public String saucelabs_accesskey = "";
     //Extent Report Listener
     public static ExtentReports extent;
+
     @BeforeSuite
     public void extentSetup(ITestContext context) {
         ExtentManager.setOutputDirectory(context);
@@ -71,13 +73,14 @@ public class CommonAPI {
         } else if (result.getStatus() == 2) {
             ExtentTestManager.getTest().log(LogStatus.FAIL, getStackTrace(result.getThrowable()));
         } else if (result.getStatus() == 3) {
-            ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+            //ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
+            ExtentTestManager.getTest().log(LogStatus.SKIP, getStackTrace(result.getThrowable()));
         }
         ExtentTestManager.endTest();
         extent.flush();
-        if (result.getStatus() == ITestResult.FAILURE) {
+        /*if (result.getStatus() == ITestResult.FAILURE) {
             captureScreenshot(driver, result.getName());
-        }
+        }*/
         driver.quit();
     }
     @AfterSuite
@@ -93,7 +96,7 @@ public class CommonAPI {
     @Parameters({"useCloudEnv","cloudEnvName","os","os_version","browserName","browserVersion","url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false")String cloudEnvName,
-                      @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
+                      @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("30")
                               String browserVersion, @Optional("http://www.amazon.com") String url)throws IOException {
         if(useCloudEnv==true){
             if(cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -114,9 +117,9 @@ public class CommonAPI {
     public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if(browserName.equalsIgnoreCase("chrome-options")){
@@ -124,23 +127,23 @@ public class CommonAPI {
             options.addArguments("--disable-notifications");
             options.addArguments("--incognito");
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver");
             }else if(OS.equalsIgnoreCase("Windows")){
-                System.setProperty("webdriver.chrome.driver", "../generic/browser-driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "../Generic/browser-driver/chromedriver.exe");
             }
             driver = new ChromeDriver(options);
         }
 
         else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("OS X")){
-                System.setProperty("webdriver.gecko.driver", "../generic/browser-driver/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver");
             }else if(OS.equalsIgnoreCase("Windows")) {
-                System.setProperty("webdriver.gecko.driver", "../generic/browser-driver/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "../Generic/browser-driver/geckodriver.exe");
             }
             driver = new FirefoxDriver();
 
         } else if(browserName.equalsIgnoreCase("ie")) {
-            System.setProperty("webdriver.ie.driver", "../generic/browser-driver/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", "../Generic/browser-driver/IEDriverServer.exe");
             driver = new InternetExplorerDriver();
         }
         return driver;
@@ -327,20 +330,28 @@ public class CommonAPI {
         return driver.getCurrentUrl();
     }
 
-    public static void captureScreenshot(WebDriver driver, String screenshotName) {
+    public static String captureScreenshot(WebDriver driver, String screenshotName) {
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        //String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".jpeg ";
+        //Users//atomar//Desktop//
+        String destination = System.getProperty("user.dir") +"/screenshots/"+screenshotName + ".jpeg ";
+        File target = new File(destination);
         try {
+            FileUtils.copyFile(file, target);
+        } catch (IOException e) {
+        }
+        /*try {
             //FileUtils.copyFile(file, new File(System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png"));
             System.out.println("Screenshot captured");
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
             ;
-        }
-
+        }*/
+        return destination;
     }
 
     public static String convertToString(String st) {
