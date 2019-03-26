@@ -5,5 +5,5 @@ public class ApplicationLog {
         //TestLogger.log(epic);
         TestLogger.log("Browser is launching and Application is launched");
     }
-
 }
+

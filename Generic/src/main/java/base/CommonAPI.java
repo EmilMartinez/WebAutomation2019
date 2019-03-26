@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -25,6 +26,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 //import com.relevantcodes.extentreports.LogStatus;
 
 public class CommonAPI {
+
     //WebDriver Instance
     public static WebDriver driver = null;
     public String browserstack_username= "";
@@ -188,120 +191,116 @@ public class CommonAPI {
             driver.findElement(By.cssSelector(locator)).sendKeys(value);
         } catch (Exception e1) {
             try {
-                // Check by name
-                driver.findElement(By.name(locator)).sendKeys(value);
-            } catch (Exception e2) {
-                try {
-                    // Check by xpath
-                    driver.findElement(By.xpath(locator)).sendKeys(value);
-                } catch (Exception e3) {
-                    // Check by id
-                    driver.findElement(By.id(locator)).sendKeys(value);
-                }
+               // Check by xpath
+               driver.findElement(By.xpath(locator)).sendKeys(value);
+            } catch (Exception e3) {
+               // Check by id
+               driver.findElement(By.id(locator)).sendKeys(value);
             }
-        }
-    }
+         }
+      }
+   }
 
-    /**
-     * Typing value of a general locator. Method will choose what technique to use and hit 'ENTER'
-     *
-     * @param locator: locator technique(cssSelector, name, xpath and id).
-     * @param value: Value being assigned to the locator.
-     */
-    public static void typeOnElementNEnter(String locator, String value) {
-        try {
-            // Check and enter by cssSelector
-            driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
-        } catch (Exception e1) {
+   /**
+    * Typing value of a general locator. Method will choose what technique to use and hit 'ENTER'
+    *
+    * @param locator: locator technique(cssSelector, name, xpath and id).
+    * @param value:   Value being assigned to the locator.
+    */
+   public static void typeOnElementNEnter(String locator, String value) {
+      try {
+         // Check and enter by cssSelector
+         driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
+      } catch (Exception e1) {
+         try {
+            // Check and enter by name
+            driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
+         } catch (Exception e2) {
             try {
-                // Check and enter by name
-                driver.findElement(By.name(locator)).sendKeys(value, Keys.ENTER);
-            } catch (Exception e2) {
-                try {
-                    // Check and enter by xpath
-                    driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
-                } catch (Exception e3) {
-                    // Check and enter by id
-                    driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
-                }
+               // Check and enter by xpath
+               driver.findElement(By.xpath(locator)).sendKeys(value, Keys.ENTER);
+            } catch (Exception e3) {
+               // Check and enter by id
+               driver.findElement(By.id(locator)).sendKeys(value, Keys.ENTER);
             }
-        }
-    }
+         }
+      }
+   }
 
-    /**
-     *  Checking with locator technique and clicking on it.
-     *
-     * @param locator: locator technique(cssSelector, name, xpath and id)
-     */
-    public void clickOnElem(String locator) {
-        try {
-            // Check and click by cssSelector
-            driver.findElement(By.cssSelector(locator)).click();
-        } catch (Exception e1) {
+   /**
+    * Checking with locator technique and clicking on it.
+    *
+    * @param locator: locator technique(cssSelector, name, xpath and id)
+    */
+   public static void clickOnElem(String locator) {
+      try {
+         // Check and click by cssSelector
+         driver.findElement(By.cssSelector(locator)).click();
+      } catch (Exception e1) {
+         try {
+            // Check and click by name
+            driver.findElement(By.name(locator)).click();
+         } catch (Exception e2) {
             try {
-                // Check and click by name
-                driver.findElement(By.name(locator)).click();
-            } catch (Exception e2) {
-                try {
-                    // Check and click by xpath
-                    driver.findElement(By.xpath(locator)).click();
-                } catch (Exception e3) {
-                    // Check and click by id
-                    driver.findElement(By.id(locator)).click();
-                }
+               // Check and click by xpath
+               driver.findElement(By.xpath(locator)).click();
+            } catch (Exception e3) {
+               // Check and click by id
+               driver.findElement(By.id(locator)).click();
             }
-        }
-    }
+         }
+      }
+   }
 
-    /**
-     *  Checking with locator technique and hitting 'ENTER' on it.
-     *
-     * @param locator: locator technique(cssSelector, name, xpath and id)
-     */
-    public void enterOnElem(String locator) {
-        try {
-            // Check and enter by cssSelector
-            driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
-        } catch (Exception e1) {
+   /**
+    * Checking with locator technique and hitting 'ENTER' on it.
+    *
+    * @param locator: locator technique(cssSelector, name, xpath and id)
+    */
+   public void enterOnElem(String locator) {
+      try {
+         // Check and enter by cssSelector
+         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
+      } catch (Exception e1) {
+         try {
+            // Check and enter by name
+            driver.findElement(By.name(locator)).sendKeys(Keys.ENTER);
+         } catch (Exception e2) {
             try {
-                // Check and enter by name
-                driver.findElement(By.name(locator)).sendKeys(Keys.ENTER);
-            } catch (Exception e2) {
-                try {
-                    // Check and enter by xpath
-                    driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
-                } catch (Exception e3) {
-                    // Check and enter by id
-                    driver.findElement(By.id(locator)).sendKeys(Keys.ENTER);
-                }
+               // Check and enter by xpath
+               driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
+            } catch (Exception e3) {
+               // Check and enter by id
+               driver.findElement(By.id(locator)).sendKeys(Keys.ENTER);
             }
-        }
-    }
+         }
+      }
+   }
 
-    /**
-     *  Checking with locator technique and clearing its value.
-     *
-     * @param locator: locator technique(cssSelector, name, xpath and id)
-     */
-    public void clearInputField(String locator) {
-        try {
-            // Check and clear by cssSelector
-            driver.findElement(By.cssSelector(locator)).clear();
-        } catch (Exception e1) {
+   /**
+    * Checking with locator technique and clearing its value.
+    *
+    * @param locator: locator technique(cssSelector, name, xpath and id)
+    */
+   public void clearInputField(String locator) {
+      try {
+         // Check and clear by cssSelector
+         driver.findElement(By.cssSelector(locator)).clear();
+      } catch (Exception e1) {
+         try {
+            // Check and clear by name
+            driver.findElement(By.name(locator)).clear();
+         } catch (Exception e2) {
             try {
-                // Check and clear by name
-                driver.findElement(By.name(locator)).clear();
-            } catch (Exception e2) {
-                try {
-                    // Check and clear by xpath
-                    driver.findElement(By.xpath(locator)).clear();
-                } catch (Exception e3) {
-                    // Check and clear by id
-                    driver.findElement(By.id(locator)).clear();
-                }
+               // Check and clear by xpath
+               driver.findElement(By.xpath(locator)).clear();
+            } catch (Exception e3) {
+               // Check and clear by id
+               driver.findElement(By.id(locator)).clear();
             }
+
         }
-    }
+    
 
     /**
      * Server sleeps for 2000 milliseconds.
@@ -359,4 +358,36 @@ public class CommonAPI {
         splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
         return splitString;
     }
+public static void waitForPageLoad() {
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+   }
+
+   /**
+    * Handles links that opens up into a new tab instead of navigating within
+    * the current tab. It will close the newest tab and go back to the original page.
+    */
+   public static void handleTabs() {
+      ArrayList<String> allTabs = new ArrayList<String> (driver.getWindowHandles());
+      // There will always be 2 tabs.
+      driver.switchTo().window(allTabs.get(1));
+      driver.close();
+      driver.switchTo().window(allTabs.get(0));
+   }
+
+   /**
+    * This will switch to a new tab.
+    * @Precondition There must only be two tabs active.
+    */
+   public static void switchToActiveTab() throws Exception {
+      ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+      Thread.sleep(500);
+      driver.switchTo().window(tabs.get(1));
+   }
+
+   public static boolean isThereMoreThanOneTabs() {
+      if(driver.getWindowHandles().size() > 1)
+         return true;
+      return false;
+   }
 }
