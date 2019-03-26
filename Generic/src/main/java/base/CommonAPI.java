@@ -283,66 +283,66 @@ public class CommonAPI {
     * @param locator: locator technique(cssSelector, name, xpath and id)
     */
    public void clearInputField(String locator) {
-      try {
-         // Check and clear by cssSelector
-         driver.findElement(By.cssSelector(locator)).clear();
-      } catch (Exception e1) {
-         try {
-            // Check and clear by name
-            driver.findElement(By.name(locator)).clear();
-         } catch (Exception e2) {
-            try {
-               // Check and clear by xpath
-               driver.findElement(By.xpath(locator)).clear();
-            } catch (Exception e3) {
-               // Check and clear by id
-               driver.findElement(By.id(locator)).clear();
-            }
+       try {
+           // Check and clear by cssSelector
+           driver.findElement(By.cssSelector(locator)).clear();
+       } catch (Exception e1) {
+           try {
+               // Check and clear by name
+               driver.findElement(By.name(locator)).clear();
+           } catch (Exception e2) {
+               try {
+                   // Check and clear by xpath
+                   driver.findElement(By.xpath(locator)).clear();
+               } catch (Exception e3) {
+                   // Check and clear by id
+                   driver.findElement(By.id(locator)).clear();
+               }
 
-        }
-    
+           }
 
-    /**
-     * Server sleeps for 2000 milliseconds.
-     * @throws InterruptedException
-     */
-    public static void sleepForTwoSec() throws InterruptedException {
-        Thread.sleep(2000);
-    }
 
-    /**
-     * Server sleeps for user's given seconds.
-     *
-     * @param sec: Number of seconds for the server to sleep.
-     * @throws InterruptedException
-     */
-    public static void sleepFor(int sec) throws InterruptedException {
-        Thread.sleep(sec * 1000);
-    }
+           /**
+            * Server sleeps for 2000 milliseconds.
+            * @throws InterruptedException
+            */
+           public static void sleepForTwoSec () throws InterruptedException {
+               Thread.sleep(2000);
+           }
 
-    /**
-     * Returns current page's URL
-     *
-     * @return: String of the url.
-     */
-    public String getCurrUrl() {
-        return driver.getCurrentUrl();
-    }
+           /**
+            * Server sleeps for user's given seconds.
+            *
+            * @param sec: Number of seconds for the server to sleep.
+            * @throws InterruptedException
+            */
+           public static void sleepFor ( int sec) throws InterruptedException {
+               Thread.sleep(sec * 1000);
+           }
 
-    public static String captureScreenshot(WebDriver driver, String screenshotName) {
-        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
-        Date date = new Date();
-        df.format(date);
+           /**
+            * Returns current page's URL
+            *
+            * @return: String of the url.
+            */
+           public String getCurrUrl () {
+               return driver.getCurrentUrl();
+           }
 
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        //String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".jpeg ";
-        //Users//atomar//Desktop//
-        String destination = System.getProperty("user.dir") +"/screenshots/"+screenshotName + ".jpeg ";
-        File target = new File(destination);
-        try {
-            FileUtils.copyFile(file, target);
-        } catch (IOException e) {
-        }
+           public static String captureScreenshot (WebDriver driver, String screenshotName){
+               DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+               Date date = new Date();
+               df.format(date);
+
+               File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+               //String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".jpeg ";
+               //Users//atomar//Desktop//
+               String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + ".jpeg ";
+               File target = new File(destination);
+               try {
+                   FileUtils.copyFile(file, target);
+               } catch (IOException e) {
+               }
         /*try {
             //FileUtils.copyFile(file, new File(System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png"));
             System.out.println("Screenshot captured");
@@ -350,44 +350,46 @@ public class CommonAPI {
             System.out.println("Exception while taking screenshot " + e.getMessage());
             ;
         }*/
-        return destination;
-    }
+               return destination;
+           }
 
-    public static String convertToString(String st) {
-        String splitString = "";
-        splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
-        return splitString;
-    }
-public static void waitForPageLoad() {
-      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-      driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
-   }
+           public static String convertToString (String st){
+               String splitString = "";
+               splitString = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(st), ' ');
+               return splitString;
+           }
+           public static void waitForPageLoad () {
+               driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+               driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+           }
 
-   /**
-    * Handles links that opens up into a new tab instead of navigating within
-    * the current tab. It will close the newest tab and go back to the original page.
-    */
-   public static void handleTabs() {
-      ArrayList<String> allTabs = new ArrayList<String> (driver.getWindowHandles());
-      // There will always be 2 tabs.
-      driver.switchTo().window(allTabs.get(1));
-      driver.close();
-      driver.switchTo().window(allTabs.get(0));
-   }
+           /**
+            * Handles links that opens up into a new tab instead of navigating within
+            * the current tab. It will close the newest tab and go back to the original page.
+            */
+           public static void handleTabs () {
+               ArrayList<String> allTabs = new ArrayList<String>(driver.getWindowHandles());
+               // There will always be 2 tabs.
+               driver.switchTo().window(allTabs.get(1));
+               driver.close();
+               driver.switchTo().window(allTabs.get(0));
+           }
 
-   /**
-    * This will switch to a new tab.
-    * @Precondition There must only be two tabs active.
-    */
-   public static void switchToActiveTab() throws Exception {
-      ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-      Thread.sleep(500);
-      driver.switchTo().window(tabs.get(1));
-   }
+           /**
+            * This will switch to a new tab.
+            * @Precondition There must only be two tabs active.
+            */
+           public static void switchToActiveTab () throws Exception {
+               ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+               Thread.sleep(500);
+               driver.switchTo().window(tabs.get(1));
+           }
 
-   public static boolean isThereMoreThanOneTabs() {
-      if(driver.getWindowHandles().size() > 1)
-         return true;
-      return false;
+           public static boolean isThereMoreThanOneTabs () {
+               if (driver.getWindowHandles().size() > 1)
+                   return true;
+               return false;
+           }
+       }
    }
 }
