@@ -199,7 +199,6 @@ public class CommonAPI {
             }
          }
       }
-   }
 
    /**
     * Typing value of a general locator. Method will choose what technique to use and hit 'ENTER'
@@ -298,9 +297,9 @@ public class CommonAPI {
                // Check and clear by id
                driver.findElement(By.id(locator)).clear();
             }
-
-        }
-    
+         }
+      }
+   }
 
     /**
      * Server sleeps for 2000 milliseconds.
