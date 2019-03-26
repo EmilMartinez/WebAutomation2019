@@ -2,6 +2,7 @@ package base;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.*;
@@ -17,10 +18,7 @@ import org.testng.annotations.*;
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.text.DateFormat;
@@ -76,10 +74,10 @@ public class CommonAPI {
         if (result.getStatus() == 1) {
             ExtentTestManager.getTest().log(LogStatus.PASS, "Test Passed");
         } else if (result.getStatus() == 2) {
-            ExtentTestManager.getTest().log(LogStatus.FAIL, getStackTrace(result.getThrowable()));
+            ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable().getMessage());
         } else if (result.getStatus() == 3) {
             //ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
-            ExtentTestManager.getTest().log(LogStatus.SKIP, getStackTrace(result.getThrowable()));
+            ExtentTestManager.getTest().log(LogStatus.SKIP, result.getThrowable().getMessage());
         }
         ExtentTestManager.endTest();
         extent.flush();
@@ -103,7 +101,7 @@ public class CommonAPI {
     @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
-                      @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("30")
+                      @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
                               String browserVersion, @Optional("http://www.amazon.com") String url) throws IOException {
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -337,9 +335,7 @@ public class CommonAPI {
         df.format(date);
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        //String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".jpeg ";
-        //Users//atomar//Desktop//
-        String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + ".jpeg ";
+        String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) + ".png";
         File target = new File(destination);
         try {
             FileUtils.copyFile(file, target);
@@ -353,6 +349,31 @@ public class CommonAPI {
             ;
         }*/
         return destination;
+    }
+
+    public static String getBase64Screenshot(WebDriver driver, String screenshotName) {
+        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+        Date date = new Date();
+        df.format(date);
+        String encodedBase64 = null;
+        FileInputStream fileInputStream = null;
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File source = screenshot.getScreenshotAs(OutputType.FILE);
+        String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + " " + df.format(date) +  ".png";
+        File finalDestination = new File(destination);
+        try {
+            FileUtils.copyFile(source, finalDestination);
+            fileInputStream =new FileInputStream(finalDestination);
+            byte[] bytes =new byte[(int)finalDestination.length()];
+            fileInputStream.read(bytes);
+            encodedBase64 = new String(Base64.encodeBase64(bytes));
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+
+        return "data:image/png;base64,"+encodedBase64;
     }
 
     public static String convertToString(String st) {
