@@ -234,7 +234,7 @@ public class CommonAPI {
     *
     * @param locator: locator technique(cssSelector, name, xpath and id)
     */
-   public void clickOnElem(String locator) {
+   public static void clickOnElem(String locator) {
       try {
          // Check and click by cssSelector
          driver.findElement(By.cssSelector(locator)).click();

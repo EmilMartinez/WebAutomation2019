@@ -1,90 +1,132 @@
 package homepage.menubar.dropdowns;
 
 
+import base.CommonAPI;
 import databases.ConnectToSqlDB;
 import databases.ExcelData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.InvalidArgumentException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import reporting.TestLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Documentaries {
+public class Documentaries extends CommonAPI {
    @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > a.dropdown-toggle")
    private WebElement link_docs;
 
-   @FindBy(xpath = "//body/form[@id='Default']/div[@id='sticky-header']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col-sm-9 navigation-block']/div[@class='navigation']/div[@class='navbar navbar-default']/div[@class='container']/div[@class='navbar-collapse collapse']/ul[@class='nav navbar-nav']/li[4]")
-   private WebElement field_docs;
+   @FindBy(css = "div.site-sticky.article-main-header.sticky-float.slideDown:nth-child(2) div.container div.row div.col-sm-9.navigation-block div.navigation div.navbar.navbar-default div.container div.navbar-collapse.collapse ul.nav.navbar-nav li.dropdown.menu-large:nth-child(5) > ul.dropdown-menu.megamenu.row")
+   private WebElement field_docsDropdown;
 
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[1]")
+   private WebElement link_featuredDocumentaries;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[2]")
+   private WebElement link_witness;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[3]")
+   private WebElement link_ajWorld;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[4]")
+   private WebElement link_101East;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[5]")
+   private WebElement link_peopleNPower;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[6]")
+   private WebElement link_faultLines;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[7]")
+   private WebElement link_radYouth;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[8]")
+   private WebElement link_ajCorrespondent;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[9]")
+   private WebElement link_thisIsEuro;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[10]")
+   private WebElement link_ajSelects;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[11]")
+   private WebElement link_rewind;
+
+   @FindBy(xpath = "//div[@id='sticky-header']//li[4]//ul[1]//li[1]//ul[1]//li[12]")
+   private WebElement link_all;
 
    private ConnectToSqlDB conn = new ConnectToSqlDB();
+   private ExcelData excl = new ExcelData();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
-   ExcelData excl = new ExcelData();
-   String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
+   private String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
-   public List<String> getListOfDropdownWebElem(WebDriver driver) {
-      List<String> list = new ArrayList<String>();
-      String xpath = "//div[@id='article-main-header']//li[4]//ul[1]//li[1]//ul[1]";
+   public List<WebElement> getListOfDropdownWebElem() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
 
-      WebElement w = driver.findElement(By.xpath(xpath));
-      // Getting all elements in following that path.
-      int total = w.findElements(By.tagName("li")).size();
-      // First element is not present under the drop down so the total is one less.
-      int counter = 0;
+      List<WebElement> list = new ArrayList<WebElement>();
+      list.add(link_featuredDocumentaries);
+      list.add(link_witness);
+      list.add(link_ajWorld);
+      list.add(link_101East);
+      list.add(link_peopleNPower);
+      list.add(link_faultLines);
+      list.add(link_radYouth);
+      list.add(link_ajCorrespondent);
+      list.add(link_thisIsEuro);
+      list.add(link_ajSelects);
+      list.add(link_rewind);
+      list.add(link_all);
 
-      while (counter < total) {
-         list.add(xpath + "//li[" + (counter + 1) + "]");
-         counter++;
-      }
       return list;
    }
 
-   public void hoverOverDocs(WebDriver driver) {
-      Actions builder = new Actions(driver);
+   public void hoverOverDocs() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      Actions builder = new Actions(CommonAPI.driver);
       builder.moveToElement(link_docs).perform();
    }
 
-   public void hoverOverEachDropdownLink(WebDriver driver, String text) {
-      Actions builder = new Actions(driver);
-      WebElement w = driver.findElement(By.xpath(text));
+   public void hoverOverEachDropdownLink(WebElement w) {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()) + " (" + w.getText() + ")");
+
+      Actions builder = new Actions(CommonAPI.driver);
       builder.moveToElement(w).perform();
    }
 
    public void clickDocs() throws NullPointerException {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       link_docs.click();
    }
 
-   public List<String> getListOfNewsLinkNamesFromDB() throws Exception {
+   public List<String> getListOfDropDownTextFromDB() throws Exception {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       return conn.readDataBase("docs_dd", "LinkTitle", filepath);
    }
 
-   public String getLinkName(WebElement w) {
-      return w.getText();
-   }
-
    public boolean isDropdownVisible() {
-      WebElement dropdown = field_docs.findElement(By.xpath("ul[1]"));
-      if(dropdown.isDisplayed())
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      if(field_docsDropdown.isDisplayed())
          return true;
       return false;
    }
 
-   public void clickOnLink(WebDriver driver, String path) {
-      driver.findElement(By.xpath(path)).click();
-   }
-
    /**
     * @param featureName
-    * @param driver
     * @throws IOException
     * @throws InterruptedException
     */
-   public void selectFrom(String featureName, WebDriver driver) throws IOException, InterruptedException {
+   public void selectFrom(String featureName) throws IOException, InterruptedException {
       switch (featureName) {
          case "Go Live":
             break;

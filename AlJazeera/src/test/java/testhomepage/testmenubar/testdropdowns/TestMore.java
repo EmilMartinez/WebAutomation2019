@@ -1,52 +1,85 @@
 package testhomepage.testmenubar.testdropdowns;
 
 import base.CommonAPI;
-import databases.ConnectToSqlDB;
-import databases.ExcelData;
 import homepage.menubar.dropdowns.More;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import reporting.ApplicationLog;
+import reporting.TestLogger;
+
+import java.util.List;
 
 public class TestMore extends CommonAPI {
    More newMore;
-   ConnectToSqlDB conn = new ConnectToSqlDB();
-   ExcelData excl = new ExcelData();
-   String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
 
    @BeforeMethod
    public void init() {
       newMore = PageFactory.initElements(driver, More.class);
    }
 
-   @Test
+   @Test(priority = 1, description = "Test #24")
    public void clickOnMore() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newMore.clickMore();
    }
 
-   @Test
+   @Test(priority = 2, description = "Test #25")
    public void checkIfDropdownIsVisible() {
-      newMore.hoverOverMore(driver);
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newMore.hoverOverMore();
       Assert.assertTrue(newMore.isDropdownVisible());
    }
 
-   @Test
+   @Test(priority = 3, description = "Test #26")
    public void checkEachDropdownLink() {
-      newMore.hoverOverMore(driver);
-      for (String s : newMore.getListOfDropdownWebElem(driver)) {
-         newMore.hoverOverEachDropdownLink(driver, s);
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newMore.hoverOverMore();
+      for (WebElement w : newMore.getListOfDropdownWebElem()) {
+         newMore.hoverOverEachDropdownLink(w);
       }
    }
 
-   @Test
-   public void clickOnEachDropdownLink() throws InterruptedException {
-      newMore.hoverOverMore(driver);
+   @Test(priority = 4, description = "Test #27")
+   public void clickOnEachDropdownLink() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
 
-      for (String s : newMore.getListOfDropdownWebElem(driver)) {
-         newMore.clickOnLink(driver, s);
-         // After each click, the drop down will go away. Need to hover again.
-         newMore.hoverOverMore(driver);
+      for (WebElement w : newMore.getListOfDropdownWebElem()) {
+         newMore.hoverOverMore();
+         w.click();
+      }
+   }
+
+   @Test(priority = 5, description = "Test #28 - Uses SQL DB")
+   public void checkEachLinkText() throws Exception {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      List<WebElement> listOfDDWebElem = newMore.getListOfDropdownWebElem();
+      List<String> listOfDDActualText = newMore.getListOfDropDownTextFromDB();
+
+      for (int i = 0; i < listOfDDActualText.size(); ++i) {
+         // Hovering over the dropdown to see the links.
+         newMore.hoverOverMore();
+         String expectedTitle = listOfDDActualText.get(i);
+         listOfDDWebElem.get(i).click();
+
+         Assert.assertEquals(expectedTitle, CommonAPI.driver.getCurrentUrl());
       }
    }
 }
+

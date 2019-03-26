@@ -1,41 +1,49 @@
 package testhomepage.testmenubar;
 
 import base.CommonAPI;
-import databases.ConnectToSqlDB;
 import homepage.menubar.Trending;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.StaleElementReferenceException;
+import reporting.ApplicationLog;
+import reporting.TestLogger;
 
 
 import java.util.List;
 
 public class TestTrending extends CommonAPI {
    Trending newTrend;
-   ConnectToSqlDB conn = new ConnectToSqlDB();
 
    @BeforeMethod
    public void init() {
       newTrend = PageFactory.initElements(driver, Trending.class);
    }
 
-   @Test
+   @Test(priority = 1, description = "Test #16")
    public void testTrendingPageArticleTitle() throws StaleElementReferenceException {
-      for (String s : newTrend.getStrAllWebElemTrendingXpath()) {
-         String trendingName = newTrend.getTextFromTrendingLinkOnMainPage(s, driver);
-         newTrend.findElemAndClick(driver, s);
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
 
-         String topicTitle = newTrend.getTrendingTopicTitle(driver);
+      for (String s : newTrend.getStrAllWebElemTrendingXpath()) {
+         String trendingName = newTrend.getTextFromTrendingLinkOnMainPage(s);
+         CommonAPI.clickOnElem(s);
+
+         String topicTitle = newTrend.getTrendingTopicTitle();
          Assert.assertTrue(topicTitle.toLowerCase().contains(trendingName.toLowerCase()));
       }
    }
 
-   @Test
+   @Test(priority = 2, description = "Test #17 - Uses SQL DB")
    public void checkPageTitleOfTrendingLinks() throws Exception {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       // Creates a table with all the trending page's title.
-      newTrend.addTrendingPageTitleToDB(driver);
+      newTrend.addTrendingPageTitleToDB();
 
       // These two lists should be the same size.
       List<String> listOfTrendingXpathStr = newTrend.getStrAllWebElemTrendingXpath();
@@ -44,22 +52,25 @@ public class TestTrending extends CommonAPI {
       // Going through each trending link to grab the title and make an assertion.
       for (int i = 0; i < listOfTrendingXpathStr.size(); i++) {
          String xpathStr = listOfTrendingXpathStr.get(i);
-         newTrend.findElemAndClick(driver, xpathStr);
+         CommonAPI.clickOnElem(xpathStr);
 
          Assert.assertEquals(listOfPageTitlesFromEachTrendingLink.get(i), driver.getTitle());
       }
    }
 
-   @Test
+   @Test(priority = 3, description = "Test #18")
    public void testShowMoreButton() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       List<String> listOfTrendingXpathStr = newTrend.getStrAllWebElemTrendingXpath();
 
       for (String s : listOfTrendingXpathStr) {
-         newTrend.findElemAndClick(driver, s);
+         CommonAPI.clickOnElem(s);
          // Scrolling down the page.
-         newTrend.scrollDownByPixel(2500, driver);
-         // finding and clicking on the 'SHOW MORE' button.
-         newTrend.findElemAndClick(driver, "#btn_showmore_b1_418");
+         newTrend.scrollDownByPixel(2500);
+         newTrend.clickOnShowMore();
       }
    }
 }

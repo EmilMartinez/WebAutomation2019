@@ -1,42 +1,54 @@
 package testhomepage.testmenubar;
 
 import base.CommonAPI;
-import databases.ConnectToSqlDB;
 import homepage.menubar.SearchBar;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import reporting.ApplicationLog;
+import reporting.TestLogger;
 
 public class TestSearchBar extends CommonAPI {
    SearchBar newSearch;
-   ConnectToSqlDB conn = new ConnectToSqlDB();
 
    @BeforeMethod
    public void init() {
       newSearch = PageFactory.initElements(driver, SearchBar.class);
    }
 
-   @Test
+   @Test(priority = 1, description = "Test #10")
    public void testClickOnSearchButton() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newSearch.clickOnSearchButton();
    }
 
    /**
     * Checks to see if search-bar is still visible when you click away from it.
     */
-   @Test
+   @Test(priority = 2, description = "Test #11")
    public void testIfSearchBarIsVisibleAfterButtonClick() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newSearch.clickOnSearchButton();
-      newSearch.clickAwayFromSearchBar(driver);
+      newSearch.clickAwayFromSearchBar();
       Assert.assertFalse(newSearch.isSearchBarVisible());
    }
 
    /**
     * Checks to see if the search-bar goes away when we click anywhere else in the page.
     */
-   @Test
+   @Test(priority = 3, description = "Test #12")
    public void clickAwayFromSearchBar() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newSearch.revealSearchbar();
       Assert.assertFalse(newSearch.isSearchBarVisible());
    }
@@ -44,8 +56,12 @@ public class TestSearchBar extends CommonAPI {
    /**
     * Checks to see if the search-bar goes away when we double click on the search button.
     */
-   @Test
+   @Test(priority = 4, description = "Test #13")
    public void testSearchBarAfterDoubleClickOnSearchButton() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       newSearch.clickOnSearchButton();
       newSearch.clickOnSearchButton();
 
@@ -57,8 +73,12 @@ public class TestSearchBar extends CommonAPI {
     *
     * @throws Exception If db table does not exist.
     */
-   @Test
+   @Test(priority = 5, description = "Test #14 - Uses SQL DB")
    public void testSearch() throws Exception {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();
 
@@ -71,8 +91,12 @@ public class TestSearchBar extends CommonAPI {
       }
    }
 
-   @Test
+   @Test(priority = 6, description = "Test #15 - Uses SQL DB")
    public void testSearchAndEnter() throws Exception {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
       // If search bar is not visible, reveal it.
       newSearch.revealSearchbar();
 
@@ -83,5 +107,4 @@ public class TestSearchBar extends CommonAPI {
          newSearch.revealSearchbar();
       }
    }
-
 }
