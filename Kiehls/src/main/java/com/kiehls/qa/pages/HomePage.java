@@ -49,7 +49,6 @@ public class HomePage extends CommonAPI {
 
    public String validateHomePageTitle(){ return this.driver.getTitle();}
    public HomePage  validateEmailSignUpInput(String mail) throws IOException, InterruptedException {
-
       emailSignUpButton.click();
       inputEmail.clear();
       inputEmail.sendKeys(mail);

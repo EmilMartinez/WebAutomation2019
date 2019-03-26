@@ -23,7 +23,6 @@ public class HomePageTest extends CommonAPI {
         Assert.assertTrue(flag);
     }
 
-    @Test
     public void validateKiehlsNYCImgTest(){
         boolean flag= homePage.validateKiehlsNYCImg();
         Assert.assertTrue(flag);

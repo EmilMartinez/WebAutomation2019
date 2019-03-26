@@ -1,8 +1,6 @@
 package com.kiehls.qa.pages;
 
 import base.CommonAPI;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,11 +11,21 @@ public class RegisterPage extends CommonAPI {
 
 
     //Page Factory / OR
-    @FindBy(css = "body.pt_storefront.g-loyaltyslot:nth-child(2) div.l-header.header:nth-child(7) div.b-header_top_menu:nth-child(4) div.g-wrapper-main_content div.g-wrapper_inner-main_content div.b-header_column.m_info:nth-child(1) div.b-header_customer_info ul.account_navigation_list li.account_navigation_list_item.account_navigation_login > a.account_navigation_link.login_link")
+
+    @FindBy(xpath = "//title[contains(text(),'Create Account')]")
+    WebElement title;
+
+    @FindBy(css = ".account_navigation_link.login_link")
     WebElement singInButtn;
 
-    @FindBy(css = ".gsection_header")
+    @FindBy(xpath = "//h2[@class='section_header']")
     WebElement newToKeihlsText;
+
+    @FindBy(xpath ="//p[contains(text(),'*For U.S. Consumers Only')]")
+    WebElement forUSCustomerOnlyText;
+
+    @FindBy(xpath = "//h1[contains(text(),'Create Account')]")
+    WebElement createAccountText;
 
     @FindBy(css = ".button.create_account_button")
     WebElement createAccountButtn;
@@ -56,17 +64,20 @@ public class RegisterPage extends CommonAPI {
     @FindBy(xpath = "//select[@id = 'dwfrm_profile_customer_birthdayfields_year']//option")
     List<WebElement> yearList;
 
-    @FindBy(css = ".button submit_button")
+    @FindBy(css = ".button.submit_button")
     WebElement getCreateAccountButtn;
 
-    @FindBy(css = ".checkbox__control")
-    WebElement checkBox;
+    @FindBy(id = "dwfrm_profile_customer_loyalty")
+    WebElement joinCheckBox;
 
-    @FindBy(xpath = "//a[@title='link opens in new window'][contains(text(),'User Agreement')]")
-    WebElement userAgreementLink;
+    @FindBy(css = "b-registration_rewards")
+    WebElement KiehlsRewardsImg;
 
-    @FindBy(id = "reg_sfk_btn_fb")
-    WebElement facebookLink;
+    @FindBy(xpath = "//h2[contains(text(),'KIEHL’S REWARDS')]")
+    WebElement KiehlsRewardsText;
+
+    @FindBy(css = "b-registration_newsletter_title")
+    WebElement stayInTouch;
 
     @FindBy(id = "reg_sfk_btn_ggl")
     WebElement googleLink;
@@ -78,17 +89,63 @@ public class RegisterPage extends CommonAPI {
     }
 
     //Actions
-    //public boolean validateTitleIsDisplayed(){return modalTitle.isDisplayed();}
 
-    // public boolean validateRequiredInfoDisplayed(){return requiredInfo.isDisplayed();}
+    public String verifyTitle(){ return driver.getTitle(); }
 
-    //public boolean  validateSubscirbeTextBox(){ return subscribeTextBox.isDisplayed(); }
+    public void validateSignInButtn(){singInButtn.click();}
 
-    // public void validateCheckBox(){ checkBox.click(); }
+    public void validateCreateAccountButtn(){createAccountButtn.click();}
+
+    public String verifyCreateAccountPageTitle(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return driver.getTitle();
+    }
+
+    public String validateNewToKeihlsText(){
+        validateSignInButtn();
+        return newToKeihlsText.getText();
+    }
+
+    public String validateCreateAccountText(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return createAccountText.getText();
+    }
+
+    public String validateForUSCustomerOnlyText(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return forUSCustomerOnlyText.getText();
+    }
+
+    public boolean validateCheckBox(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return joinCheckBox.isDisplayed();
+    }
+
+    public boolean validateKiehlsRewardsImg(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return KiehlsRewardsImg.isDisplayed();
+    }
+
+    public boolean validateKiehlsRewardsText(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return KiehlsRewardsText.isDisplayed();
+    }
+
+    public boolean vlaidateStayInTouchText(){
+        validateSignInButtn();
+        validateCreateAccountButtn();
+        return stayInTouch.isDisplayed();
+    }
 
     public HomePage validateRegistration(String fName, String lName, String mail, String pword, String cpword, String month1, String day1, String year1) throws InterruptedException {
         singInButtn.click();
-        createAccountButtn.click();
+        validateCreateAccountButtn();
         firstName.clear();
         firstName.sendKeys(fName);
         lastName.clear();
@@ -96,10 +153,10 @@ public class RegisterPage extends CommonAPI {
         Thread.sleep(3000);
         email.clear();
         email.sendKeys(mail);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         password.clear();
         password.sendKeys(pword);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         confirmPassword.clear();
         confirmPassword.sendKeys(cpword);
         Thread.sleep(2000);
