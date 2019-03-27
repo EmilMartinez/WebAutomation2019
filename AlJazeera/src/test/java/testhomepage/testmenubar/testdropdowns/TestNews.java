@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import reporting.ApplicationLog;
 import reporting.TestLogger;
 
+import java.io.IOException;
 import java.util.List;
 
 public class TestNews extends CommonAPI {
@@ -83,6 +84,25 @@ public class TestNews extends CommonAPI {
          newNews.clickOnElem(listOfDDWebElem.get(i));
 
          Assert.assertEquals(expectedTitle, CommonAPI.driver.getTitle());
+      }
+   }
+
+   @Test(description = "Uses Excel Reader")
+   public void checkDropdownText() throws IOException {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      List<WebElement> listOfDDWebElem = newNews.getListOfDropdownWebElem();
+      String [] listOfActualDDTexts = newNews.getNewsTitleFromExcelFile();
+
+      for(int i = 0; i < listOfDDWebElem.size(); ++i) {
+         // Hovering over the dropdown to see the links.
+         newNews.hoverOverNews();
+         String expectedText = listOfActualDDTexts[i];
+         String actualText = listOfDDWebElem.get(i).getText();
+
+         Assert.assertEquals(expectedText, actualText);
       }
    }
 }
