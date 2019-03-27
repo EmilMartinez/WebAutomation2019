@@ -34,10 +34,10 @@ public class CommonAPI {
 
     //WebDriver Instance
     public static WebDriver driver = null;
-    public String browserstack_username = "";
-    public String browserstack_accesskey = "";
-    public String saucelabs_username = "";
-    public String saucelabs_accesskey = "";
+    public String browserstack_username = "varijakolagotla1";
+    public String browserstack_accesskey = "xfYp1Lhqk66TmZZm2UPe";
+    public String saucelabs_username = "VarSauceLabs";
+    public String saucelabs_accesskey = "2cef1b69-16f7-4346-96b3-f0c739c862eb";
     //Extent Report Listener
     public static ExtentReports extent;
 
@@ -76,7 +76,6 @@ public class CommonAPI {
         } else if (result.getStatus() == 2) {
             ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable().getMessage());
         } else if (result.getStatus() == 3) {
-            //ExtentTestManager.getTest().log(LogStatus.SKIP, "Test Skipped");
             ExtentTestManager.getTest().log(LogStatus.SKIP, result.getThrowable().getMessage());
         }
         ExtentTestManager.endTest();
@@ -156,16 +155,19 @@ public class CommonAPI {
 
     public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
                                     String browserVersion) throws IOException {
-        DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("browser", browserName);
-        cap.setCapability("browser_version", browserVersion);
-        cap.setCapability("os", os);
-        cap.setCapability("os_version", os_version);
         if (envName.equalsIgnoreCase("Saucelabs")) {
+            DesiredCapabilities caps = DesiredCapabilities.chrome();
+            caps.setCapability("platform", "macOS 10.14");
+            caps.setCapability("version", "72.0");
             //resolution for Saucelabs
             driver = new RemoteWebDriver(new URL("http://" + envUsername + ":" + envAccessKey +
-                    "@ondemand.saucelabs.com:80/wd/hub"), cap);
+                    "@ondemand.saucelabs.com:80/wd/hub"), caps);
         } else if (envName.equalsIgnoreCase("Browserstack")) {
+            DesiredCapabilities cap = new DesiredCapabilities();
+            cap.setCapability("browser", browserName);
+            cap.setCapability("browser_version", browserVersion);
+            cap.setCapability("os", os);
+            cap.setCapability("os_version", os_version);
             cap.setCapability("resolution", "1024x768");
             driver = new RemoteWebDriver(new URL("http://" + envUsername + ":" + envAccessKey +
                     "@hub-cloud.browserstack.com/wd/hub"), cap);
@@ -174,7 +176,8 @@ public class CommonAPI {
     }
 
 
-    @AfterMethod
+    //@AfterMethod
+    @AfterClass(alwaysRun = true)
     public void cleanUp() {
         driver.quit();
     }

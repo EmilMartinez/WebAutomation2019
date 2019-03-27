@@ -243,19 +243,15 @@ public class HomePageAmazon extends CommonAPI {
     @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[5]")
     private WebElement amazonDrive;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[7]")
     @FindBy(xpath = "//a[@href='http://www.6pm.com']")
     private WebElement sixpmDeals;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[9]")
     @FindBy(xpath = "//a[@href='https://www.abebooks.com']")
     private WebElement abeBooks;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[11]")
     @FindBy(xpath = "//a[@href='http://www.acx.com/']")
     private WebElement acx;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[1]/td[13]")
     @FindBy(xpath = "//a[@href='http://www.alexa.com']")
     private WebElement alexa;
 
@@ -283,52 +279,39 @@ public class HomePageAmazon extends CommonAPI {
     @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[1]")
     private WebElement amazonWebServices;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[3]")
     @FindBy(xpath = "//a[@href='https://www.audible.com']")
     private WebElement audible;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[5]")
     @FindBy(xpath = "//a[@href='http://www.bookdepository.com']")
     private WebElement bookDepository;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[7]")
     @FindBy(xpath = "//a[@href='http://www.boxofficemojo.com/?ref_=amzn_nav_ftr']")
     private WebElement boxOfficeMojo;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[9]")
     @FindBy(xpath = "//a[@href='http://www.comixology.com']")
     private WebElement comixology;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[11]")
     @FindBy(xpath = "//a[@href='http://www.createspace.com']")
     private WebElement createSpace;
 
     @FindBy(xpath = "//a[@href='http://www.dpreview.com']")
-    //@FindBy(linkText = "DPReview")
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[5]/td[13]")
     private WebElement dpReview;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[1]")
     @FindBy(xpath = "//a[@href='http://www.eastdane.com/welcome']")
     private WebElement eastDane;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[3]")
     @FindBy(xpath = "//a[@href='http://www.fabric.com']")
     private WebElement fabric;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[5]")
     @FindBy(xpath = "//a[@href='http://www.goodreads.com']")
     private WebElement goodReads;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[7]")
     @FindBy(xpath = "//a[@href='http://www.imdb.com']")
     private WebElement imdb;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[9]")
     @FindBy(xpath = "//a[@href='http://pro.imdb.com?ref_=amzn_nav_ftr']")
     private WebElement imdbPro;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[7]/td[11]")
     @FindBy(xpath = "//a[@href='http://www.junglee.com']")
     private WebElement junglee;
 
@@ -344,33 +327,27 @@ public class HomePageAmazon extends CommonAPI {
     @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[5]")
     private WebElement primeVideoDirect;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[7]")
     @FindBy(xpath = "//a[@href='http://www.shopbop.com/welcome']")
     private WebElement shopBop;
 
     @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[9]")
     private WebElement amazonWarehouse;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[11]")
     @FindBy(xpath = "//a[@href='http://www.wholefoodsmarket.com']")
     private WebElement wholeFoodsMarket;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[9]/td[13]")
     @FindBy(xpath = "//a[@href='https://www.woot.com/']")
     private WebElement woot;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[1]")
     @FindBy(xpath = "//a[@href='http://www.zappos.com']")
     private WebElement zappos;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[3]")
     @FindBy(xpath = "//a[@href='https://www.souq.com?ref=footer_souq']")
     private WebElement souq;
 
     @FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[5]")
     private WebElement amazonSubscribe;
 
-    //@FindBy(xpath = "//*[@class='navFooterMoreOnAmazon']/tbody//tr[11]/td[7]")
     @FindBy(xpath = "//a[@href='http://www.pillpack.com']")
     private WebElement pillPack;
 
@@ -475,11 +452,6 @@ public class HomePageAmazon extends CommonAPI {
         String otherWindowTitle = "";
         String parentHandle = driver.getWindowHandle();
         attWindow.click();
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
             if (!handle.equals(parentHandle)) {
@@ -511,8 +483,8 @@ public class HomePageAmazon extends CommonAPI {
     /////////////////////////////// Your Lists Methods ////////////////////////////////////////////
     public void validSignIn() {
         signIn.click();
-        emailAccount.sendKeys("varija.kolagotla@gmail.com");
-        password.sendKeys("varija92");
+        emailAccount.sendKeys("seltmasterME@gmail.com");
+        password.sendKeys("Manage456$");
         signInSubmitButton.click();
     }
 
