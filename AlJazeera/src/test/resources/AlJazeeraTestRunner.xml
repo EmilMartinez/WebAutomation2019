@@ -22,7 +22,10 @@
             <!--<class name = "testhomepage.testmenubar.testdropdowns.TestMore" />-->
             <!--<class name = "testhomepage.TestSocialMedia" />-->
             <!--<class name = "testhomepage.TestTopStory" />-->
-            <class name = "testhomepage.testfooterlinks.TestAbout" />
+            <!--<class name = "testhomepage.testfooterlinks.TestAbout" />-->
+            <!--<class name = "testhomepage.testfooterlinks.TestConnect" />-->
+            <!--<class name = "testhomepage.testfooterlinks.TestOurChannels" />-->
+            <!--<class name = "testhomepage.testfooterlinks.TestOurNetwork" />-->
         </classes>
     </test>
 </suite>
