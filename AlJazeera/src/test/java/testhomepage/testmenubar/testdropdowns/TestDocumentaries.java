@@ -21,8 +21,7 @@ public class TestDocumentaries extends CommonAPI {
       newDocs = PageFactory.initElements(driver, Documentaries.class);
    }
 
-   @Test(priority = 6, description = "Test #19")
-//   @Test(priority = 19, description = "Test #19")
+   @Test(priority = 19)
    public void clickOnDocs() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -31,8 +30,7 @@ public class TestDocumentaries extends CommonAPI {
       newDocs.clickDocs();
    }
 
-   @Test(priority = 7, description = "Test #29")
-//   @Test(priority = 20, description = "Test #20")
+   @Test(priority = 20)
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,8 +40,7 @@ public class TestDocumentaries extends CommonAPI {
       Assert.assertTrue(newDocs.isDropdownVisible());
    }
 
-   @Test(priority = 8, description = "Test #29")
-//   @Test(priority = 21, description = "Test #21")
+   @Test(priority = 21)
    public void hoverEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -55,8 +52,7 @@ public class TestDocumentaries extends CommonAPI {
       }
    }
 
-   @Test(priority = 9, description = "Test #29")
-//   @Test(priority = 22, description = "Test #22")
+   @Test(priority = 22)
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -70,8 +66,7 @@ public class TestDocumentaries extends CommonAPI {
       }
    }
 
-   @Test(priority = 10, description = "Test #29")
-//   @Test(priority = 23, description = "Test #23 - Uses SQL DB")
+   @Test(priority = 23, description = "Uses SQL DB")
    public void checkEachLinkTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -92,16 +87,16 @@ public class TestDocumentaries extends CommonAPI {
       }
    }
 
-   @Test(description = "Uses Excel Reader")
+   @Test(priority = 24, description = "Uses Excel Reader")
    public void checkDropdownText() throws IOException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newDocs.getListOfDropdownWebElem();
-      String [] listOfActualDDTexts = newDocs.getNewsTitleFromExcelFile();
+      String[] listOfActualDDTexts = newDocs.getNewsTitleFromExcelFile();
 
-      for(int i = 0; i < listOfDDWebElem.size(); ++i) {
+      for (int i = 0; i < listOfDDWebElem.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newDocs.hoverOverDocs();
          String expectedText = listOfActualDDTexts[i];

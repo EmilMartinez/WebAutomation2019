@@ -16,8 +16,7 @@ public class TestConnect extends CommonAPI {
       newConnect = PageFactory.initElements(driver, Connect.class);
    }
 
-   @Test
-   // @Test(priority = 70)
+   @Test(priority = 72)
    public void clickOnContactUs() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,8 +28,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickContactUs();
    }
 
-   @Test
-   // @Test(priority = 71)
+   @Test(priority = 73)
    public void clickOnApps() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,8 +40,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickApps();
    }
 
-   @Test
-   // @Test(priority = 72)
+   @Test(priority = 74)
    public void clickOnSocial() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -55,8 +52,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickSocial();
    }
 
-   @Test
-   // @Test(priority = 73)
+   @Test(priority = 75)
    public void clickOnChannelFinder() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -68,8 +64,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickChannelFinder();
    }
 
-   @Test
-   // @Test(priority = 74)
+   @Test(priority = 76)
    public void clickOnTVSched() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -81,8 +76,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickTVSched();
    }
 
-   @Test
-   // @Test(priority = 75)
+   @Test(priority = 77)
    public void clickOnPodcasts() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -94,8 +88,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickPod();
    }
 
-   @Test
-   // @Test(priority = 76)
+   @Test(priority = 78)
    public void clickOnNewsletter() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -107,8 +100,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickNewsletter();
    }
 
-   @Test
-   // @Test(priority = 77)
+   @Test(priority = 79)
    public void clickOnSubmitATip() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

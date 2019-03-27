@@ -141,7 +141,10 @@ public class ContactUs extends CommonAPI {
    }
 
    public boolean isVerificationError() {
-      if(text_verificationErr.isDisplayed())
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      if (text_verificationErr.isDisplayed())
          return true;
       return false;
    }

@@ -21,8 +21,7 @@ public class TestMore extends CommonAPI {
       newMore = PageFactory.initElements(driver, More.class);
    }
 
-   @Test(description = "Test #24")
-   // @Test(priority = 24)
+   @Test(priority = 25)
    public void clickOnMore() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -31,8 +30,7 @@ public class TestMore extends CommonAPI {
       newMore.clickMore();
    }
 
-   @Test(description = "Test #25")
-   // @Test(priority = 25)
+   @Test(priority = 26)
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,8 +40,7 @@ public class TestMore extends CommonAPI {
       Assert.assertTrue(newMore.isDropdownVisible());
    }
 
-   @Test(description = "Test #26")
-   // @Test(priority = 26)
+   @Test(priority = 27)
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -55,8 +52,7 @@ public class TestMore extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #27")
-   // @Test(priority = 27)
+   @Test(priority = 28)
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -68,8 +64,7 @@ public class TestMore extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #28 - Uses SQL DB")
-   // @Test(priority = 28, description = "Uses SQL DB")
+   @Test(priority = 29, description = "Uses SQL DB")
    public void getListOfDropDownTitleFromDB() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -88,16 +83,16 @@ public class TestMore extends CommonAPI {
       }
    }
 
-   @Test(description = "Uses Excel Reader")
+   @Test(priority = 30, description = "Uses Excel Reader")
    public void checkDropdownText() throws IOException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newMore.getListOfDropdownWebElem();
-      String [] listOfActualDDTexts = newMore.getNewsTitleFromExcelFile();
+      String[] listOfActualDDTexts = newMore.getNewsTitleFromExcelFile();
 
-      for(int i = 0; i < listOfDDWebElem.size(); ++i) {
+      for (int i = 0; i < listOfDDWebElem.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newMore.hoverOverMore();
          String expectedText = listOfActualDDTexts[i];
