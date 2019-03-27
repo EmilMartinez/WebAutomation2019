@@ -3,16 +3,16 @@ package testpageswellsfargo;
 import base.CommonAPI;
 import databases.ExcelData;
 import org.openqa.selenium.InvalidArgumentException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import reporting.TestLogger;
 import wellsfargopages.WFHomePage;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.WeakHashMap;
 
 public class TestWFHomePage extends CommonAPI {
 
@@ -20,6 +20,7 @@ public class TestWFHomePage extends CommonAPI {
     ExcelData excelData = new ExcelData();
     String path = "../WellsFargo/src/test/resources/KeywordData.xls";
     String title = "";
+    List<String> imageInfo = new ArrayList<>();
 
     @BeforeMethod
     public void initialize() {
@@ -48,7 +49,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(driver.getTitle(), title);
     }
 
-    @Test
+    //@Test(testName = "Keyword driven testing")
     public void testSteps() throws Exception {
         String[] testSteps = excelData.fileReader2(path, 0);
         for (String step : testSteps) {
@@ -69,12 +70,111 @@ public class TestWFHomePage extends CommonAPI {
         }
     }
 
+    //@Test(testName = "Carousel testing and Dynamic fetching of locators")
+    public void testCarouselTabs() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getAnnotation(Test.class).testName()));
+        wfHomePage.carouselTabs(driver);
+    }
+
     //@Test
-    public void testHomePageTabs() {
-        //List<String> tabTexts = wfHomePage.homePageTabs(driver);
-        /*for (String tabText : tabTexts) {
-            System.out.println(tabText);
-        }*/
-        wfHomePage.homePageTabs(driver);
+    public void testPopUpWindowSubmit() {
+        wfHomePage.popUpWindowSubmit();
+    }
+
+    @Test
+    public void testGetText() {
+        wfHomePage.getText();
+    }
+
+    //@Test
+    public void testPopUpWindowClose() {
+        wfHomePage.popUpWindowClose();
+        System.out.println(driver.getTitle());
+    }
+
+    //@Test
+    public void testPersonalLink() {
+        wfHomePage.personalLink();
+        String expectedResult = "Wells Fargo – Banking, Credit Cards, Loans, Mortgages & More";
+        Assert.assertEquals(driver.getTitle(), expectedResult);
+    }
+
+    //@Test
+    public void testSmallBusinessLink() {
+        wfHomePage.smallBusinessLink();
+        String expectedResult = "Wells Fargo Small Business - Online and Business Banking, Lending and Investing Services for Business";
+        Assert.assertEquals(driver.getTitle(), expectedResult);
+    }
+
+    //@Test
+    public void testFinancialEducationLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Financial Education – My Financial Guide – Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.financialEducationLink(), expectedResult);
+    }
+
+    //@Test
+    public void testCheckingAccountsLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Checking Accounts: Open Online Today | Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.checkingAccountsLink(), expectedResult);
+    }
+
+    //@Test
+    public void testSavingsAccountsCDLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Savings Account: Open Online Today | Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.savingAccountsCDLink(), expectedResult);
+    }
+
+    //@Test
+    public void testDebitCardsLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Debit Card: Request Today | Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.debitCardsLink(), expectedResult);
+    }
+
+    //@Test
+    public void testCreditCardsLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Credit Cards - Apply for Visa & American Express Credit Card Online | Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.creditCardsLink(), expectedResult);
+    }
+
+    //@Test
+    public void testForeignExchangeLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Foreign Exchange – Wells Fargo";
+        TestLogger.log("Link Title: "+expectedResult);
+        Assert.assertEquals(wfHomePage.foreignExchangeLink(), expectedResult);
+    }
+
+    //@Test
+    public void testOnlineBankingLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Online Banking - Online Savings & Checking Accounts - Wells Fargo";
+        TestLogger.log("Link Title: "+ expectedResult);
+        Assert.assertEquals(wfHomePage.onlineBankingLink(), expectedResult);
+    }
+
+    //@Test
+    public void testTransferPayLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Transfer and Pay with Wells Fargo Online®";
+        TestLogger.log("Link Title: "+ expectedResult);
+        Assert.assertEquals(wfHomePage.transferPayLink(), expectedResult);
+    }
+
+    //@Test
+    public void testControlTowerLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String expectedResult = "Control Tower | Wells Fargo";
+        TestLogger.log("Link Title: "+ expectedResult);
+        Assert.assertEquals(wfHomePage.controlTowerLink(), expectedResult);
     }
 }
