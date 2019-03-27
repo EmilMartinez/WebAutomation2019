@@ -24,35 +24,31 @@ public class ContactUs extends CommonAPI {
    private WebElement iframe_contactUsForm;
 
    @FindBy(css = "#ddlTo")
-//   @FindBy(xpath = "//select[@id='ddlTo']")
    private WebElement select_to;
 
    @FindBy(css = "#tbSenderName")
-//   @FindBy(xpath = "//input[@name='tbSenderName']")
    private WebElement input_senderName;
 
    @FindBy(css = "#tbSenderEmail")
-//   @FindBy(xpath = "//input[@id='tbSenderEmail']")
    private WebElement input_senderEmail;
 
    @FindBy(css = "#tbSubject")
-//   @FindBy(xpath = "//input[@id='tbSubject']")
    private WebElement input_subject;
 
    @FindBy(css = "#tbMessage")
-//   @FindBy(xpath = "//textarea[@id='tbMessage']")
    private WebElement input_message;
 
    @FindBy(css = "#cbConsent")
-//   @FindBy(xpath = "//input[@id='cbConsent']")
    private WebElement checkbox_consent;
 
    @FindBy(css = "#btSend")
-//   @FindBy(xpath = "//input[@id='btSend']")
    private WebElement button_send;
 
    @FindBy(xpath = "//div[@class='enstDismiss']")
    private WebElement button_cookieClose;
+
+   @FindBy(css = "#lValImg")
+   private WebElement text_verificationErr;
 
    private GoogleSpreadsheet gSheet = new GoogleSpreadsheet();
    private String credentialFilepath = "../AlJazeera/src/test/resources/credentials.json";
@@ -142,5 +138,11 @@ public class ContactUs extends CommonAPI {
                break;
          }
       }
+   }
+
+   public boolean isVerificationError() {
+      if(text_verificationErr.isDisplayed())
+         return true;
+      return false;
    }
 }

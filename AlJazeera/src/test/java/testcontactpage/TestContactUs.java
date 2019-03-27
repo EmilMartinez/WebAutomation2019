@@ -59,4 +59,14 @@ public class TestContactUs extends CommonAPI {
 
       newContact.selectActions();
    }
+
+   @Test(description = "Uses Google Sheets and keywords")
+   public void testVerificationError() throws IOException, GeneralSecurityException {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      newContact.selectActions();
+      Assert.assertTrue(newContact.isVerificationError());
+   }
 }
