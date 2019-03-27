@@ -43,7 +43,7 @@ public class News extends CommonAPI {
    private ConnectToSqlDB conn = new ConnectToSqlDB();
    private ExcelData excl = new ExcelData();
    private String filepath = "../AlJazeera/src/test/resources/secret.properties";
-   private String excelPath = "../AlJazeera/src/test/resources/newsdropdown.xlsx";
+   private String excelPath = "../AlJazeera/src/test/resources/NewsDropdownText.xlsx";
 
    public List<WebElement> getListOfDropdownWebElem() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -84,6 +84,13 @@ public class News extends CommonAPI {
       link_news.click();
    }
 
+   /**
+    * Grabs all the expected page title of each dropdown link, stores it in a list
+    * and returns it.
+    *
+    * @return List of all the expected page title of each Doc's dropdown link.
+    * @throws Exception DB could not be connected, docs_dd is not found.
+    */
    public List<String> getListOfDropDownTitleFromDB() throws Exception {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
@@ -91,6 +98,11 @@ public class News extends CommonAPI {
       return conn.readDataBase("news_dd", "PageTitle", filepath);
    }
 
+   /**
+    * Checks to see if News' dropdown is visible.
+    *
+    * @return Boolean value whether or not dropdown is visible.
+    */
    public boolean isDropdownVisible() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
@@ -108,22 +120,18 @@ public class News extends CommonAPI {
    }
 
    /**
-    * @param featureName
-    * @throws IOException
-    * @throws InterruptedException
+    * Grabs all the expected dropdown texts from an excel sheet. There must be a column title
+    * in the sheet (row = 0) and the contents starting from row 1.
+    *
+    * @return One-dimensional String array of all the expected dropdown text.
+    * @throws IOException If excelFile could not be found or read.
     */
-   public void selectFrom(String featureName) throws IOException, InterruptedException {
-      switch (featureName) {
-         case "Go Live":
-            break;
-         case "Send Investigation":
-            break;
-         case "Send Tip":
-            break;
-         case "Scroll Down":
-            break;
-         default:
-            break;
-      }
+   public String [] getNewsTitleFromExcelFile() throws IOException {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+      String [] arr = excl.fileReader2(excelPath, 0);
+
+      return arr;
    }
 }

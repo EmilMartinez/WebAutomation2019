@@ -100,7 +100,7 @@ public class TestMenuLinks extends CommonAPI {
    /**
     * Hovers over each menu link with a dropdown and checks if the dropdown is visible.
     */
-   @Test(description = "Test #6 - Uses SQL DB")
+   @Test
    // @Test(priority = 6, description = "Uses SQL DB")
    public void checkMenuLinksWithDropdowns() {
       ApplicationLog.epicLogger();

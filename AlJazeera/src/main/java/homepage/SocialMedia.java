@@ -36,25 +36,17 @@ public class SocialMedia extends CommonAPI {
    @FindBy(id = "#footer-nav-social")
    private WebElement field_socialMediaLinks;
 
-//   WebDriverWait wait = new WebDriverWait(CommonAPI.driver, 60);
 
    public void clickOnFB() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-//      wait.until(ExpectedConditions.elementToBeClickable(icon_facebook));
       icon_facebook.click();
-
-//      ((JavascriptExecutor) driver).executeScript("window.open('https://www.facebook.com');");
-
    }
 
    public void clickOnTwitter() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
-
-//      List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(icon_twitter));
-//      list.get(0).click();
 
        icon_twitter.click();
    }
@@ -63,18 +55,12 @@ public class SocialMedia extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-//      List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(icon_gPlus));
-//      list.get(0).click();
-
        icon_gPlus.click();
    }
 
    public void clickOnR() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
-
-//      List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(icon_rss));
-//      list.get(0).click();
 
        icon_rss.click();
    }
@@ -83,18 +69,12 @@ public class SocialMedia extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-//      List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(icon_podcasts));
-//      list.get(0).click();
-
       icon_podcasts.click();
    }
 
    public void clickOnYT() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
-
-//      List<WebElement> list = wait.until(ExpectedConditions.visibilityOfAllElements(icon_youtube));
-//      list.get(0).click();
 
       icon_youtube.click();
    }
