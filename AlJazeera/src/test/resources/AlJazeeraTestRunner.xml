@@ -26,6 +26,7 @@
             <!--<class name = "testhomepage.testfooterlinks.TestConnect" />-->
             <!--<class name = "testhomepage.testfooterlinks.TestOurChannels" />-->
             <!--<class name = "testhomepage.testfooterlinks.TestOurNetwork" />-->
+            <class name = "testcontactpage.TestContactUs" />
         </classes>
     </test>
 </suite>
