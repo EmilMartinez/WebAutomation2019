@@ -44,14 +44,14 @@ public class TestHomePageAmazon extends CommonAPI {
         //TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
     }
 
-    //@Test(description = "search bar")
+    @Test(description = "search bar")
     public void testSearchForItems() {
         //TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.searchForItems("alexa");
         Assert.assertEquals(driver.getTitle(), "Amazon.com: alexa");
     }
 
-    //@Test(description = "mysql test")
+    @Test(description = "mysql test")
     public void testSearchItemsSql() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         List<String> list = null;
@@ -76,27 +76,27 @@ public class TestHomePageAmazon extends CommonAPI {
         }
     }
 
-    @Test(description = "search button")
+    @Test(testName = "search button")
     public void testSearchButton() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.searchButton("scarf");
     }
 
-    //@Test(description = "search results")
+    @Test(description = "search results")
     public void testSearchResults() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         String item = "iphones";
         TestLogger.log(homePageAmazon.searchResults(item) + " " + item);
     }
 
-    //@Test(description = "dropdown test1")
+    @Test(description = "dropdown test1")
     public void testSetDropdown() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         boolean checkTitle = true;
         Assert.assertEquals(homePageAmazon.setDropdown().endsWith("AmazonFresh"), checkTitle);
     }
 
-    //@Test(description = "dropdown options")
+    @Test(description = "dropdown options")
     public void testGetDropdownOptions() {
         String dropDownOptions = "";
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
@@ -108,7 +108,7 @@ public class TestHomePageAmazon extends CommonAPI {
         TestLogger.log("Dropdown options: " + dropDownOptions);
     }
 
-    //@Test(description = "sign in")
+    @Test(description = "sign in")
     public void testSignInLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.signInLink();
@@ -130,9 +130,10 @@ public class TestHomePageAmazon extends CommonAPI {
 
     @Test
     public void testInvalidSignInScreenShot() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         SoftAssert softAssert = new SoftAssert();
         homePageAmazon.InvalidSignInScreenShot("user@usertest.com", "userabc");
-        String path = CommonAPI.captureScreenshot(driver, "Failed");
+        String path = CommonAPI.getBase64Screenshot(driver, "Failed Test");
         TestLogger.screenShot(path, getClass().getSimpleName());
         Assert.assertEquals(driver.getTitle(), "Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more");
     }
@@ -149,24 +150,30 @@ public class TestHomePageAmazon extends CommonAPI {
 
     @Test(description = "?")
     public void testClickLangSettings() {
+        TestLogger.log(CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName() + ": "+"Skipped Test"));
         homePageAmazon.clickLangSettings();
         throw new SkipException("Still working on this test");
     }
 
-    //@Test(description = "mouse hover your list link")
+    @Test(description = "mouse hover your list link")
     public void testYourLists() throws Exception {
-        System.out.println(homePageAmazon.hoverOverAccountsAndSelect());
-
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String title = "Amazon.com";
+        Assert.assertEquals(homePageAmazon.hoverOverAccountsAndSelect(), title);
     }
 
-    //@Test(description = "checkboxes")
+    @Test(description = "checkboxes")
     public void testCheckboxesInGiftCards() throws Exception {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.checkboxesInGiftCards();
     }
 
-    //@Test(description = "form, radiobuttons, text area")
+    @Test(testName = "form, radiobuttons, text area")
     public void testAdFeedbackWindow() {
+        //TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getAnnotation(Test.class).testName()));
         homePageAmazon.adFeedbackWindow();
+        TestLogger.log("Filled the form Ad Feedback successfully");
     }
 
     //@Test - Not working
@@ -174,43 +181,53 @@ public class TestHomePageAmazon extends CommonAPI {
         System.out.println(homePageAmazon.handleWindows());
     }
 
-    //@Test(description = "web table")
+    @Test(description = "web table")
     public void testPrimePageTable() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.primePageTable();
     }
 
-    //@Test(description = "tabs")
+    @Test(description = "tabs")
     public void testGetPrimePageTabs() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.getPrimePageTabs();
     }
 
-    //@Test(description = "your account")
-    public void testYourAccountLists() {
-        homePageAmazon.yourAccountLinks();
+    @Test(description = "your account")
+    public void testYourAccountLinks() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
+        String eTitle = "Your Account";
+        Assert.assertEquals(homePageAmazon.yourAccountLinks(), eTitle);
     }
 
-    //@Test(description = "try prime")
+    @Test(description = "try prime")
     public void testPrimeLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.primeLink();
         Assert.assertEquals(driver.getTitle(),"Prime Delivery");
     }
 
-    //@Test(description = "Add to cart")
+    @Test(description = "Add to cart")
     public void testAddToCart() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.addToCart();
     }
 
-    //@Test(description = "iframe")
+    @Test(description = "iframe")
     public void testIFrameExample() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.iFrameExample();
+        TestLogger.log("IFrame Title: " + driver.getTitle());
     }
 
-    //@Test(description = "top right link")
+    @Test(description = "top right link")
     public void testUpperRightLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.upperRightLink();
+        TestLogger.log(driver.getTitle());
     }
 
-    //@Test(description = "Image present test")
+    //@Test(description = "Image present test") - Not working at the moment
     public void testImagePresent() {
         homePageAmazon.imagePresent(imageInfo);
         for (String info : imageInfo) {
@@ -218,24 +235,25 @@ public class TestHomePageAmazon extends CommonAPI {
         }
         String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/ImagesPresent.txt";
         writeToCsv(imageInfo, csvpath, "Images check" );
-        //Assert.assertEquals(true,homePageAmazon.bargainFindsImage());
     }
 
-    //@Test(description = "Internal Links")
+    @Test(description = "Internal Links")
     public void testInternalLinks() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.internalLinks(inLinks);
         for (String linkTitle: inLinks) {
-            System.out.println(linkTitle);
+            TestLogger.log(linkTitle);
         }
         String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/InternalLinks.txt";
         writeToCsv(inLinks, csvpath, "Internal Links");
     }
 
-    //@Test(description = "External Links")
+    @Test(description = "External Links")
     public void testExaternalLinks() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         homePageAmazon.externalLinks(extLinks);
         for (String linkTitle: extLinks) {
-            System.out.println(linkTitle);
+            TestLogger.log(linkTitle);
         }
         String csvpath = "/Users/varija/Documents/Selenium/WebAutomation2019/Amazon/src/test/resources/ExternalLinks.txt";
         writeToCsv(extLinks, csvpath, "External Links");
