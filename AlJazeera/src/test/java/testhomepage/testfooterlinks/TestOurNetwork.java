@@ -10,13 +10,13 @@ import reporting.TestLogger;
 
 public class TestOurNetwork extends CommonAPI {
    OurNetwork newNetwork;
-   
+
    @BeforeMethod
    public void init() {
       newNetwork = PageFactory.initElements(driver, OurNetwork.class);
    }
 
-    @Test(priority = 86)
+   @Test(priority = 86)
    public void clickOnJetty() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -28,7 +28,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickJetty();
    }
 
-    @Test(priority = 87)
+   @Test(priority = 87)
    public void clickOnCentreOfStudies() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickCentreForHumanRights();
    }
 
-    @Test(priority = 88)
+   @Test(priority = 88)
    public void clickOnMediaInstitute() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickMediaInstitute();
    }
 
-    @Test(priority = 89)
+   @Test(priority = 89)
    public void clickOnLearnArabic() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -64,7 +64,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickLearnArabic();
    }
 
-    @Test(priority = 90)
+   @Test(priority = 90)
    public void clickOnCenterForPublicLibertiesNHumanRights() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -76,7 +76,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickCentreForHumanRights();
    }
 
-    @Test(priority = 91)
+   @Test(priority = 91)
    public void clickOnForum() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -88,7 +88,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickForum();
    }
 
-    @Test(priority = 92)
+   @Test(priority = 92)
    public void clickOnFilmFestival() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -100,7 +100,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickFilmFestival();
    }
 
-    @Test(priority = 93)
+   @Test(priority = 93)
    public void clickOnHotelPartners() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
