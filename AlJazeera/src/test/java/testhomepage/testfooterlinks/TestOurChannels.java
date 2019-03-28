@@ -16,7 +16,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels = PageFactory.initElements(driver, OurChannels.class);
    }
 
-    @Test(priority = 80)
+   @Test(description = "Test #80")
    public void clickOnArabic() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -28,7 +28,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels.clickArabic();
    }
 
-    @Test(priority = 81)
+   @Test(description = "Test #81")
    public void clickOnEnglish() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels.clickEnglish();
    }
 
-    @Test(priority = 82)
+   @Test(description = "Test #82")
    public void clickOnMubasher() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels.clickMubasher();
    }
 
-    @Test(priority = 83)
+   @Test(description = "Test #83")
    public void clickOnDocumentary() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -64,7 +64,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels.clickDocs();
    }
 
-    @Test(priority = 84)
+   @Test(description = "Test #84")
    public void clickOnBalkans() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -76,7 +76,7 @@ public class TestOurChannels extends CommonAPI {
       newChannels.clickBalkans();
    }
 
-    @Test(priority = 85)
+   @Test(description = "Test #85")
    public void clickOnAJPlus() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

@@ -20,7 +20,7 @@ public class TestSearch extends CommonAPI {
       newSearch.closeCookiePopup();
    }
 
-   @Test (priority = 94)
+   @Test(priority = 94)
    public void searchValues() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -32,7 +32,7 @@ public class TestSearch extends CommonAPI {
          newSearch.searchItem(s);
    }
 
-   @Test (priority = 95)
+   @Test(priority = 95)
    public void searchValuesAndClick() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,13 +40,13 @@ public class TestSearch extends CommonAPI {
 
       List<String> listOfSearchVals = newSearch.getListOfSearchValues();
 
-      for(String s : listOfSearchVals) {
+      for (String s : listOfSearchVals) {
          newSearch.searchItemAndClick(s);
          Thread.sleep(3000);
       }
    }
 
-   @Test (priority = 96)
+   @Test(priority = 96)
    public void searchBrexitAndClickSubmitButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

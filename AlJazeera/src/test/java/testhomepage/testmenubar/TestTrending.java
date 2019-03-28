@@ -21,7 +21,7 @@ public class TestTrending extends CommonAPI {
       newTrend = PageFactory.initElements(driver, Trending.class);
    }
 
-   @Test(priority = 16)
+   @Test(description = "Test #16")
    public void testTrendingPageArticleTitle() throws StaleElementReferenceException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -36,7 +36,7 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 10, description = "Uses SQL DB")
+   @Test(description = "Test #17 - Uses SQL DB")
    public void checkPageTitleOfTrendingLinks() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -58,7 +58,7 @@ public class TestTrending extends CommonAPI {
       }
    }
 
-   @Test(priority = 18)
+   @Test(description = "Test #18")
    public void testShowMoreButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

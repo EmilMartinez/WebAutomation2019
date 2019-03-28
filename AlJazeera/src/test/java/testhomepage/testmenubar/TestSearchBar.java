@@ -17,7 +17,7 @@ public class TestSearchBar extends CommonAPI {
       newSearch = PageFactory.initElements(driver, SearchBar.class);
    }
 
-   @Test(priority = 10)
+   @Test(description = "Test #10")
    public void testClickOnSearchButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,7 +29,7 @@ public class TestSearchBar extends CommonAPI {
    /**
     * Checks to see if search-bar is visible after clicking on the search button.
     */
-   @Test(priority = 11)
+   @Test(description = "Test #11")
    public void checkIfSearchBarIsVisibleAfterButtonClick() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,7 +42,7 @@ public class TestSearchBar extends CommonAPI {
    /**
     * Checks to see if the search-bar goes away when we click anywhere else in the page.
     */
-   @Test(priority = 12)
+   @Test(description = "Test #12")
    public void clickAwayFromSearchBar() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -56,7 +56,7 @@ public class TestSearchBar extends CommonAPI {
    /**
     * Checks to see if the search-bar goes away when we double click on the search button.
     */
-   @Test(priority = 13)
+   @Test(description = "Test #13")
    public void testSearchBarAfterDoubleClickOnSearchButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -72,7 +72,7 @@ public class TestSearchBar extends CommonAPI {
     *
     * @throws Exception If db table does not exist.
     */
-   @Test(priority = 14, description = "Uses SQL DB")
+   @Test(description = "Test #14 - Uses SQL DB")
    public void testSearch() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -90,7 +90,7 @@ public class TestSearchBar extends CommonAPI {
       }
    }
 
-   @Test(priority = 15, description = "Uses SQL DB")
+   @Test(description = "Test #15 - Uses SQL DB")
    public void testSearchAndEnter() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

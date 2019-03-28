@@ -55,7 +55,7 @@ public class MenuLinks extends CommonAPI {
    @FindBy(css = ".search-btn-section.watchLive-pad ul:nth-child(1) li.watch-live-sticky a:nth-child(1) > span.watch-live--stickyWord")
    private WebElement link_live;
 
-   @FindBy(css = ".navbar-header > a.navbar-brand")
+   @FindBy(xpath = "//img[@class='article-main-header-logo-Big']")
    private WebElement pic_logo;
 
    @FindBy(xpath = "//button[@id='ChangeToggleMobile']")
