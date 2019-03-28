@@ -425,5 +425,3 @@ public class CommonAPI {
         select.selectByVisibleText(value);
     }
 }
-
-

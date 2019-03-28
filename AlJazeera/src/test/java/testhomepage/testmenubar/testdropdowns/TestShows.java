@@ -21,8 +21,7 @@ public class TestShows extends CommonAPI {
       newShow = PageFactory.initElements(driver, Shows.class);
    }
 
-   @Test(description = "Test #34")
-   // @Test(priority = 34)
+   @Test(priority = 37)
    public void clickOnShows() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -31,8 +30,7 @@ public class TestShows extends CommonAPI {
       newShow.clickShows();
    }
 
-   @Test(description = "Test #35")
-   // @Test(priority = 35)
+   @Test(priority = 38)
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,8 +40,7 @@ public class TestShows extends CommonAPI {
       Assert.assertTrue(newShow.isDropdownVisible());
    }
 
-   @Test(description = "Test #36")
-   // @Test(priority = 36)
+   @Test(priority = 39)
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -55,8 +52,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #37")
-   // @Test(priority = 37)
+   @Test(priority = 40)
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -72,8 +68,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #38 - Uses SQL DB")
-   // @Test(priority = 38, description = "Uses SQL DB")
+   @Test(priority = 41, description = "Uses SQL DB")
    public void checkEachLinkText() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -82,7 +77,7 @@ public class TestShows extends CommonAPI {
       List<WebElement> listOfDDWebElem = newShow.getListOfDropdownWebElem();
       List<String> listOfDDActualText = newShow.getListOfDropDownTitleFromDB();
 
-      for(int i = 0; i < listOfDDActualText.size(); ++i) {
+      for (int i = 0; i < listOfDDActualText.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newShow.hoverOverShows();
          String expectedTitle = listOfDDActualText.get(i);
@@ -98,16 +93,16 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Uses Excel Reader")
+   @Test(priority = 42, description = "Uses Excel Reader")
    public void checkDropdownText() throws IOException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       List<WebElement> listOfDDWebElem = newShow.getListOfDropdownWebElem();
-      String [] listOfActualDDTexts = newShow.getNewsTitleFromExcelFile();
+      String[] listOfActualDDTexts = newShow.getNewsTitleFromExcelFile();
 
-      for(int i = 0; i < listOfDDWebElem.size(); ++i) {
+      for (int i = 0; i < listOfDDWebElem.size(); ++i) {
          // Hovering over the dropdown to see the links.
          newShow.hoverOverShows();
          String expectedText = listOfActualDDTexts[i];

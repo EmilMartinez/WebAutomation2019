@@ -16,8 +16,7 @@ public class TestAbout extends CommonAPI {
       newAbout = PageFactory.initElements(driver, About.class);
    }
 
-   @Test
-   // @Test(priority = 55)
+   @Test(priority = 61)
    public void clickOnAboutUs() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,8 +28,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickAboutUs();
    }
 
-   @Test
-   // @Test(priority = 56)
+   @Test(priority = 62)
    public void clickOnPressOffice() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -42,8 +40,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickPressOffice();
    }
 
-   @Test
-   // @Test(priority = 57)
+   @Test(priority = 63)
    public void clickOnAwards() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -55,8 +52,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickAwards();
    }
 
-   @Test
-   // @Test(priority = 58)
+   @Test(priority = 64)
    public void clickOnCodeOfEthics() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -68,8 +64,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickCodeOfEthics();
    }
 
-   @Test
-   // @Test(priority = 59)
+   @Test(priority = 65)
    public void clickOnTermsAndCond() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -81,8 +76,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickTermsAndCond();
    }
 
-   @Test
-   // @Test(priority = 60)
+   @Test(priority = 66)
    public void clickOnPrivacyPolicy() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -94,8 +88,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickPrivacyPolicy();
    }
 
-   @Test
-   // @Test(priority = 61)
+   @Test(priority = 67)
    public void clickOnCookiePolicy() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -107,8 +100,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickCookiePolicy();
    }
 
-   @Test
-   // @Test(priority = 62)
+   @Test(priority = 68)
    public void clickOnCookiePref() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -120,8 +112,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickCookiePref();
    }
 
-   @Test
-   // @Test(priority = 63)
+   @Test(priority = 69)
    public void clickOnCommGuidelines() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -133,8 +124,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickCommGuidelines();
    }
 
-   @Test
-   // @Test(priority = 64)
+   @Test(priority = 70)
    public void clickOnWorkForUs() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -146,8 +136,7 @@ public class TestAbout extends CommonAPI {
       newAbout.clickWorkForUs();
    }
 
-   @Test
-   // @Test(priority = 65)
+   @Test(priority = 71)
    public void clickOnHRQuality() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
