@@ -13,7 +13,8 @@
 
     <test name = "WellsFargo Home">
         <classes>
-            <class name="testpageswellsfargo.TestWFHomePage"/>
+            <!--<class name="testpageswellsfargo.TestWFHomePage"/>-->
+            <class name="testpageswellsfargo.TestWFTodaysRatesPage"/>
         </classes>
     </test>
 
