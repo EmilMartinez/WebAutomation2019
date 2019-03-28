@@ -24,11 +24,5 @@ public class TestLogger {
     public static void screenShot(String path, String testName) {
         ExtentTest test = ExtentTestManager.startTest(testName, "fail");
         test.log(LogStatus.INFO, "Failed Test Image"+ test.addBase64ScreenShot(path));
-        //test.log(LogStatus.INFO, "Fail"+ test.addScreenCapture(path));
-        /*ExtentTest test = ExtentTestManager.getTest();
-        String imgPath = test.addScreenCapture(path);
-        test.log(LogStatus.INFO, "Test Failed", imgPath);*/
     }
-
-
 }

@@ -70,6 +70,9 @@ public class WFHomePage extends CommonAPI {
     @FindBy(xpath = "//*[@id='check_rates_dropdown']")
     private WebElement todaysRatesDropdown;
 
+    @FindBy(css = "#check_rates_dropdown > option:nth-child(7)")
+    private WebElement personalLoansOption;
+
     @FindBy(id = "NID1_14_2_1_1_3")
     private WebElement todaysRatesSubmit;
 
@@ -178,23 +181,13 @@ public class WFHomePage extends CommonAPI {
         driver.switchTo().window(parentHandle);
     }
 
-    public void getText() {
+    public void personalLoansLink() {
         homepagetab5.click();
-        Select select = new Select(todaysRatesDropdown);
-        List<WebElement> list = select.getOptions();
-        for (WebElement element : list) {
-            System.out.println(element);
-        }
-//        Actions action = new Actions(driver);
-//        action.moveToElement(todaysRatesDropdown.get(4)).click().perform();
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", todaysRatesSubmit);
-        /*homepagetab5.click();
-        driver.switchTo().activeElement();
-        wait.until(ExpectedConditions.elementToBeClickable(todaysRatesSubmit));
-        todaysRatesDropdown.get(1);*/
+        //Select select = new Select(todaysRatesDropdown);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //js.executeScript("arguments[0].click();", personalLoansOption);
+        personalLoansOption.sendKeys("Personal Loans");
         todaysRatesSubmit.click();
-        System.out.println(driver.getTitle());
     }
 
     public void personalLink() {
