@@ -134,7 +134,7 @@ public class TestHomePageAmazon extends CommonAPI {
         SoftAssert softAssert = new SoftAssert();
         homePageAmazon.InvalidSignInScreenShot("user@usertest.com", "userabc");
         String path = CommonAPI.getBase64Screenshot(driver, "Failed Test");
-        TestLogger.screenShot(path, getClass().getSimpleName());
+        TestLogger.screenShot(path, "Screen shot");
         Assert.assertEquals(driver.getTitle(), "Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more");
     }
 
@@ -227,7 +227,7 @@ public class TestHomePageAmazon extends CommonAPI {
         TestLogger.log(driver.getTitle());
     }
 
-    //@Test(description = "Image present test") - Not working at the moment
+    //@Test(description = "Image present test")
     public void testImagePresent() {
         homePageAmazon.imagePresent(imageInfo);
         for (String info : imageInfo) {
