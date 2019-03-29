@@ -143,6 +143,13 @@ public class HomePageAmazon extends CommonAPI {
     @FindBy(xpath = "//h2[contains(text(),'Women')]")
     private WebElement shoesImageTitle;
 
+    @FindBy(xpath = "//img[@alt='Image of an Amazon Smart Plug.']")
+    private WebElement smartPlugImage;
+
+    @FindBy(xpath = "//h2[contains(text(),'Smart Plug')]")
+    private WebElement smartPlugImageTitle;
+
+
     /********************************Internal Links on the home page ***************************************************/
 
     @FindBy(id = "nav-recently-viewed")
@@ -150,7 +157,7 @@ public class HomePageAmazon extends CommonAPI {
 
     @FindBy(id = "nav-your-amazon")
     private WebElement yourAmazon;
-    //a[@class='nav-a' and @tabindex='48']
+
     @FindBy(xpath = "//div[@id='nav-xshop']//a[2]")
     private WebElement todaysDeals;
 
@@ -547,11 +554,11 @@ public class HomePageAmazon extends CommonAPI {
     public void imagePresent(List<String> imgInfo) {
 
         //imgInfo.add(imageInfo(bargainFindsImage, bargainFindsImageTitle));
-        imgInfo.add(imageInfo(mensShoesImage, mensShoesImageTitle));
-        imgInfo.add(imageInfo(totesImage, totesImageTitle));
+        //imgInfo.add(imageInfo(mensShoesImage, mensShoesImageTitle));
+        //imgInfo.add(imageInfo(totesImage, totesImageTitle));
         //imgInfo.add(imageInfo(furnitureImage, furnituresImageTitle));
         //imgInfo.add(imageInfo(shoesImage, shoesImageTitle));
-
+        imgInfo.add(imageInfo(smartPlugImage, smartPlugImageTitle));
     }
 
     public String imageInfo(WebElement image, WebElement imageTitle) {
