@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 public class WFHomePage extends CommonAPI {
-    WebDriverWait wait = new WebDriverWait(driver, 3);
+    WebDriverWait wait = new WebDriverWait(driver, 5);
 
     @FindBy(css = "#destination")
     private WebElement accountSummaryDropDown;
@@ -27,6 +27,9 @@ public class WFHomePage extends CommonAPI {
 
     @FindBy(id = "tabNavCommercial")
     private WebElement commercialLink;
+
+    @FindBy(xpath = "//img[contains(@src, 'wfic254_ph_g-186678901-cc002-ccd4975_489x234.jpg')]")
+    private WebElement enjoyAprImage;
 
     @FindBy(xpath = "//img[@src='https://www01.wellsfargomedia.com/assets/images/homepage/wfi111_ph_hlp_default1_489x234.jpg']")
     private WebElement savingHabitImage;
@@ -52,26 +55,47 @@ public class WFHomePage extends CommonAPI {
     @FindBy(css = "#taskbar>div>ul>li:nth-child(1)>div>div>a>div>img")
     private WebElement checkingBonusLink;
 
-    @FindBy(css = "#taskbar > div > ul > li:nth-child(1) > div > div > a")
+    @FindBy(css = "#taskbar>div>ul>li:nth-child(1)>div>div>a")
     private WebElement homepagetab1;
 
-    @FindBy(css = "#taskbar > div > ul > li:nth-child(2) > div > div > a")
+    @FindBy(css = "#taskbar>div>ul>li:nth-child(2)>div>div>a")
     private WebElement homepagetab2;
 
-    @FindBy(css = "#taskbar > div > ul > li:nth-child(3) > div > div > a")
+    @FindBy(css = "#taskbar>div>ul>li:nth-child(3)>div>div>a")
     private WebElement homepagetab3;
 
-    @FindBy(css = "#taskbar > div > ul > li:nth-child(4) > div > div.taskSecondstate")
+    @FindBy(css = "#taskbar>div>ul>li:nth-child(4)>div>div.taskSecondstate")
     private WebElement homepagetab4;
 
-    @FindBy(css = "#taskbar > div > ul > li:nth-child(5) > div > div.taskSecondstate")
+    @FindBy(css = "#taskbar>div>ul>li:nth-child(5)>div>div.taskSecondstate")
     private WebElement homepagetab5;
 
     @FindBy(xpath = "//*[@id='check_rates_dropdown']")
     private WebElement todaysRatesDropdown;
 
-    @FindBy(css = "#check_rates_dropdown > option:nth-child(7)")
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(1)")
+    private WebElement mortgageLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(2)")
+    private WebElement homeEquityLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(3)")
+    private WebElement cdsLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(4)")
+    private WebElement creditCardLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(5)")
+    private WebElement autoLoansLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(6)")
+    private WebElement studentLoansLink;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(7)")
     private WebElement personalLoansOption;
+
+    @FindBy(css = "#check_rates_dropdown>option:nth-child(8)")
+    private WebElement allRatesLink;
 
     @FindBy(id = "NID1_14_2_1_1_3")
     private WebElement todaysRatesSubmit;
@@ -95,7 +119,7 @@ public class WFHomePage extends CommonAPI {
     private WebElement debitCardLink;
 
     @FindBy(xpath = "//*[@id='banking']/div[1]/div[1]/ul/li[4]/a" )
-    private WebElement creditCardLink;
+    private WebElement creditCardsLink;
 
     @FindBy(xpath = "//a[contains(text(), 'Foreign Exchange')]" )
     private WebElement foreignLink;
@@ -160,9 +184,10 @@ public class WFHomePage extends CommonAPI {
             otherWindow = iterator.next();
         }
         driver.switchTo().window(otherWindow);
+        wait.until(ExpectedConditions.elementToBeClickable(zipCode));
+        wait.until(ExpectedConditions.elementToBeClickable(continueButton));
         zipCode.sendKeys("98075");
         continueButton.click();
-        System.out.println(driver.getTitle());
         driver.switchTo().window(parentHandle);
     }
 
@@ -181,12 +206,27 @@ public class WFHomePage extends CommonAPI {
         driver.switchTo().window(parentHandle);
     }
 
+    public void mortgageLink() {
+        homepagetab5.click();
+        wait.until(ExpectedConditions.invisibilityOf(todaysRatesDropdown));
+        todaysRatesDropdown.click();
+        mortgageLink.click();
+        todaysRatesSubmit.click();
+    }
+
+    public void homeEquityLink() {
+        homepagetab5.click();
+        wait.until(ExpectedConditions.invisibilityOf(todaysRatesDropdown));
+        todaysRatesDropdown.click();
+        homeEquityLink.click();
+        todaysRatesSubmit.click();
+    }
+
     public void personalLoansLink() {
         homepagetab5.click();
-        //Select select = new Select(todaysRatesDropdown);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        //js.executeScript("arguments[0].click();", personalLoansOption);
-        personalLoansOption.sendKeys("Personal Loans");
+        wait.until(ExpectedConditions.invisibilityOf(todaysRatesDropdown));
+        todaysRatesDropdown.click();
+        personalLoansOption.click();
         todaysRatesSubmit.click();
     }
 
@@ -232,9 +272,9 @@ public class WFHomePage extends CommonAPI {
 
     public String creditCardsLink() {
         Actions action = new Actions(driver);
-        action.moveToElement(creditCardLink).perform();
+        action.moveToElement(creditCardsLink).perform();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", creditCardLink);
+        js.executeScript("arguments[0].click();", creditCardsLink);
         return driver.getTitle();
     }
 

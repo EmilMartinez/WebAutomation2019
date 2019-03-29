@@ -6,6 +6,7 @@ import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import reporting.TestLogger;
@@ -27,27 +28,25 @@ public class TestWFHomePage extends CommonAPI {
         wfHomePage = PageFactory.initElements(this.driver, WFHomePage.class);
     }
 
-    //@Test(description = "search")
+    @Test(description = "search")
     public void testSearchBar() {
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
-        }.getClass().getEnclosingMethod().getName()));
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         wfHomePage.searchBar("loans");
         title = driver.getTitle();
         driver.navigate().back();
 
     }
 
-    //@Test(description = "dropdown")
+    @Test(description = "dropdown")
     public void testDropDownOptions() {
-        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
-        }.getClass().getEnclosingMethod().getName()));
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         List<WebElement> elements = wfHomePage.dropDownOptions();
         for (WebElement element : elements) {
             System.out.println(element.getText());
         }
     }
 
-    //@Test(description = "navigation")
+    @Test(description = "navigation")
     public void testCommercialLinks() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -56,7 +55,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(driver.getTitle(), title);
     }
 
-    //@Test(testName = "Keyword driven testing")
+    @Test(testName = "Keyword driven testing")
     public void testSteps() throws Exception {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getAnnotation(Test.class).testName()));
@@ -86,38 +85,59 @@ public class TestWFHomePage extends CommonAPI {
         wfHomePage.carouselTabs(driver);
     }
 
-    //@Test
+    @Test
     public void testPopUpWindowSubmit() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         wfHomePage.popUpWindowSubmit();
+        String expectedResult = "Everyday Checking Account | Wells Fargo";
+        Assert.assertEquals(driver.getTitle(), expectedResult);
     }
 
-    //@Test
+    @Test
+    public void testMortgageLink() {
+        String expectedResult = "Current Mortgage Interest Rates | Wells Fargo";
+        wfHomePage.mortgageLink();
+        Assert.assertEquals(driver.getTitle(), expectedResult);
+    }
+
+    @Test
+    public void testHomeEquityLink() {
+        String expectedResult = "Home Equity – Wells Fargo";
+        wfHomePage.homeEquityLink();
+        Assert.assertEquals(driver.getTitle(), expectedResult);
+    }
+
+    @Test
     public void testPersonalLoansLink() {
         String expectedResult = "Personal Loan & Line of Credit Calculator - Wells Fargo";
         wfHomePage.personalLoansLink();
+        Assert.assertEquals(driver.getTitle(), expectedResult);
     }
 
-    //@Test
+
+    @Test
     public void testPopUpWindowClose() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         wfHomePage.popUpWindowClose();
-        System.out.println(driver.getTitle());
+        throw new SkipException("The close button is not working");
     }
 
-    //@Test
+    @Test
     public void testPersonalLink() {
+        TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object(){}.getClass().getEnclosingMethod().getName()));
         wfHomePage.personalLink();
         String expectedResult = "Wells Fargo – Banking, Credit Cards, Loans, Mortgages & More";
         Assert.assertEquals(driver.getTitle(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testSmallBusinessLink() {
         wfHomePage.smallBusinessLink();
         String expectedResult = "Wells Fargo Small Business - Online and Business Banking, Lending and Investing Services for Business";
         Assert.assertEquals(driver.getTitle(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testFinancialEducationLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -126,7 +146,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.financialEducationLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testCheckingAccountsLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -135,7 +155,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.checkingAccountsLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testSavingsAccountsCDLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -144,7 +164,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.savingAccountsCDLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testDebitCardsLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -153,7 +173,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.debitCardsLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testCreditCardsLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -162,7 +182,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.creditCardsLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testForeignExchangeLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -171,7 +191,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.foreignExchangeLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testOnlineBankingLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -180,7 +200,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.onlineBankingLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testTransferPayLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
@@ -189,7 +209,7 @@ public class TestWFHomePage extends CommonAPI {
         Assert.assertEquals(wfHomePage.transferPayLink(), expectedResult);
     }
 
-    //@Test
+    @Test
     public void testControlTowerLink() {
         TestLogger.log(getClass().getSimpleName() + ": " + CommonAPI.convertToString(new Object() {
         }.getClass().getEnclosingMethod().getName()));
