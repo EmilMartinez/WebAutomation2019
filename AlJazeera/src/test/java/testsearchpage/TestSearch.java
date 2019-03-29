@@ -20,7 +20,7 @@ public class TestSearch extends CommonAPI {
       newSearch.closeCookiePopup();
    }
 
-   @Test (priority = 94)
+   @Test(alwaysRun = true, description = "Test #94")
    public void searchValues() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -32,7 +32,7 @@ public class TestSearch extends CommonAPI {
          newSearch.searchItem(s);
    }
 
-   @Test (priority = 95)
+   @Test(alwaysRun = true, description = "Test #95")
    public void searchValuesAndClick() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,13 +40,13 @@ public class TestSearch extends CommonAPI {
 
       List<String> listOfSearchVals = newSearch.getListOfSearchValues();
 
-      for(String s : listOfSearchVals) {
+      for (String s : listOfSearchVals) {
          newSearch.searchItemAndClick(s);
          Thread.sleep(3000);
       }
    }
 
-   @Test (priority = 96)
+   @Test(alwaysRun = true, description = "Test #96")
    public void searchBrexitAndClickSubmitButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -56,7 +56,7 @@ public class TestSearch extends CommonAPI {
       newSearch.clickSearchButton();
    }
 
-   @Test(priority = 97)
+   @Test(alwaysRun = true, description = "Test #97")
    public void checkOnAllFilter() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -67,7 +67,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxAll();
    }
 
-   @Test(priority = 98)
+   @Test(alwaysRun = true, description = "Test #98")
    public void checkOnAuthorProfile() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -78,7 +78,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxAuthorProfile();
    }
 
-   @Test(priority = 99)
+   @Test(alwaysRun = true, description = "Test #99")
    public void checkOnRepNotebook() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -89,7 +89,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxAll();
    }
 
-   @Test(priority = 100)
+   @Test(alwaysRun = true, description = "Test #100")
    public void checkOnFeature() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -100,7 +100,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxFeatures();
    }
 
-   @Test(priority = 101)
+   @Test(alwaysRun = true, description = "Test #101")
    public void checkOnInfographic() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -111,7 +111,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxInfographic();
    }
 
-   @Test(priority = 102)
+   @Test(alwaysRun = true, description = "Test #102")
    public void checkOnNews() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -122,7 +122,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxNews();
    }
 
-   @Test(priority = 103)
+   @Test(alwaysRun = true, description = "Test #103")
    public void checkOnOpinion() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -133,7 +133,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxOpinion();
    }
 
-   @Test(priority = 104)
+   @Test(alwaysRun = true, description = "Test #104")
    public void checkOnInPic() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -144,7 +144,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxInPics();
    }
 
-   @Test(priority = 105)
+   @Test(alwaysRun = true, description = "Test #105")
    public void checkOnProgrammes() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -155,7 +155,7 @@ public class TestSearch extends CommonAPI {
       newSearch.checkboxProgrammes();
    }
 
-   @Test(priority = 106)
+   @Test(alwaysRun = true, description = "Test #106")
    public void checkByLatest() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -166,7 +166,7 @@ public class TestSearch extends CommonAPI {
       newSearch.sortByLatest();
    }
 
-   @Test(priority = 107)
+   @Test(alwaysRun = true, description = "Test #107")
    public void checkByRelevance() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

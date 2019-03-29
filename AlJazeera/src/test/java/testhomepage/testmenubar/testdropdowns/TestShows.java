@@ -21,7 +21,7 @@ public class TestShows extends CommonAPI {
       newShow = PageFactory.initElements(driver, Shows.class);
    }
 
-   @Test(priority = 37)
+   @Test(alwaysRun = true, description = "Test #37")
    public void clickOnShows() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -30,7 +30,7 @@ public class TestShows extends CommonAPI {
       newShow.clickShows();
    }
 
-   @Test(priority = 38)
+   @Test(alwaysRun = true, description = "Test #38")
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestShows extends CommonAPI {
       Assert.assertTrue(newShow.isDropdownVisible());
    }
 
-   @Test(priority = 39)
+   @Test(alwaysRun = true, description = "Test #39")
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(priority = 40)
+   @Test(alwaysRun = true, description = "Test #40")
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -68,7 +68,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(priority = 41, description = "Uses SQL DB")
+   @Test(alwaysRun = true, description = "Test #41 - Uses SQL DB")
    public void checkEachLinkText() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -93,7 +93,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(priority = 42, description = "Uses Excel Reader")
+   @Test(alwaysRun = true, description = "Test #42 - Uses Excel Reader")
    public void checkDropdownText() throws IOException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

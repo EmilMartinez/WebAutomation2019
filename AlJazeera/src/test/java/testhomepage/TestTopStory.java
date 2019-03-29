@@ -20,7 +20,7 @@ public class TestTopStory extends CommonAPI {
       newTopStory = PageFactory.initElements(driver, TopStory.class);
    }
 
-   @Test(priority = 59)
+   @Test(alwaysRun = true, description = "Test #59")
    public void clickOnTag() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -29,7 +29,7 @@ public class TestTopStory extends CommonAPI {
       newTopStory.clickOnTag();
    }
 
-   @Test(priority = 60)
+   @Test(alwaysRun = true, description = "Test #60")
    public void clickOnTitle() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
