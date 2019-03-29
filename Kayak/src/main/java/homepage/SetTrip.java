@@ -18,10 +18,11 @@ public class SetTrip extends CommonAPI {
    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]")
    private WebElement field_to;
 
-   @FindBy(xpath = "/html[1]/body[1]/div[6]/div[1]/div[2]/div[1]/div[1]/input[1]")
+   @FindBy(name = "destination")
    private WebElement input_to;
 
-   @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]")
+   //@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]")
+   @FindBy(id = "qZxd-originDepartureSwitch")
    private WebElement button_switch;
 
    @FindBy(id = "#R_19-submit")
@@ -30,11 +31,16 @@ public class SetTrip extends CommonAPI {
    ConnectToSqlDB conn = new ConnectToSqlDB();
    private String filepath = "../Kayak/src/test/resources/secret.properties";
 
-   public void clickOnFrom() {
+   public void clickOnOrigin() {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
       field_from.click();
+   }
+
+   public void clickOnDestination() {
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
    }
 
    public boolean isFromInputVisible() {

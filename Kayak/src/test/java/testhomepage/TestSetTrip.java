@@ -25,7 +25,7 @@ public class TestSetTrip extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      this.objSetTrip.clickOnFrom();
+      this.objSetTrip.clickOnOrigin();
    }
 
    @Test(alwaysRun = true, description = "Test #20")
@@ -34,7 +34,7 @@ public class TestSetTrip extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      this.objSetTrip.clickOnFrom();
+      this.objSetTrip.clickOnOrigin();
       Assert.assertTrue(this.objSetTrip.isFromInputVisible());
    }
 
@@ -44,7 +44,7 @@ public class TestSetTrip extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      this.objSetTrip.clickOnFrom();
+      this.objSetTrip.clickOnOrigin();
       List<String> listOfSearchValues = this.objSetTrip.getSearchValuesFromSqlDB();
 
       for (String s : listOfSearchValues)
@@ -57,10 +57,19 @@ public class TestSetTrip extends CommonAPI {
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
       }.getClass().getEnclosingMethod().getName()));
 
-      this.objSetTrip.clickOnFrom();
+      this.objSetTrip.clickOnOrigin();
       List<String> listOfSearchValues = this.objSetTrip.getSearchValuesFromSqlDB();
 
       for (String s : listOfSearchValues)
          this.objSetTrip.searchDestinationByStr(s);
+   }
+
+   @Test(alwaysRun = true, description = "Test #23")
+   public void clickSwitchButton() {
+      ApplicationLog.epicLogger();
+      TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+      }.getClass().getEnclosingMethod().getName()));
+
+
    }
 }
