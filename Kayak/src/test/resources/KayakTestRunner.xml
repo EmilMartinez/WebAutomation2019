@@ -13,6 +13,7 @@
 
     <test name = "Kayak Home">
         <classes>
+            <class name = "testhomepage.TestMenuLinks" />
         </classes>
     </test>
 </suite>

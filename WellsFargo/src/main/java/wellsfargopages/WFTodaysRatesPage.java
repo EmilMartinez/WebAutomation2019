@@ -8,9 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import reporting.TestLogger;
 
 public class WFTodaysRatesPage extends CommonAPI {
-    WebDriverWait wait = new WebDriverWait(driver, 3);
+    WebDriverWait wait = new WebDriverWait(driver, 10);
 
-    //@FindBy(id = "zipCode")
     @FindBy(css = "#zipCode")
     private WebElement zipCode;
 
@@ -35,7 +34,61 @@ public class WFTodaysRatesPage extends CommonAPI {
     @FindBy(xpath = "//*[@class='apr']")
     private WebElement apr;
 
-    public void calculateMonthlyPayment(String zip, String amt) {
+    @FindBy(id = "loanPurpose")
+    private WebElement loanPurpose;
+
+    @FindBy(css = "#loanPurpose>option:nth-child(3)")
+    private WebElement homeEquity;
+
+    @FindBy(css = "#loanPurpose>option:nth-child(1)")
+    private WebElement purchase;
+
+    @FindBy(id = "homeValue")
+    private WebElement homeValue;
+
+    @FindBy(id = "downPayment")
+    private WebElement downPayment;
+
+    @FindBy(id = "mortgageBalance")
+    private WebElement mortgageBalance;
+
+    @FindBy(id = "p_loanAmount")
+    private WebElement loanAmount;
+
+    @FindBy(id = "creditScore")
+    private WebElement creditScore;
+
+    @FindBy(css = "#creditScore>option:nth-child(4)")
+    private WebElement fairScore;
+
+    @FindBy(id = "propertyState")
+    private WebElement propertyState;
+
+    @FindBy(css = "#propertyState>option:nth-child(36)")
+    private WebElement propertyStateNY;
+
+    @FindBy(id = "propertyCounty")
+    private WebElement propertyCounty;
+
+    @FindBy(css = "#propertyCounty>option:nth-child(42)")
+    private WebElement propertyCountyQueens;
+
+    @FindBy(name = "submitButton")
+    private WebElement calculateButton;
+
+    @FindBy(id = "#hdr4")
+    private WebElement paymentLabel;
+
+    @FindBy(id = "APR")
+    private WebElement aprLabel;
+
+    @FindBy(css = "#contentBody>table>tbody >tr>td:nth-child(3)")
+    private WebElement aprForHomePurchase;
+
+    @FindBy(css = "#contentBody>table>tbody>tr>td:nth-child(4)")
+    private WebElement paymentForHomePurchase;
+
+    public void calculateMonthlyPaymentForPersonalLoans(String zip, String amt) {
         zipCode.sendKeys(zip);
         amount.sendKeys(amt);
         selectTerm.click();
@@ -47,5 +100,33 @@ public class WFTodaysRatesPage extends CommonAPI {
         wait.until(ExpectedConditions.visibilityOf(montlyPayment));
         wait.until(ExpectedConditions.visibilityOf(apr));
         TestLogger.log("Monthly payment for $"+amt+" loan: "+montlyPayment.getText()+" and APR: "+apr.getText());
+    }
+
+    public String calculateLoanAmount(String value, String downpay) {
+        loanPurpose.click();
+        purchase.click();
+        homeValue.sendKeys(value);
+        downPayment.sendKeys(downpay);
+        creditScore.click();
+        return loanAmount.getText();
+    }
+
+    public void calculatePaymentsForHomePurchase() throws Exception {
+        loanPurpose.click();
+        purchase.click();
+        homeValue.sendKeys("500000");
+        downPayment.sendKeys("10000");
+        creditScore.click();
+        fairScore.click();
+        propertyState.click();
+        propertyStateNY.click();
+        propertyCounty.click();
+        propertyCountyQueens.click();
+        calculateButton.click();
+        wait.until(ExpectedConditions.visibilityOf(aprForHomePurchase));
+        wait.until(ExpectedConditions.visibilityOf(paymentForHomePurchase));
+        String path = CommonAPI.getBase64Screenshot(driver, "Payments");
+        TestLogger.screenShot(path, "Payments for Home Purchase");
+        TestLogger.log("Monthly Payment: "+paymentForHomePurchase.getText()+" & APR: "+aprForHomePurchase.getText());
     }
 }

@@ -9,7 +9,7 @@ import org.testng.Reporter;
 public class TestLogger {
    public static ExtentTest test;
     public static void log(final String message){
-        //Reporter.log(message,true);
+        Reporter.log(message,true);
         ExtentTestManager.getTest().log(LogStatus.INFO, message + "<br>");
     }
     public static void log(final StringUtils message){
@@ -21,15 +21,8 @@ public class TestLogger {
         ExtentTestManager.getTest().log(LogStatus.INFO, message + "<br>");
     }
 
-    public static void screenShot(String path, String testName) {
-        ExtentTest test = ExtentTestManager.startTest(testName, "fail");
-        test.log(LogStatus.INFO, "Failed Test Image"+ test.addBase64ScreenShot(path));
+    public static void screenShot(String path, String message) {
+        Reporter.log(message,true);
+        ExtentTestManager.getTest().log(LogStatus.INFO, message + ExtentTestManager.getTest().addBase64ScreenShot(path));
     }
-
-    public static void screenShotPass(String path, String testName) {
-        ExtentTest test = ExtentTestManager.startTest(testName, "Image");
-        test.log(LogStatus.PASS, "Screen shot"+ test.addBase64ScreenShot(path));
-    }
-
-
 }
