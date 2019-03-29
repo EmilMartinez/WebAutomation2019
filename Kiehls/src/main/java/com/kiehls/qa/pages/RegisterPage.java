@@ -1,6 +1,7 @@
 package com.kiehls.qa.pages;
 
 import base.CommonAPI;
+import com.kiehls.qa.pages.Homepage.HomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -42,7 +43,7 @@ public class RegisterPage extends CommonAPI {
     @FindBy(id = "dwfrm_profile_login_password")
     WebElement password;
 
-    @FindBy(id = "dwfrm_profile_login_passwordconfirm")
+    @FindBy(xpath = "//input[@placeholder='Confirm Password']")
     WebElement confirmPassword;
 
     @FindBy(id = "dwfrm_profile_customer_birthdayfields_month")
@@ -54,7 +55,7 @@ public class RegisterPage extends CommonAPI {
     @FindBy(id = "dwfrm_profile_customer_birthdayfields_day")
     WebElement day;
 
-    @FindBy(xpath = "//select[@id ='dwfrm_profile_customer_birthdayfields_day']//optoin")
+    @FindBy(xpath = "//select[@id ='dwfrm_profile_customer_birthdayfields_day']//option")
     List<WebElement> dayList;
 
     @FindBy(id = "dwfrm_profile_customer_birthdayfields_year")
@@ -143,7 +144,7 @@ public class RegisterPage extends CommonAPI {
         return stayInTouch.isDisplayed();
     }
 
-    public HomePage validateRegistration(String fName, String lName, String mail, String pword, String cpword, String month1, String day1, String year1) throws InterruptedException {
+    public HomePage validateRegistration(String fName, String lName, String mail, String pword, String cPassword, String month1, String day1, String year1) throws InterruptedException {
         singInButtn.click();
         validateCreateAccountButtn();
         firstName.clear();
@@ -154,11 +155,9 @@ public class RegisterPage extends CommonAPI {
         email.clear();
         email.sendKeys(mail);
         Thread.sleep(2000);
-        password.clear();
         password.sendKeys(pword);
         Thread.sleep(2000);
-        confirmPassword.clear();
-        confirmPassword.sendKeys(cpword);
+        confirmPassword.sendKeys(cPassword);
         Thread.sleep(2000);
         month.click();
         setDropDownMonth(month1);

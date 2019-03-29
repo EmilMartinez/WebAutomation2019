@@ -1,4 +1,6 @@
 package databases;
+import org.openqa.selenium.WebElement;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,16 +21,16 @@ public class ConnectToSqlDB {
     public static PreparedStatement ps = null;
     public static ResultSet resultSet = null;
 
-    public static Properties loadProperties() throws IOException {
+    public static Properties loadProperties(String filePath) throws IOException {
         Properties prop = new Properties();
-        InputStream ism = new FileInputStream("C:\\Users\\Mira\\Documents\\GitHub\\WebAutomation2019\\Kiehl's\\src\\test\\resources\\secret.properties");
+        InputStream ism = new FileInputStream(filePath);
         prop.load(ism);
         ism.close();
         return prop;
     }
 
-    public static Connection connectToSqlDatabase() throws IOException, SQLException, ClassNotFoundException {
-        Properties prop = loadProperties();
+    public static Connection connectToSqlDatabase(String filePath) throws IOException, SQLException, ClassNotFoundException {
+        Properties prop = loadProperties(filePath);
         //String driverClass = prop.getProperty("MYSQLJDBC.driver");
         String url = prop.getProperty("url");
         String userName = prop.getProperty("username");
@@ -38,11 +40,11 @@ public class ConnectToSqlDB {
         return connect;
     }
 
-    public List<String> readDataBase(String tableName, String columnName) throws Exception {
+    public List<String> readDataBase(String tableName, String columnName, String filePath) throws Exception {
         List<String> data = new ArrayList<String>();
 
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             statement = connect.createStatement();
             resultSet = statement.executeQuery("select * from " + tableName);
             data = getResultSetData(resultSet, columnName);
@@ -53,6 +55,8 @@ public class ConnectToSqlDB {
         }
         return data;
     }
+
+
 
     private void close() {
         try {
@@ -79,9 +83,10 @@ public class ConnectToSqlDB {
         return dataList;
     }
 
-    public void insertDataFromArrayToSqlTable(int[] ArrayData, String tableName, String columnName) {
+
+    public void insertDataFromArrayToSqlTable(int[] ArrayData, String tableName, String columnName, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");
             ps.executeUpdate();
             ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
@@ -101,9 +106,9 @@ public class ConnectToSqlDB {
         }
     }
 
-    public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName) {
+    public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES(?)");
             ps.setString(1, ArrayData);
             ps.executeUpdate();
@@ -117,9 +122,9 @@ public class ConnectToSqlDB {
     }
 
     // Created this method to pass an ArrayList of type Integer.
-    public void insertDataFromIntegerArrayListToSqlTable(List<Integer> list, String tableName, String columnName) {
+    public void insertDataFromIntegerArrayListToSqlTable(List<Integer> list, String tableName, String columnName, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `" + tableName + "`;");
             ps.executeUpdate();
             ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
@@ -139,9 +144,9 @@ public class ConnectToSqlDB {
         }
     }
 
-    public void insertDataFromStringArrayListToSqlTable(List<String> list, String tableName, String columnName) {
+    public void insertDataFromStringArrayListToSqlTable(List<String> list, String tableName, String columnName, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("DROP TABLE IF EXISTS " + tableName + ";");
             ps.executeUpdate();
             ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` VARCHAR(30) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
@@ -161,9 +166,31 @@ public class ConnectToSqlDB {
         }
     }
 
-    public void insertDataToExistingSqlTable(String value, String tableName, String columnName) {
+    public void insertDataFromWebElementArrayListToSqlTable(List<WebElement> list, String tableName, String columnName, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS " + tableName + ";");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `" + tableName + "` (`ID` int(11) NOT NULL AUTO_INCREMENT,`" + columnName + "` VARCHAR(30) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+            for (WebElement we : list) {
+                ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES(?)");
+                ps.setObject(1, we);
+                ps.executeUpdate();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertDataToExistingSqlTable(String value, String tableName, String columnName,String filePath) {
+        try {
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName + " ) VALUES (\'" + value + "\')");
             ps.executeUpdate();
 
@@ -176,11 +203,11 @@ public class ConnectToSqlDB {
         }
     }
 
-    public List<String> directDatabaseQueryExecute(String passQuery, String dataColumn) throws Exception {
+    public List<String> directDatabaseQueryExecute(String passQuery, String dataColumn, String filePath) throws Exception {
         List<String> data = new ArrayList<String>();
 
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             statement = connect.createStatement();
             resultSet = statement.executeQuery(passQuery);
             data = getResultSetData(resultSet, dataColumn);
@@ -193,9 +220,9 @@ public class ConnectToSqlDB {
     }
 
 
-    public void insertProfileToSqlTable(String tableName, String columnName1, String columnName2) {
+    public void insertProfileToSqlTable(String tableName, String columnName1, String columnName2, String filePath) {
         try {
-            connectToSqlDatabase();
+            connectToSqlDatabase(filePath);
             ps = connect.prepareStatement("INSERT INTO " + tableName + " ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
             ps.setString(1, "Mira");
             ps.setInt(2, 3456);
@@ -211,9 +238,5 @@ public class ConnectToSqlDB {
         }
     }
 
-    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
 
-        connectToSqlDatabase();
-
-    }
 }

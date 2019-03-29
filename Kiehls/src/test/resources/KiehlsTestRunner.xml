@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
 <suite name="Kiehls Automation Script " parallel="false">
-
-    <parameter name="useCloudEnv" value="false"/>
-    <parameter name="cloudEnvName" value="browserstack"/>
-    <parameter name="OS" value="Windows"/>
-    <parameter name="OS_version" value="1803"/>
-    <parameter name="browserName" value="chrome-opitons"/>
-    <parameter name="browserVersion" value="30.0"/>
-    <parameter name="url" value="https://www.kiehls.com/"/>
-
-    <test name = "Kiehls Home">
+    <listeners>
+            <listener class-name="com.kiehls.qa.ExtenReportListener.ExtentReporterNG"/>
+    </listeners>
+    <test name = "Kiehls Test">
         <classes>
-            <!--<class name="title.AmazonHome"/>-->
-            <!--<class name="search.SearchTest"/>-->
-            <class name="com.kiehls.qa.tests.HomePageTest"/>
+            <class name="com.kiehls.qa.tests.homepage.ExternalLinksTest"/>
+            <class name="com.kiehls.qa.tests.homepage.SearchPageTest"/>
+            <class name="com.kiehls.qa.tests.homepage.HomePageTest"/>
+            <class name="com.kiehls.qa.tests.menubar.AboutUsTest"/>
+            <class name="com.kiehls.qa.tests.menubar.BodyTest"/>
+            <class name="com.kiehls.qa.tests.menubar.GiftsTest"/>
+            <class name="com.kiehls.qa.tests.menubar.HairTest"/>
+            <class name="com.kiehls.qa.tests.menubar.MensTest"/>
+            <class name="com.kiehls.qa.tests.menubar.SkinCareTest"/>
+            <class name="com.kiehls.qa.tests.user.RegisterPageTest"/>
+            <class name="com.kiehls.qa.tests.user.SignInPageTest"/>
+            <class name="com.kiehls.qa.tests.user.UserPageTest"/>
+            <class name="com.kiehls.qa.tests.user.SignInPageTest"/>
+            <class name="com.kiehls.qa.tests.footprint.LocationsPageTest"/>
+            <class name="com.kiehls.qa.tests.customerservice.CustomerServicePageTest"/>
         </classes>
     </test>
 
