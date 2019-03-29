@@ -23,7 +23,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial = PageFactory.initElements(driver, SocialMedia.class);
    }
 
-   @Test(description = "Test #43")
+   @Test(alwaysRun = true, description = "Test #43")
    public void testClickOnFacebook() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -34,7 +34,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnFB();
    }
 
-   @Test(description = "Test #44")
+   @Test(alwaysRun = true, description = "Test #44")
    public void testClickOnTwitter() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -45,7 +45,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnTwitter();
    }
 
-   @Test(description = "Test #45")
+   @Test(alwaysRun = true, description = "Test #45")
    public void testClickOnGooglePlus() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -56,7 +56,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnGoogle();
    }
 
-   @Test(description = "Test #46")
+   @Test(alwaysRun = true, description = "Test #46")
    public void testClickOnRSS() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -67,7 +67,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnR();
    }
 
-   @Test(description = "Test #47")
+   @Test(alwaysRun = true, description = "Test #47")
    public void testClickOnPodcasts() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -78,7 +78,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnPod();
    }
 
-   @Test(description = "Test #48")
+   @Test(alwaysRun = true, description = "Test #48")
    public void testClickOnYouTube() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -89,7 +89,7 @@ public class TestSocialMedia extends CommonAPI {
       newSocial.clickOnYT();
    }
 
-   @Test(description = "Test #49")
+   @Test(alwaysRun = true, description = "Test #49")
    public void checkFBTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -107,7 +107,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("Al Jazeera English - Home | Facebook", driver.getTitle());
    }
 
-   @Test(description = "Test #50")
+   @Test(alwaysRun = true, description = "Test #50")
    public void checkTwitterTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -125,7 +125,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("Al Jazeera English (@AJEnglish) | Twitter", driver.getTitle());
    }
 
-   @Test(description = "Test #51")
+   @Test(alwaysRun = true, description = "Test #51")
    public void checkGooglePlusTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -143,7 +143,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("Al Jazeera English - Google+", driver.getTitle());
    }
 
-   @Test(description = "Test #52")
+   @Test(alwaysRun = true, description = "Test #52")
    public void checkPodcastTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -161,7 +161,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("Podcasts - Al Jazeera English", driver.getTitle());
    }
 
-   @Test(description = "Test #53")
+   @Test(alwaysRun = true, description = "Test #53")
    public void checkYouTubeTitle() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -179,7 +179,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("Al Jazeera English - YouTube", driver.getTitle());
    }
 
-   @Test(description = "Test #54")
+   @Test(alwaysRun = true, description = "Test #54")
    public void checkFacebookURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -197,7 +197,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("https://www.facebook.com/aljazeera", driver.getCurrentUrl());
    }
 
-   @Test(description = "Test #55")
+   @Test(alwaysRun = true, description = "Test #55")
    public void checkTwitterURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -215,7 +215,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("https://twitter.com/ajenglish", driver.getCurrentUrl());
    }
 
-   @Test(description = "Test #56")
+   @Test(alwaysRun = true, description = "Test #56")
    public void checkGooglePlusURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -233,7 +233,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("https://plus.google.com/118055372303098301843", driver.getCurrentUrl());
    }
 
-   @Test(description = "Test #57")
+   @Test(alwaysRun = true, description = "Test #57")
    public void checkPodcastsURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -251,7 +251,7 @@ public class TestSocialMedia extends CommonAPI {
       Assert.assertEquals("https://www.aljazeera.com/podcasts/", driver.getCurrentUrl());
    }
 
-   @Test(description = "Test #58")
+   @Test(alwaysRun = true, description = "Test #58")
    public void checkYouTubeURL() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

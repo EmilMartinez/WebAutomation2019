@@ -154,18 +154,14 @@ public class CommonAPI {
 
    public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
                                    String browserVersion) throws IOException {
+      if (browserName.equals("chrome-options"))
+         browserName = "Chrome";
+
       DesiredCapabilities caps = new DesiredCapabilities();
       caps.setCapability("browser", browserName);
       caps.setCapability("browser_version",browserVersion);
       caps.setCapability("os", os);
       caps.setCapability("os_version", os_version);
-
-//      DesiredCapabilities caps = new DesiredCapabilities();
-//      caps.setCapability("browser", "Chrome");
-//      caps.setCapability("browser_version", "73.0");
-//      caps.setCapability("os", "OS X");
-//      caps.setCapability("os_version", "Sierra");
-//      caps.setCapability("resolution", "1024x768");
 
       if (envName.equalsIgnoreCase("Saucelabs")) {
          //resolution for Saucelabs

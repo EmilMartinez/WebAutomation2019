@@ -16,7 +16,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork = PageFactory.initElements(driver, OurNetwork.class);
    }
 
-   @Test(description = "Test #86")
+   @Test(alwaysRun = true, description = "Test #86")
    public void clickOnJetty() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -28,7 +28,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickJetty();
    }
 
-   @Test(description = "Test #87")
+   @Test(alwaysRun = true, description = "Test #87")
    public void clickOnCentreOfStudies() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickCentreForHumanRights();
    }
 
-   @Test(description = "Test #88")
+   @Test(alwaysRun = true, description = "Test #88")
    public void clickOnMediaInstitute() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickMediaInstitute();
    }
 
-   @Test(description = "Test #89")
+   @Test(alwaysRun = true, description = "Test #89")
    public void clickOnLearnArabic() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -64,7 +64,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickLearnArabic();
    }
 
-   @Test(description = "Test #90")
+   @Test(alwaysRun = true, description = "Test #90")
    public void clickOnCenterForPublicLibertiesNHumanRights() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -76,7 +76,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickCentreForHumanRights();
    }
 
-   @Test(description = "Test #91")
+   @Test(alwaysRun = true, description = "Test #91")
    public void clickOnForum() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -88,7 +88,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickForum();
    }
 
-   @Test(description = "Test #92")
+   @Test(alwaysRun = true, description = "Test #92")
    public void clickOnFilmFestival() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -100,7 +100,7 @@ public class TestOurNetwork extends CommonAPI {
       newNetwork.clickFilmFestival();
    }
 
-   @Test(description = "Test #93")
+   @Test(alwaysRun = true, description = "Test #93")
    public void clickOnHotelPartners() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

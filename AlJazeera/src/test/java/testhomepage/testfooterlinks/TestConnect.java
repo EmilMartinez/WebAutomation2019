@@ -16,7 +16,7 @@ public class TestConnect extends CommonAPI {
       newConnect = PageFactory.initElements(driver, Connect.class);
    }
 
-   @Test(description = "Test #72")
+   @Test(alwaysRun = true, description = "Test #72")
    public void clickOnContactUs() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -28,7 +28,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickContactUs();
    }
 
-   @Test(description = "Test #73")
+   @Test(alwaysRun = true, description = "Test #73")
    public void clickOnApps() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickApps();
    }
 
-   @Test(description = "Test #74")
+   @Test(alwaysRun = true, description = "Test #74")
    public void clickOnSocial() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickSocial();
    }
 
-   @Test(description = "Test #75")
+   @Test(alwaysRun = true, description = "Test #75")
    public void clickOnChannelFinder() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -64,7 +64,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickChannelFinder();
    }
 
-   @Test(description = "Test #76")
+   @Test(alwaysRun = true, description = "Test #76")
    public void clickOnTVSched() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -76,7 +76,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickTVSched();
    }
 
-   @Test(description = "Test #77")
+   @Test(alwaysRun = true, description = "Test #77")
    public void clickOnPodcasts() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -88,7 +88,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickPod();
    }
 
-   @Test(description = "Test #78")
+   @Test(alwaysRun = true, description = "Test #78")
    public void clickOnNewsletter() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -100,7 +100,7 @@ public class TestConnect extends CommonAPI {
       newConnect.clickNewsletter();
    }
 
-   @Test(description = "Test #79")
+   @Test(alwaysRun = true, description = "Test #79")
    public void clickOnSubmitATip() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

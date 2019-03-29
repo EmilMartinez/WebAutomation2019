@@ -21,7 +21,7 @@ public class TestShows extends CommonAPI {
       newShow = PageFactory.initElements(driver, Shows.class);
    }
 
-   @Test(description = "Test #37")
+   @Test(alwaysRun = true, description = "Test #37")
    public void clickOnShows() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -30,7 +30,7 @@ public class TestShows extends CommonAPI {
       newShow.clickShows();
    }
 
-   @Test(description = "Test #38")
+   @Test(alwaysRun = true, description = "Test #38")
    public void checkIfDropdownIsVisible() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -40,7 +40,7 @@ public class TestShows extends CommonAPI {
       Assert.assertTrue(newShow.isDropdownVisible());
    }
 
-   @Test(description = "Test #39")
+   @Test(alwaysRun = true, description = "Test #39")
    public void checkEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -52,7 +52,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #40")
+   @Test(alwaysRun = true, description = "Test #40")
    public void clickOnEachDropdownLink() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -68,7 +68,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #41 - Uses SQL DB")
+   @Test(alwaysRun = true, description = "Test #41 - Uses SQL DB")
    public void checkEachLinkText() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -93,7 +93,7 @@ public class TestShows extends CommonAPI {
       }
    }
 
-   @Test(description = "Test #42 - Uses Excel Reader")
+   @Test(alwaysRun = true, description = "Test #42 - Uses Excel Reader")
    public void checkDropdownText() throws IOException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {

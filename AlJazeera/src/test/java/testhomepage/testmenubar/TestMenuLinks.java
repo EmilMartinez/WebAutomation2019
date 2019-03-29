@@ -22,7 +22,7 @@ public class TestMenuLinks extends CommonAPI {
       newNav = PageFactory.initElements(driver, MenuLinks.class);
    }
 
-   @Test(description = "Test #1")
+   @Test(alwaysRun = true, description = "Test #1")
    public void testHomeTitle() throws IOException, SQLException, ClassNotFoundException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -37,12 +37,12 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test(description = "Test #2")
+   @Test(alwaysRun = true, description = "Test #2")
    public void clickOnLogo() {
       newNav.clickOnLogo();
    }
 
-   @Test(description = "Test #3 - Uses SQL Database")
+   @Test(alwaysRun = true, description = "Test #3 - Uses SQL Database")
    public void checkTitleAfterClickOnLogo() throws IOException, SQLException, ClassNotFoundException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -58,7 +58,7 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertEquals(temp, driver.getTitle());
    }
 
-   @Test(description = "Test #4")
+   @Test(alwaysRun = true, description = "Test #4")
    public void clickAllMenuLinks() throws NullPointerException {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -77,7 +77,7 @@ public class TestMenuLinks extends CommonAPI {
     * @throws Exception This happens if you cannot connect to the Sql table, read the system.properties
     *                   file to connect or cannot define the class.
     */
-   @Test(description = "Test #5 - Uses SQL DB")
+   @Test(alwaysRun = true, description = "Test #5 - Uses SQL DB")
    public void clickAndCheckTitleOfMenuLinks() throws Exception {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -95,7 +95,7 @@ public class TestMenuLinks extends CommonAPI {
    /**
     * Hovers over each menu link with a dropdown and checks if the dropdown is visible.
     */
-   @Test(description = "Test #6 - Uses SQL DB")
+   @Test(alwaysRun = true, description = "Test #6 - Uses SQL DB")
    public void checkMenuLinksWithDropdowns() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -111,7 +111,7 @@ public class TestMenuLinks extends CommonAPI {
    /**
     * Checks to see if the Menu dropdown appears when you reduce the size of the browser window.
     */
-   @Test(description = "Test #7")
+   @Test(alwaysRun = true, description = "Test #7")
    public void checkMenuAfterReducingWindowSize() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -121,7 +121,7 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertTrue(newNav.isSmallNavbarVisible());
    }
 
-   @Test(description = "Test #8")
+   @Test(alwaysRun = true, description = "Test #8")
    public void checkSmallMenuCloseButton() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
@@ -132,7 +132,7 @@ public class TestMenuLinks extends CommonAPI {
       Assert.assertTrue(newNav.isSmallNavbarCloseButtonVisible());
    }
 
-   @Test(description = "Test #9")
+   @Test(alwaysRun = true, description = "Test #9")
    public void checkLiveAfterSmallWindow() {
       ApplicationLog.epicLogger();
       TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
